@@ -12,7 +12,10 @@
       ./disko-config.nix
       (fetchTarball "https://github.com/nix-community/nixos-vscode-server/tarball/master")
     ];
-
+  
+  # enable Flakes support
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  
   # enable vscode remote server
   services.vscode-server.enable = true;
 
@@ -75,13 +78,9 @@
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
-      vim
-      tree
+      zsh
       gh
-      git
-      curl
-      wget2
-      aria2
+      starship
     ];
   };
 
@@ -89,10 +88,22 @@
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
-  # environment.systemPackages = with pkgs; [
-  #   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #   wget
-  # ];
+  environment.systemPackages = with pkgs; [
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    wget
+    curl
+    aria2
+    htop
+    tmux
+    btop
+    fastfetch
+    neovim
+    git
+    tree
+  ];
+
+  # defaule Editor
+  environment.variables.EDITOR = "nvim";
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
