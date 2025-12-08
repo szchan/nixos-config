@@ -1,0 +1,1 @@
+mv /tmp/disko-config.nix /mnt/etc/nixos/
