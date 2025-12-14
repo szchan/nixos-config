@@ -4,6 +4,12 @@
     # Set your time zone.
     time.timeZone = "Asia/Shanghai";
 
+    # Use an NTP server located in the mainland of China to synchronize the system time.
+    networking.timeServers = [
+        "ntp.aliyun.com" # Aliyun NTP Server
+        "ntp.tencent.com" # Tencent NTP Server
+    ];
+
     # Select internationalisation properties.
     i18n.defaultLocale = "en_US.UTF-8";
     i18n.extraLocaleSettings = {
