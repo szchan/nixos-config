@@ -12,6 +12,7 @@
       # "${builtins.fetchTarball "https://github.com/nix-community/disko/archive/master.tar.gz"}/module.nix"     
       # vscode remote server
       # (fetchTarball "https://github.com/nix-community/nixos-vscode-server/tarball/master")
+      ./base/base.nix
     ];
   
   # enable Flakes support
