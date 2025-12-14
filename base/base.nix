@@ -3,5 +3,6 @@
 {
     imports = [ ./bootloader.nix
                 ./kernel.nix 
+                ./networking.nix
     ];
 }
