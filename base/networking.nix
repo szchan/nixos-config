@@ -10,16 +10,23 @@
     # Openssh server for remote access
     services.openssh.enable = true;
 
-    # Enable firewall
+    # Firewall
     networking.firewall.enable = true;
-
-    # Enable IPv6
-    networking.ipv6.enable = true;
+    # networking.firewall.allowedTCPPorts = [ 22 ];
+    # networking.firewall.allowedUDPPorts = [ 22 ];
 
     # Clash proxy service
     environment.systemPackages = [
         pkgs.clash-verge-rev
     ];
+    # Clash Verge configuration
+    programs.clash-verge = {
+        enable = true;
+        autoStart = false;
+        serviceMode = true;
+        tunMode = true;
+    };
+
 
     # Proxy
     # networking.proxy.default = "http://user:password@proxy:port/";
