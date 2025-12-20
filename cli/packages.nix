@@ -15,7 +15,7 @@
         bat
         fd
         ripgrep
-        exa
+        eza
         fzf
         jq
         lsd
