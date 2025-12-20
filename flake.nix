@@ -13,28 +13,36 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # vscode-server 模块
-    vscode-server = {
-      url = "github:nix-community/nixos-vscode-server";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     
+    # home-manager 模块
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
   };
 
-  outputs = inputs@{ self, nixpkgs, disko, vscode-server, ... }: {
+  outputs = inputs@{ self, nixpkgs, disko, home-manager, ... }: {
     # 定义 NixOS 系统配置
     nixosConfigurations.szchanNixOSStation = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
       modules = [
+        # Include the main configuration file
         ./configuration.nix
+
         # 导入 disko 模块
         disko.nixosModules.disko
         ./disko/disko.nix
-        # 导入 vscode-server 模块
-        vscode-server.nixosModules.default
-        ./develop/vscode-remote-server.nix
+        
+        # 导入 home-manager 模块
+        home-manager.nixosModules.home-manager{
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.jdoe = ./home.nix;
+
+          # Optionally, use home-manager.extraSpecialArgs to pass
+          # arguments to home.nix
+        }
+
       ];
     };
   };

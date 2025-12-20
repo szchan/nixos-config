@@ -29,5 +29,9 @@
         lazygit
         gh
         starship
+        lm_sensors # for `sensors` command
+        ethtool
+        pciutils # lspci
+        usbutils # lsusb
     ];
 }
