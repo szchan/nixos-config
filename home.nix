@@ -53,8 +53,12 @@
     # git 相关配置
     programs.git = {
         enable = true;
-        userName = "szchan";
-        userEmail = "mail.szchan@gmail.com";
+        settings = {
+            user = {
+                name = "szchan";
+                email = "mail.szchan@gmail.com";
+            };
+        };
     };
 
     # 启用 starship，这是一个漂亮的 shell 提示符
