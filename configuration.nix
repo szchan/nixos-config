@@ -12,6 +12,9 @@
       # Include base configuration
       ./base/base.nix
 
+      # Include CommandLine configuration
+      ./cli/cli.nix
+
       # Include desktop configuration
       ./desktop/desktop.nix
 
@@ -41,19 +44,7 @@
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
-  environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    curl
-    aria2
-    htop
-    tmux
-    btop
-    fastfetch
-    neovim
-    git
-    tree
-  ];
+  
 
   # defaule Editor
   environment.variables.EDITOR = "nvim";
@@ -65,8 +56,6 @@
     enable = true;
     enableSSHSupport = true;
   };
-
-  # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
