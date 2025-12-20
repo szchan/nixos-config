@@ -12,6 +12,9 @@
       # Include base configuration
       ./base/base.nix
 
+      # Include desktop configuration
+      ./desktop/desktop.nix
+
       # Include develop configuration
       ./develop/develop.nix
     ];
@@ -24,14 +27,6 @@
   
   # Define your hostname.
   networking.hostName = "szchanNixOSStation";
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-
-  # Enable the GNOME Desktop Environment.
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
   
 
   # Configure keymap in X11
