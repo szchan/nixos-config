@@ -4,6 +4,7 @@
     imports = [ 
         ./git/git.nix
         ./security/gpg.nix
+        ./terminal/default.nix
     ];
     # Define the user for whom to manage the home directory
     home.username = "szchan";
@@ -46,50 +47,6 @@
         hugo # static site generator
     
     ];
-
-    # 启用 starship，这是一个漂亮的 shell 提示符
-    programs.starship = {
-        enable = true;
-        # 自定义配置
-        settings = {
-            add_newline = false;
-            aws.disabled = true;
-            gcloud.disabled = true;
-            line_break.disabled = true;
-        };
-    };
-
-    # alacritty - 一个跨平台终端，带 GPU 加速功能
-    programs.alacritty = {
-        enable = true;
-        # 自定义配置
-        settings = {
-            env.TERM = "xterm-256color";
-            font = {
-                size = 12;
-                draw_bold_text_with_bright_colors = true;
-            };
-            scrolling.multiplier = 5;
-            selection.save_to_clipboard = true;
-        };
-    };
-    
-    # 配置 bash
-    programs.bash = {
-        enable = true;
-        enableCompletion = true;
-        # TODO 在这里添加你的自定义 bashrc 内容
-        bashrcExtra = ''
-
-        '';
-
-        # TODO 设置一些别名方便使用，你可以根据自己的需要进行增删
-        shellAliases = {
-        #   k = "kubectl";
-        #   urldecode = "python3 -c 'import sys, urllib.parse as ul; print(ul.unquote_plus(sys.stdin.read()))'";
-        #   urlencode = "python3 -c 'import sys, urllib.parse as ul; print(ul.quote_plus(sys.stdin.read()))'";
-        };
-    };
     
     # 配置 zsh
     # programs.zsh = {
