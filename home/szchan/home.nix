@@ -1,16 +1,13 @@
 { config, pkgs, ... }:
 
 {
+    imports = [ 
+        ./git/git.nix
+        ./security/gpg.nix
+    ];
     # Define the user for whom to manage the home directory
     home.username = "szchan";
     home.homeDirectory = "/home/szchan";
-
-    # Enable GPG agent with SSH support
-    services.gpg-agent = {
-        enable = true;
-        defaultCacheTtl = 1800;
-        enableSshSupport = true;
-    };
 
     # 直接将当前文件夹的配置文件，链接到 Home 目录下的指定位置
     # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
@@ -49,17 +46,6 @@
         hugo # static site generator
     
     ];
-
-    # git 相关配置
-    programs.git = {
-        enable = true;
-        settings = {
-            user = {
-                name = "szchan";
-                email = "mail.szchan@gmail.com";
-            };
-        };
-    };
 
     # 启用 starship，这是一个漂亮的 shell 提示符
     programs.starship = {
