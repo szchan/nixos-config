@@ -27,7 +27,7 @@
         };
     };
 
-    systemd.user.services.niri-flake-polkit = {
-        enable = false;  # 或直接 lib.mkForce false;
-    };
+    # systemd.user.services.niri-flake-polkit = {
+    #     enable = false;  # 或直接 lib.mkForce false;
+    # };
 }
