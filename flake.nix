@@ -36,6 +36,7 @@
     nixosConfigurations.szchanNixOSStation = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
+      nixpkgs.overlays = [ niri.overlays.niri ];
       modules = [
         # Include the main configuration file
         ./configuration.nix
