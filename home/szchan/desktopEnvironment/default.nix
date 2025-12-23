@@ -1,0 +1,8 @@
+{ config, pkgs, ... }:
+
+{   
+    imports = [
+        ./niri/niri.nix
+        ./shell/dms.nix
+    ];
+}
