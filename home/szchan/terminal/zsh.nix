@@ -8,7 +8,7 @@
         autosuggestion.enable = true;
         # TODO 在这里添加你的自定义 zshrc 内容
         localVariables = {
-            
+            alias z = "zoxide";
         };
     };
 
