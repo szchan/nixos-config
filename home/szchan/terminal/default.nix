@@ -7,5 +7,6 @@
         ./bash.nix
         ./zsh.nix
         ./zoxide.nix
+        ./eza.nix
     ];
 }
