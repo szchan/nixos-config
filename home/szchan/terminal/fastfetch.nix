@@ -3,6 +3,7 @@
 {
     programs.fastfetch = {
         enable = true;
+        # schema: https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json
         settings = {
             "logo" = {
                 "type" = "small";
