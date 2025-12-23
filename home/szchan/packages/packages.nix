@@ -13,8 +13,5 @@
 
         # productivity
         hugo # static site generator
-
-        # desktop environment
-        niri
     ];
 }

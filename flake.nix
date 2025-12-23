@@ -23,7 +23,12 @@
       url = "github:AvengeMedia/DankMaterialShell/stable";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-  };
+
+    # niri-flake
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
   outputs = inputs@{ self, nixpkgs, disko, home-manager, ... }: {
     # 定义 NixOS 系统配置

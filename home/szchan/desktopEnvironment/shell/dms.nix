@@ -26,4 +26,6 @@
             # Session state defaults
         };
     };
+
+    systemd.user.services.niri-flake-polkit.enable = false;
 }
