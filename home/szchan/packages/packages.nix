@@ -13,5 +13,7 @@
 
         # productivity
         hugo # static site generator
+
+        niri
     ];
 }
