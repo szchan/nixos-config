@@ -3,7 +3,7 @@
 {
     programs.eza = {
         enable = true;
-        colors = auto;
+        colors = "auto";
         icons = true;
         git = true;
         enableBashIntegration = true;
