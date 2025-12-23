@@ -16,7 +16,7 @@
       ./security/security.nix
 
       # Include CommandLine configuration
-      ./cli/cli.nix
+      ./cli/default.nix
 
       # Include desktop configuration
       ./desktop/desktop.nix
