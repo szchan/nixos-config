@@ -7,6 +7,11 @@
         ./security/gpg.nix
         ./terminal/default.nix
         ./desktopEnvironment/default.nix
+
+        # Dank-Material-Shell for Niri
+        inputs.dms.homeModules.dankMaterialShell.default
+        inputs.dms.homeModules.dankMaterialShell.niri
+
     ];
     # Define the user for whom to manage the home directory
     home.username = "szchan";

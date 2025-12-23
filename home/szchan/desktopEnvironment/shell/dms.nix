@@ -1,10 +1,6 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 
 {   
-    imports = [
-        inputs.dms.homeModules.dankMaterialShell.default
-        inputs.dms.homeModules.dankMaterialShell.niri
-    ];
 
     programs.dankMaterialShell = {
         enable = true;
