@@ -6,5 +6,6 @@
         ./alacritty.nix
         ./bash.nix
         ./zsh.nix
+        ./zoxide.nix
     ];
 }
