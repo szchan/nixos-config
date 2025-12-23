@@ -2,7 +2,7 @@
 
 {
     programs.bash = {
-        enable = true;
+        enable = false;
         enableCompletion = true;
         # TODO 在这里添加你的自定义 bashrc 内容
         bashrcExtra = ''
