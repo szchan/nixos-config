@@ -43,6 +43,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.szchan = ./home/szchan/home.nix;
+          home-manager.extraSpecialArgs = { inherit inputs; };
 
           # Optionally, use home-manager.extraSpecialArgs to pass
           # arguments to home.nix
