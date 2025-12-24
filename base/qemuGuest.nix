@@ -20,6 +20,7 @@
             intel-vaapi-driver
             libvdpau-va-gl
             intel-compute-runtime  # 如果是较新 Intel GPU
+            mesa.drivers
         ];
     };
 
@@ -27,4 +28,6 @@
     boot.kernelParams = [ "i915.force_probe=*" ];  # 强制加载 i915 驱动
 
     environment.systemPackages = with pkgs; [ sunshine ];
+
+    environment.systemPackages = with pkgs; [ vulkan-tools ];  # 安装 vulkaninfo 测试
 }
