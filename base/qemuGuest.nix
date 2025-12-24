@@ -13,14 +13,14 @@
     };
 
     # 支持 Intel iGPU 硬件加速（Quick Sync）
-    hardware.opengl = {
+    hardware.graphics = {
         enable = true;
         extraPackages = with pkgs; [
             intel-media-driver  # VA-API 支持
             intel-vaapi-driver
             libvdpau-va-gl
             intel-compute-runtime  # 如果是较新 Intel GPU
-            mesa.drivers
+            mesa
         ];
     };
 
