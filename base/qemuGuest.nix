@@ -27,7 +27,8 @@
     # 如果 guest 是 headless（无显示器），添加虚拟显示支持（可选）
     boot.kernelParams = [ "i915.force_probe=*" ];  # 强制加载 i915 驱动
 
-    environment.systemPackages = with pkgs; [ sunshine ];
-
-    environment.systemPackages = with pkgs; [ vulkan-tools ];  # 安装 vulkaninfo 测试
+    environment.systemPackages = [
+        pkgs.sunshine
+        pkgs.vulkan-tools  # 安装 vulkaninfo 测试
+    ];
 }
