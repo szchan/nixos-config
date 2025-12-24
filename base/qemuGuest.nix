@@ -30,6 +30,6 @@
     environment.systemPackages = [
         pkgs.sunshine
         pkgs.vulkan-tools  # 安装 vulkaninfo 测试
-        libva-utils  # 安装 vainfo 测试
+        pkgs.libva-utils  # 安装 vainfo 测试
     ];
 }
