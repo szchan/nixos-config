@@ -15,7 +15,10 @@
         hugo # static site generator
 
         # niri
-        niri
+        # niri
+
+        # gnome
+        gnome
 
     ];
 }
