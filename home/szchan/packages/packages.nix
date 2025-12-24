@@ -17,8 +17,6 @@
         # niri
         # niri
 
-        # gnome
-        gnome
 
     ];
 }

@@ -3,7 +3,7 @@
 {
     imports = [ 
         ./windowing.nix
-        # ./gnome.nix
+        ./gnome.nix
         ./keymap.nix
         ./print.nix
         ./sound.nix
