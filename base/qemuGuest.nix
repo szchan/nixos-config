@@ -21,6 +21,7 @@
             libvdpau-va-gl
             intel-compute-runtime  # 如果是较新 Intel GPU
             mesa
+            vpl-gpu-rt
         ];
     };
 
