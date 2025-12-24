@@ -1,3 +1,3 @@
 { config, pkgs, ... }: {
-    services.xserver.enable = false;
+    services.xserver.enable = true;
 }
