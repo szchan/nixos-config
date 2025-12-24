@@ -16,7 +16,7 @@
         enable = true;
         extraPackages = with pkgs; [
             intel-media-driver  # VA-API 支持
-            vaapiIntel
+            intel-vaapi-driver
             libvdpau-va-gl
             intel-compute-runtime  # 如果是较新 Intel GPU
         ];
