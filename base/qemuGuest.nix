@@ -17,7 +17,7 @@
         enable = true;
         extraPackages = with pkgs; [
             intel-media-driver  # VA-API 支持
-            intel-vaapi-driver
+            # intel-vaapi-driver  # 另一个 VA-API 驱动，旧版 Intel GPU 使用
             libvdpau-va-gl
             intel-compute-runtime  # 如果是较新 Intel GPU
             mesa
@@ -30,5 +30,6 @@
     environment.systemPackages = [
         pkgs.sunshine
         pkgs.vulkan-tools  # 安装 vulkaninfo 测试
+        libva-utils  # 安装 vainfo 测试
     ];
 }
