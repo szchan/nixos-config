@@ -12,7 +12,7 @@
         # inputs.niri.homeModules.niri
 
         # Dank-Material-Shell for Niri
-        inputs.dms.homeModules.dankMaterialShell.default
+        # inputs.dms.homeModules.dankMaterialShell.default
         # inputs.dms.homeModules.dankMaterialShell.niri
 
     ];

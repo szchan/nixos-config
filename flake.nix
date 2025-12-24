@@ -19,10 +19,10 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # Dank-Material-Shell
-    dms = {
-      url = "github:AvengeMedia/DankMaterialShell/stable";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # dms = {
+    #   url = "github:AvengeMedia/DankMaterialShell/stable";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     # niri-flake
     # niri = {
@@ -31,7 +31,7 @@
     # };
   };
 
-  outputs = inputs@{ self, nixpkgs, disko, home-manager, dms, ... }: {
+  outputs = inputs@{ self, nixpkgs, disko, home-manager, ... }: {
     # 定义 NixOS 系统配置
     nixosConfigurations.szchanNixOSStation = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
