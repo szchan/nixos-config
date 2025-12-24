@@ -9,6 +9,7 @@
         enable = true;
         autoStart = true;  # 可选：自动启动
         openFirewall = true;  # 自动打开防火墙端口
+        settings.port = 47989;  # Sunshine 默认端口
     };
 
     # 支持 Intel iGPU 硬件加速（Quick Sync）
