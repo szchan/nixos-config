@@ -25,18 +25,17 @@
     };
 
     # niri-flake
-    niri = {
-      url = "github:sodiboo/niri-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # niri = {
+    #   url = "github:sodiboo/niri-flake";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
-  outputs = inputs@{ self, nixpkgs, disko, home-manager, dms, niri, ... }: {
+  outputs = inputs@{ self, nixpkgs, disko, home-manager, dms, ... }: {
     # 定义 NixOS 系统配置
     nixosConfigurations.szchanNixOSStation = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
-      nixpkgs.overlays = [ niri.overlays.niri ];
       modules = [
         # Include the main configuration file
         ./configuration.nix
