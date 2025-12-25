@@ -4,5 +4,6 @@
     imports = [
         ./gimp.nix
         ./imv.nix
+        ./inkscape.nix
     ];
 }
