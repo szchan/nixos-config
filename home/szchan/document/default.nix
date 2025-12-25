@@ -8,5 +8,6 @@
         ./foliate.nix
         ./folo.nix
         ./logseq.nix
+        ./marktext.nix
     ];
 }
