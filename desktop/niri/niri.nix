@@ -13,6 +13,7 @@
         # swayidle   # 闲置管理
         # swaylock   # 锁屏
         xdg-desktop-portal-gnome  # 屏幕共享等 portal 支持
+        dms-shell
     ];
 
     # 启用一些配套服务
