@@ -5,6 +5,7 @@
                 ./kernel.nix 
                 ./networking.nix
                 ./i18n.nix
+                ./fonts.nix
                 ./qemuGuest.nix
     ];
 }

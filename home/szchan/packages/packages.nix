@@ -4,6 +4,7 @@
     home.packages = with pkgs;[
         zsh
         yazi
+        kitty
 
         # nix related
         #

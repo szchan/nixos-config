@@ -3,7 +3,8 @@
 {
     imports = [
         ./starship.nix
-        ./alacritty.nix
+        # ./alacritty.nix
+        ./kitty.nix
         ./bash.nix
         ./zsh.nix
         ./zoxide.nix
