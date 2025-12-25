@@ -11,5 +11,6 @@
         ./touchpad.nix
         ./applications.nix
         ./localsend.nix
+        ./thunar.nix
     ];
 }
