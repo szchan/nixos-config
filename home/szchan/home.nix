@@ -5,8 +5,9 @@
         ./packages
         ./git/git.nix
         ./security/gpg.nix
-        ./terminal/default.nix
-        ./desktopEnvironment/default.nix
+        ./terminal
+        ./desktopEnvironment
+        ./tools
         ./ai
 
         # niri-flake
