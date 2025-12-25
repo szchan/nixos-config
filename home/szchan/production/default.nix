@@ -3,5 +3,6 @@
 {
     imports = [
         ./gimp.nix
+        ./imv.nix
     ];
 }
