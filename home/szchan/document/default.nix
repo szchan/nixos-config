@@ -3,5 +3,6 @@
 {
     imports = [
         ./yazi.nix
+        ./evince.nix
     ];
 }
