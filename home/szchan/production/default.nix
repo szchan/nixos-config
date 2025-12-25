@@ -6,5 +6,6 @@
         ./imv.nix
         ./inkscape.nix
         ./mpv.nix
+        ./obs-studio.nix
     ];
 }
