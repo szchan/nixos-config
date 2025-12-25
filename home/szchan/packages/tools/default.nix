@@ -2,7 +2,6 @@
 
 {
     imports = [
-        ./tools
-        ./packages.nix
+        ./1password.nix
     ];
 }
