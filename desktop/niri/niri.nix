@@ -51,6 +51,6 @@
         enableClipboard = true;
         enableCalendarEvents = true;
         enableAudioWavelength = true;
-    }
+    };
 
 }
