@@ -5,5 +5,6 @@
         ./yazi.nix
         ./evince.nix
         ./drawio.nix
+        ./foliate.nix
     ];
 }
