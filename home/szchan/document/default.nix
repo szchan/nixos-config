@@ -7,5 +7,6 @@
         ./drawio.nix
         ./foliate.nix
         ./folo.nix
+        ./logseq.nix
     ];
 }
