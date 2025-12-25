@@ -10,5 +10,6 @@
         ./logseq.nix
         ./marktext.nix
         ./onlyoffice.nix
+        ./thunar.nix
     ];
 }
