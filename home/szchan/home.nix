@@ -2,11 +2,12 @@
 
 {
     imports = [
-        ./packages/default.nix
+        ./packages
         ./git/git.nix
         ./security/gpg.nix
         ./terminal/default.nix
         ./desktopEnvironment/default.nix
+        ./ai
 
         # niri-flake
         # inputs.niri.homeModules.niri
