@@ -11,6 +11,7 @@
         ./develop
         ./document
         ./production
+        ./entertainment
 
         # niri-flake
         # inputs.niri.homeModules.niri
