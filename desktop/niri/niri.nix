@@ -41,7 +41,7 @@
         enable = true;
         package = pkgs.dms-shell;
         systemd = {
-            enable = true;
+            # enable = true;
             target = "graphical-session.target";
             restartIfChanged = true;
         };
