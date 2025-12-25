@@ -4,5 +4,6 @@
     imports = [
         ./yazi.nix
         ./evince.nix
+        ./drawio.nix
     ];
 }
