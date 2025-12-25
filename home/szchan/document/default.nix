@@ -9,5 +9,6 @@
         ./folo.nix
         ./logseq.nix
         ./marktext.nix
+        ./onlyoffice.nix
     ];
 }
