@@ -10,5 +10,6 @@
         ./sound.nix
         ./touchpad.nix
         ./applications.nix
+        ./localsend.nix
     ];
 }
