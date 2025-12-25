@@ -18,6 +18,9 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    # nix-vscode-extensions
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+
     # Dank-Material-Shell
     # dms = {
     #   url = "github:AvengeMedia/DankMaterialShell/stable";
@@ -31,11 +34,14 @@
     # };
   };
 
-  outputs = inputs@{ self, nixpkgs, disko, home-manager, ... }: {
+  outputs = inputs@{ self, nixpkgs, disko, home-manager, nix-vscode-extensions, ... }: {
     # 定义 NixOS 系统配置
     nixosConfigurations.szchanNixOSStation = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
+      specialArgs = { 
+        inherit inputs;
+        vscode-extensions = nix-vscode-extensions.extensions.x86_64-linux;
+      };
       modules = [
         # Include the main configuration file
         ./configuration.nix
@@ -49,7 +55,10 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.szchan = ./home/szchan/home.nix;
-          home-manager.extraSpecialArgs = { inherit inputs; };
+          home-manager.extraSpecialArgs = {
+            inherit inputs;
+            vscode-extensions = nix-vscode-extensions.extensions.x86_64-linux;
+          };
 
           # Optionally, use home-manager.extraSpecialArgs to pass
           # arguments to home.nix

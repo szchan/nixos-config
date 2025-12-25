@@ -5,5 +5,6 @@
         ./nom.nix
         ./hugo.nix
         ./zed-editor.nix
+        ./vscode.nix
     ];
 }
