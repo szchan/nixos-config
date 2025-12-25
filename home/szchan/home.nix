@@ -3,8 +3,8 @@
 {
     imports = [
         ./packages
-        ./git/git.nix
-        ./security/gpg.nix
+        ./git
+        ./security
         ./terminal
         ./desktopEnvironment
         ./tools
