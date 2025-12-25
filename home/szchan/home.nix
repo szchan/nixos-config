@@ -9,6 +9,8 @@
         ./desktopEnvironment
         ./tools
         ./ai
+        ./develop
+        ./document
 
         # niri-flake
         # inputs.niri.homeModules.niri
