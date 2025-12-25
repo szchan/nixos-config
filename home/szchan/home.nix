@@ -10,6 +10,7 @@
         ./ai
         ./develop
         ./document
+        ./production
 
         # niri-flake
         # inputs.niri.homeModules.niri
