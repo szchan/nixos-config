@@ -5,5 +5,6 @@
         ./gimp.nix
         ./imv.nix
         ./inkscape.nix
+        ./mpv.nix
     ];
 }
