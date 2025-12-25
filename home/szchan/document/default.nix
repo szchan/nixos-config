@@ -6,5 +6,6 @@
         ./evince.nix
         ./drawio.nix
         ./foliate.nix
+        ./folo.nix
     ];
 }
