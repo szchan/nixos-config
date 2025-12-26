@@ -4,103 +4,89 @@
     programs.vscode = {
         enable = true;
         package = pkgs.vscodium;
-        mutableExtensionsDir = false;  # Pure Nix approach
+        mutableExtensionsDir = false;
 
         profiles.default = {
-            extensions = 
-            # fetch from open-vsx
-            (with vscode-extensions.open-vsx; [
-                # vim emulation
-                vscodevim.vim
+        extensions = with vscode-extensions; [
+            # vim emulation
+            vscodevim.vim
 
-                # Cline AI
-                saoudrizwan.claude-dev
-                
-                # Theming and appearance
-                catppuccin.catppuccin-vsc
-                pkief.material-icon-theme
-                prettier.prettier-vscode
-                oderwat.indent-rainbow
-                
-                # Web Development
-                ecmel.vscode-html-css
-                yandeu.five-server
-                vue.volar
-                bruno-api-client.bruno
-                
-                # Xml and Yaml
-                redhat.vscode-xml
-                redhat.vscode-yaml
-                
-                # Nix
-                jnoortheen.nix-ide
-                
-                # Rust
-                rust-lang.rust-analyzer
+            # Cline AI
+            saoudrizwan.claude-dev
 
-                # Diagrams
-                pomdtr.excalidraw-editor
-                bpruitt-goddard.mermaid-markdown-syntax-highlighting
+            # Theming and appearance
+            catppuccin.catppuccin-vsc
+            pkief.material-icon-theme
+            prettier.prettier-vscode
+            oderwat.indent-rainbow
 
-            ])
-            ++
-            # fetch from vscode-marketplace
-            (with vscode-extensions.vscode-marketplace; [
-                # GitHub Integration
-                github.remotehub
-                github.vscode-pull-request-github
-                github.vscode-github-actions
-                
-                # LLM Dev Tools
-                poml-team.poml
+            # Web Development
+            ecmel.vscode-html-css
+            yandeu.five-server
+            vue.volar
+            bruno-api-client.bruno
 
-                # Containers
-                ms-azuretools.vscode-containers
-                ms-vscode-remote.remote-containers
+            # Remote Development / Containers (Microsoft 官方)
+            ms-vscode-remote.remote-ssh
+            ms-vscode-remote.remote-ssh-edit
+            ms-vscode.remote-explorer
+            ms-vscode.remote-server
+            ms-azuretools.vscode-containers  # Dev Containers
+            ms-vscode-remote.remote-containers
 
-                # Remote Development
-                ms-vscode-remote.remote-ssh
-                ms-vscode-remote.remote-ssh-edit
-                ms-vscode.remote-explorer
-                ms-vscode.remote-server
+            # Python
+            ms-python.python
+            ms-python.vscode-pylance
+            ms-python.debugpy
+            ms-python.vscode-python-envs
 
-                # Python
-                ms-python.python
-                ms-python.vscode-pylance
-                ms-python.debugpy
-                ms-python.vscode-python-envs
+            # Xml and Yaml
+            redhat.vscode-xml
+            redhat.vscode-yaml
 
-                # Hex Editor
-                ms-vscode.hexeditor
+            # Nix
+            jnoortheen.nix-ide
 
-                # AI Assistance
-                github.copilot-chat
+            # Rust
+            rust-lang.rust-analyzer
 
-                # markdown
-                edwinkofler.vscode-hyperupcall-pack-markdown
-                bierner.markdown-preview-github-styles
-                bierner.markdown-mermaid
-                davidanson.vscode-markdownlint
-                yzhang.markdown-all-in-one
-                unifiedjs.vscode-mdx
-                bierner.markdown-shiki
-                bierner.markdown-emoji
-                bierner.markdown-checkbox
-                bierner.emojisense
-                bierner.markdown-footnotes
+            # GitHub Integration
+            github.remotehub
+            github.vscode-pull-request-github
+            github.vscode-github-actions
+            github.copilot-chat  # Copilot Chat
 
-                # Diagrams
-                hediet.vscode-drawio
+            # LLM Dev Tools
+            poml-team.poml
 
-                # LLDB
-                # vadimcn.vscode-lldb
+            # Hex Editor
+            ms-vscode.hexeditor
 
-            ]);
+            # Markdown
+            edwinkofler.vscode-hyperupcall-pack-markdown
+            bierner.markdown-preview-github-styles
+            bierner.markdown-mermaid
+            davidanson.vscode-markdownlint
+            yzhang.markdown-all-in-one
+            unifiedjs.vscode-mdx
+            bierner.markdown-shiki
+            bierner.markdown-emoji
+            bierner.markdown-checkbox
+            bierner.emojisense
+            bierner.markdown-footnotes
 
-            # User Settings
-            userSettings = {
-                
-            };
+            # Diagrams
+            pomdtr.excalidraw-editor
+            bpruitt-goddard.mermaid-markdown-syntax-highlighting
+            hediet.vscode-drawio
+
+            # LLDB
+            # vadimcn.vscode-lldb
+        ];
+
+        userSettings = {
+            
+        };
         };
     };
 }
