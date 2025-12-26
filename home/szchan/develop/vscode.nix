@@ -69,7 +69,6 @@
             bierner.markdown-footnotes
 
             # Diagrams
-            pomdtr.excalidraw-editor
             bpruitt-goddard.mermaid-markdown-syntax-highlighting
             hediet.vscode-drawio
 
