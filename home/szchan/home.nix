@@ -12,6 +12,7 @@
         ./document
         ./production
         ./entertainment
+        ./internet
 
         # niri-flake
         # inputs.niri.homeModules.niri
