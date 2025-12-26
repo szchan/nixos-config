@@ -58,7 +58,6 @@
             ms-vscode.hexeditor
 
             # Markdown
-            edwinkofler.vscode-hyperupcall-pack-markdown
             bierner.markdown-preview-github-styles
             bierner.markdown-mermaid
             davidanson.vscode-markdownlint
