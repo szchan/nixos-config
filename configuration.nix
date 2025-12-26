@@ -31,7 +31,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Allow installation of unfree packages.
-  nixpkgs.config.allowUnfree = lib.mkForce true;
+  nixpkgs.config.allowUnfree = true;
   
   # Define your hostname.
   networking.hostName = "szchanNixOSStation";
