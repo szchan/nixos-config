@@ -11,5 +11,5 @@
       { id = "bdiifdefkgmcblbcghdlonllpjhhjgof"; } # KISS Translator
       { id = "jmcllpdchgacpnpgechgncndkfdogdah"; } # BrainyAI
     ];
-  }
+  };
 }
