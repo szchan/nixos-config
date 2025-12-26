@@ -44,7 +44,7 @@
                 # Rust
                 rust-lang.rust-analyzer
                 # Testing and Debugging
-                vadimcn.vscode-lldb
+                # vadimcn.vscode-lldb
                 # Markdown
                 edwinkofler.vscode-hyperupcall-pack-markdown
             ])
