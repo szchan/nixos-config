@@ -53,7 +53,6 @@
             github.copilot-chat  # Copilot Chat
 
             # LLM Dev Tools
-            poml-team.poml
 
             # Hex Editor
             ms-vscode.hexeditor
