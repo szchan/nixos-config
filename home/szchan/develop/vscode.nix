@@ -22,7 +22,7 @@
 
             # Web Development
             ecmel.vscode-html-css
-            yandeu.five-server
+            ritwickdey.liveserver
             vue.volar
             bruno-api-client.bruno
 
