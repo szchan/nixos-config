@@ -42,7 +42,6 @@
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;  # ← 这行解决所有 unfree 扩展问题
-      overlays = [ overlays.default ];
     };
 
   in {
