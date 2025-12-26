@@ -64,7 +64,7 @@
             }))
             prev.vscode-extensions.vscode-marketplace or { };
 
-          # 可选：也保留扁平的直接访问方式（以防万一）
+          # 保留扁平的直接访问方式（以防万一）
           inherit (prev) vscode-extensions;
         };
       })
