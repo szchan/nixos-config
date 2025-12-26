@@ -34,14 +34,23 @@
     # };
   };
 
-  outputs = inputs@{ self, nixpkgs, disko, home-manager, nix-vscode-extensions, ... }: {
+  outputs = inputs@{ self, nixpkgs, disko, home-manager, nix-vscode-extensions, ... }: 
+  let
+    system = "x86_64-linux";
+
+    # 关键：在这里定义一个允许 unfree 的 pkgs 实例
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;  # ← 这行解决所有 unfree 扩展问题
+    };
+
+  in {
     # 定义 NixOS 系统配置
     nixosConfigurations.szchanNixOSStation = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      nixpkgs.config.allowUnfree = true;
+      inherit system pkgs;  # ← 传入自定义的 pkgs
       specialArgs = { 
         inherit inputs;
-        vscode-extensions = nix-vscode-extensions.extensions.x86_64-linux;
+        vscode-extensions = nix-vscode-extensions.extensions.${system};
       };
       modules = [
         # Include the main configuration file
@@ -58,12 +67,12 @@
           home-manager.users.szchan = ./home/szchan/home.nix;
           home-manager.extraSpecialArgs = {
             inherit inputs;
-            vscode-extensions = nix-vscode-extensions.extensions.x86_64-linux;
+            vscode-extensions = nix-vscode-extensions.extensions.${system};
           };
 
           # Optionally, use home-manager.extraSpecialArgs to pass
           # arguments to home.nix
-        }
+        };
 
       ];
     };
