@@ -19,30 +19,14 @@
                 # Theming and appearance
                 catppuccin.catppuccin-vsc
                 pkief.material-icon-theme
-                esbenp.prettier-vscode
+                prettier.prettier-vscode
                 oderwat.indent-rainbow
-                
-                # Dev Containers
-                ms-azuretools.vscode-containers
-                
-                # Git and GitHub
-                # mhutchie.git-graph
-                github.vscode-github-actions
-                github.vscode-pull-request-github
                 
                 # Web Development
                 ecmel.vscode-html-css
                 yandeu.five-server
                 vue.volar
                 bruno-api-client.bruno
-                
-                # Remote Development
-                jeanp413.open-remote-ssh
-                
-                # Python
-                ms-python.python
-                ms-python.debugpy
-                ms-python.vscode-python-envs
                 
                 # Xml and Yaml
                 redhat.vscode-xml
@@ -53,12 +37,13 @@
                 
                 # Rust
                 rust-lang.rust-analyzer
-                
-                # Testing and Debugging
-                # vadimcn.vscode-lldb
-                
-                # Markdown
-                edwinkofler.vscode-hyperupcall-pack-markdown
+
+                # Diagrams
+                pomdtr.excalidraw-editor
+                bpruitt-goddard.mermaid-markdown-syntax-highlighting
+
+                # LLDB
+                vadimcn.vscode-lldb
             ])
             ++
             # fetch from vscode-marketplace
@@ -66,9 +51,50 @@
                 # GitHub Integration
                 github.remotehub
                 github.vscode-pull-request-github
+                github.vscode-github-actions
                 
                 # LLM Dev Tools
                 poml-team.poml
+
+                # Containers
+                ms-azuretools.vscode-containers
+                ms-vscode-remote.remote-containers
+
+                # Remote Development
+                ms-vscode-remote.remote-ssh
+                ms-vscode-remote.remote-ssh-edit
+                ms-vscode.remote-explorer
+                ms-vscode.remote-server
+
+                # Python
+                ms-python.python
+                ms-python.vscode-pylance
+                ms-python.debugpy
+                ms-python.vscode-python-envs
+
+                # Hex Editor
+                ms-vscode.hexeditor
+
+                # AI Assistance
+                github.copilot-chat
+
+                # markdown
+                edwinkofler.vscode-hyperupcall-pack-markdown
+                bierner.markdown-preview-github-styles
+                bierner.markdown-mermaid
+                davidanson.vscode-markdownlint
+                yzhang.markdown-all-in-one
+                unifiedjs.vscode-mdx
+                bierner.markdown-shiki
+                bierner.markdown-emoji
+                bierner.markdown-checkbox
+                bierner.emojisense
+                bierner.markdown-footnotes
+
+
+                # Diagrams
+                hediet.vscode-drawio
+
             ]);
 
             # User Settings
