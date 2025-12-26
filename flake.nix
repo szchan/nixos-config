@@ -38,6 +38,7 @@
     # 定义 NixOS 系统配置
     nixosConfigurations.szchanNixOSStation = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      config.allowUnfree = true;
       specialArgs = { 
         inherit inputs;
         vscode-extensions = nix-vscode-extensions.extensions.x86_64-linux;
