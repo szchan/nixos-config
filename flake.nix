@@ -42,24 +42,33 @@
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;  # 全局允许unfree软件
-      # 强制允许nix-vscode-extensions安装unfree扩展
+      # 修改nix-vscode-extensions以允许安装unfree扩展
       overlays = [
-        # 先引入 nix-vscode-extensions 的 overlay
-        nix-vscode-extensions.overlays.default
+      # 先引入官方的 nix-vscode-extensions overlay，得到完整的 extensions
+      nix-vscode-extensions.overlays.default
 
-        # 再强制修改所有扩展的 license 为 free
-        (final: prev: {
-          vscode-extensions = builtins.mapAttrs
-            (_: ext:
-              ext.overrideAttrs (old: {
-                meta = (old.meta or {}) // {
-                  license = final.lib.licenses.free;
-                };
-              })
-            )
-            prev.vscode-extensions;
-        })
-      ];
+      # 再强制把所有扩展的 license 改成 free（绕过 unfree 检查）
+      (final: prev: {
+        vscode-extensions = prev.vscode-extensions // {
+          # 构造我们想要的.open-vsx结构
+          open-vsx = builtins.mapAttrs
+            (_: ext: ext.overrideAttrs (old: {
+              meta = (old.meta or {}) // { license = final.lib.licenses.free; };
+            }))
+            prev.vscode-extensions.open-vsx or { };
+          
+          # 构造我们想要的.vscode-marketplace结构
+          vscode-marketplace = builtins.mapAttrs
+            (_: ext: ext.overrideAttrs (old: {
+              meta = (old.meta or {}) // { license = final.lib.licenses.free; };
+            }))
+            prev.vscode-extensions.vscode-marketplace or { };
+
+          # 可选：也保留扁平的直接访问方式（以防万一）
+          inherit (prev) vscode-extensions;
+        };
+      })
+    ];
     };
 
   in {
@@ -89,11 +98,7 @@
             # 使用修改后的 vscode-extensions
             vscode-extensions = pkgs.vscode-extensions;
           };
-
-          # Optionally, use home-manager.extraSpecialArgs to pass
-          # arguments to home.nix
         }
-
       ];
     };
   };
