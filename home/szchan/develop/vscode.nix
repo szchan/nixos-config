@@ -12,39 +12,51 @@
             (with vscode-extensions.open-vsx; [
                 # vim emulation
                 vscodevim.vim
+
                 # Cline AI
                 saoudrizwan.claude-dev
+                
                 # Theming and appearance
                 catppuccin.catppuccin-vsc
                 pkief.material-icon-theme
                 esbenp.prettier-vscode
                 oderwat.indent-rainbow
+                
                 # Dev Containers
                 ms-azuretools.vscode-containers
+                
                 # Git and GitHub
-                mhutchie.git-graph
+                # mhutchie.git-graph
                 github.vscode-github-actions
                 github.vscode-pull-request-github
+                
                 # Web Development
                 ecmel.vscode-html-css
                 yandeu.five-server
                 vue.volar
                 bruno-api-client.bruno
+                
                 # Remote Development
                 jeanp413.open-remote-ssh
+                
                 # Python
                 ms-python.python
                 ms-python.debugpy
                 ms-python.vscode-python-envs
+                
                 # Xml and Yaml
                 redhat.vscode-xml
                 redhat.vscode-yaml
+                
                 # Nix
                 jnoortheen.nix-ide
+                
                 # Rust
                 rust-lang.rust-analyzer
+                
                 # Testing and Debugging
                 # vadimcn.vscode-lldb
+                
                 # Markdown
                 edwinkofler.vscode-hyperupcall-pack-markdown
             ])
@@ -54,6 +66,7 @@
                 # GitHub Integration
                 github.remotehub
                 github.vscode-pull-request-github
+                
                 # LLM Dev Tools
                 poml-team.poml
             ]);
