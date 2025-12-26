@@ -42,8 +42,6 @@
                 pomdtr.excalidraw-editor
                 bpruitt-goddard.mermaid-markdown-syntax-highlighting
 
-                # LLDB
-                vadimcn.vscode-lldb
             ])
             ++
             # fetch from vscode-marketplace
@@ -91,9 +89,11 @@
                 bierner.emojisense
                 bierner.markdown-footnotes
 
-
                 # Diagrams
                 hediet.vscode-drawio
+
+                # LLDB
+                vadimcn.vscode-lldb
 
             ]);
 
