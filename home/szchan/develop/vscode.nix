@@ -36,7 +36,6 @@
             ms-python.python
             ms-python.vscode-pylance
             ms-python.debugpy
-            ms-python.vscode-python-envs
 
             # Xml and Yaml
             redhat.vscode-xml
