@@ -17,7 +17,7 @@
             # Theming and appearance
             catppuccin.catppuccin-vsc
             pkief.material-icon-theme
-            prettier.prettier-vscode
+            esbenp.prettier-vscode
             oderwat.indent-rainbow
 
             # Web Development
