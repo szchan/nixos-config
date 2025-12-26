@@ -44,12 +44,16 @@
       config.allowUnfree = true;  # 全局允许unfree软件
       # 强制允许nix-vscode-extensions安装unfree扩展
       overlays = [
+        # 先引入 nix-vscode-extensions 的 overlay
+        nix-vscode-extensions.overlays.default
+
+        # 再强制修改所有扩展的 license 为 free
         (final: prev: {
           vscode-extensions = builtins.mapAttrs
-            (name: ext:
+            (_: ext:
               ext.overrideAttrs (old: {
                 meta = (old.meta or {}) // {
-                  license = prev.lib.licenses.free; # 覆盖为 free 许可证
+                  license = final.lib.licenses.free;
                 };
               })
             )
@@ -64,7 +68,8 @@
       inherit system pkgs;  # ← 传入自定义的 pkgs
       specialArgs = { 
         inherit inputs;
-        vscode-extensions = nix-vscode-extensions.extensions.${system};
+        # 使用修改后的 vscode-extensions
+        vscode-extensions = pkgs.vscode-extensions;
       };
       modules = [
         # Include the main configuration file
@@ -81,7 +86,8 @@
           home-manager.users.szchan = ./home/szchan/home.nix;
           home-manager.extraSpecialArgs = {
             inherit inputs;
-            vscode-extensions = nix-vscode-extensions.extensions.${system};
+            # 使用修改后的 vscode-extensions
+            vscode-extensions = pkgs.vscode-extensions;
           };
 
           # Optionally, use home-manager.extraSpecialArgs to pass
