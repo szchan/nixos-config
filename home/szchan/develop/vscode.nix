@@ -93,7 +93,7 @@
                 hediet.vscode-drawio
 
                 # LLDB
-                vadimcn.vscode-lldb
+                # vadimcn.vscode-lldb
 
             ]);
 
