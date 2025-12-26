@@ -10,6 +10,7 @@
       { id = "fjkmabmdepjfammlpliljpnbhleegehm"; } # WebRTC Control
       { id = "bdiifdefkgmcblbcghdlonllpjhhjgof"; } # KISS Translator
       { id = "jmcllpdchgacpnpgechgncndkfdogdah"; } # BrainyAI
+      { id = "kefjpfngnndepjbopdmoebkipbgkggaa"; } # RSSHub Radar
     ];
   };
 }
