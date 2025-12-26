@@ -38,10 +38,24 @@
   let
     system = "x86_64-linux";
 
-    # 关键：在这里定义一个允许 unfree 的 pkgs 实例
+    # 定义一个允许 unfree 的 pkgs 实例
     pkgs = import nixpkgs {
       inherit system;
-      config.allowUnfree = true;  # ← 这行解决所有 unfree 扩展问题
+      config.allowUnfree = true;  # 全局允许unfree软件
+      # 强制允许nix-vscode-extensions安装unfree扩展
+      overlays = [
+        (final: prev: {
+          vscode-extensions = builtins.mapAttrs
+            (name: ext:
+              ext.overrideAttrs (old: {
+                meta = (old.meta or {}) // {
+                  license = prev.lib.licenses.free; # 覆盖为 free 许可证
+                };
+              })
+            )
+            prev.vscode-extensions;
+        })
+      ];
     };
 
   in {
