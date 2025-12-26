@@ -69,7 +69,6 @@
             bierner.markdown-footnotes
 
             # Diagrams
-            bpruitt-goddard.mermaid-markdown-syntax-highlighting
             hediet.vscode-drawio
 
             # LLDB
