@@ -48,7 +48,6 @@
             rust-lang.rust-analyzer
 
             # GitHub Integration
-            github.remotehub
             github.vscode-pull-request-github
             github.vscode-github-actions
             github.copilot-chat  # Copilot Chat
