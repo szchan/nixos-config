@@ -63,7 +63,6 @@
             davidanson.vscode-markdownlint
             yzhang.markdown-all-in-one
             unifiedjs.vscode-mdx
-            bierner.markdown-shiki
             bierner.markdown-emoji
             bierner.markdown-checkbox
             bierner.emojisense
