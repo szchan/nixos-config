@@ -9,5 +9,8 @@
     ./bruno.nix
     ./dbeaver.nix
     ./nixvim.nix
+    
+    ./environment
+
   ];
 }
