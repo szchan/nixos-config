@@ -2,7 +2,8 @@
 
 {
     imports = [ ./bootloader.nix
-                ./kernel.nix 
+                ./kernel.nix
+                ./zramSwap.nix
                 ./networking.nix
                 ./bluetooth.nix
                 ./i18n.nix
