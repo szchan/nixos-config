@@ -8,5 +8,6 @@
     ./vscode.nix
     ./bruno.nix
     ./dbeaver.nix
+    ./nixvim.nix
   ];
 }

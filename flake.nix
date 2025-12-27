@@ -21,6 +21,12 @@
     # nix-vscode-extensions
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
 
+    # nixvim
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Dank-Material-Shell
     # dms = {
     #   url = "github:AvengeMedia/DankMaterialShell/stable";
@@ -34,7 +40,7 @@
     # };
   };
 
-  outputs = inputs@{ self, nixpkgs, disko, home-manager, nix-vscode-extensions, ... }: 
+  outputs = inputs@{ self, nixpkgs, disko, home-manager, nix-vscode-extensions, nixvim, ... }: 
   let
     system = "x86_64-linux";
 
