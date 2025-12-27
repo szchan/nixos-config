@@ -3,5 +3,6 @@
 {
     imports = [
         ./gpg.nix
+        ./1password.nix
     ];
 }
