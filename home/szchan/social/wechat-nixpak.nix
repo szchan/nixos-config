@@ -62,7 +62,6 @@ let
           wayland = true;
           x11 = true;
           pipewire = true;
-          pulseaudio = true;  # 后备
         };
       };
     };
