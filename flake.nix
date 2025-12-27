@@ -15,8 +15,16 @@
     };
     
     # home-manager 模块
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # nixpak 模块
+    nixpak = {
+      url = "github:nixpak/nixpak";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # nix-vscode-extensions
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
@@ -40,7 +48,7 @@
     # };
   };
 
-  outputs = inputs@{ self, nixpkgs, disko, home-manager, nix-vscode-extensions, nixvim, ... }: 
+  outputs = inputs@{ self, nixpkgs, disko, home-manager, nixpak, nix-vscode-extensions, nixvim, ... }: 
   let
     system = "x86_64-linux";
 

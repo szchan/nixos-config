@@ -13,6 +13,7 @@
         ./production
         ./entertainment
         ./internet
+        ./social
 
         # niri-flake
         # inputs.niri.homeModules.niri
