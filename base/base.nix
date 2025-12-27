@@ -7,6 +7,7 @@
                 ./bluetooth.nix
                 ./i18n.nix
                 ./fonts.nix
+                ./nix-ld.nix
                 ./qemuGuest.nix
     ];
 }
