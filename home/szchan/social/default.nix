@@ -2,6 +2,6 @@
 
 {
   imports = [
-    ./wechat-nixpak.nix
+    ./wechat-uos-nixpak.nix
   ];
 }
