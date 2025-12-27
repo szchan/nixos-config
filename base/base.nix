@@ -8,6 +8,7 @@
                 ./i18n.nix
                 ./fonts.nix
                 ./nix-ld.nix
+                ./flatpak.nix
                 ./qemuGuest.nix
     ];
 }
