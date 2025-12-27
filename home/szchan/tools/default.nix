@@ -2,6 +2,6 @@
 
 {
     imports = [
-        
+        ./appimage-run.nix
     ];
 }
