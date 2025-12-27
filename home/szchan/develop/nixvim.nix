@@ -196,7 +196,7 @@
     rust-analyzer     
 
     # Python 
-    nodePackages.pyright
+    # nodePackages.pyright
     
     # TypeScript / JavaScript
     gopls
