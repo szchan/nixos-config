@@ -3,7 +3,7 @@
 {
   programs.rmpc = {
     enable = true;
-    packages = with pkgs; [
+    package = with pkgs; [
       rmpc
     ];
     config = "
