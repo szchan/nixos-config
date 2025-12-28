@@ -3,5 +3,6 @@
 {
   imports = [
     ./qemu-kvm.nix
+    ./docker.nix
   ];
 }

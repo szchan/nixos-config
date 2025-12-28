@@ -39,7 +39,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.szchan = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "libvirt" "kvm" ];
+    extraGroups = [ "wheel" "libvirt" "kvm" "docker" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
     ];
