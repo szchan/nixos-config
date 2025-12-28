@@ -23,6 +23,9 @@
 
       # Include develop configuration
       ./develop/develop.nix
+
+      # Include virtualisation configuration
+      ./virtualisation
     ];
   
   hardware.graphics.enable = true;
@@ -36,7 +39,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.szchan = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "libvirt" "kvm" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
     ];
