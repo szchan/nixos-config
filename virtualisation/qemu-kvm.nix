@@ -17,6 +17,7 @@
   environment.systemPackages = with pkgs; [
     virt-manager  # 图形化虚拟机管理工具
     qemu          # QEMU 虚拟化工具
+    qemu_kvm      # KVM 支持的 QEMU 版本
     libvirt       # libvirt 虚拟化管理工具
     swtpm         # 软件 TPM 支持
     dnsmasq       # 用于默认网络的 DHCP 服务
