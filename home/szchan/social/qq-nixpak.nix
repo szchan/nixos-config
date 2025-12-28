@@ -60,7 +60,6 @@ let
   };
 
 in {
-  nixpkgs.config.allowUnfree = true;
 
   home.packages = [
     sandboxed-qq.config.env
