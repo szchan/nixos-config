@@ -2,7 +2,6 @@
 
 {
     imports = [
-        ./git
         ./security
         ./terminal
         ./desktopEnvironment
