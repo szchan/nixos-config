@@ -12,7 +12,7 @@
       };
 
       onBoot = "ignore";  # 启动时不自动启动虚拟机,设置成"start"则自动启动
-      
+
     };
   };
 
@@ -22,7 +22,7 @@
     qemu          # QEMU 虚拟化工具
     qemu_kvm      # KVM 支持的 QEMU 版本
     libvirt       # libvirt 虚拟化管理工具
-    ovmf          # UEFI 固件支持
+    OVMF          # UEFI 固件支持
     swtpm         # 软件 TPM 支持
     dnsmasq       # 用于默认网络的 DHCP 服务
   ];
