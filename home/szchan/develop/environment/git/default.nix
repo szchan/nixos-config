@@ -2,6 +2,6 @@
 
 {
   imports = [
-    ./git.nix
+    ../../../../../nixos-private/git
   ];
 }
