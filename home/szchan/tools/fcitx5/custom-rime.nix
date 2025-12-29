@@ -30,12 +30,12 @@ let
       mkdir tool
       unzip ${dictToolsZip} -d tool
 
-      # 创建临时转换目录（在上层，避免复制冲突）
+      # 创建临时转换目录（在上层）
       mkdir ../cn_dicts_converted
 
       # 转换 cn_dicts 中的词库为带声调格式
       for dict_file in cn_dicts/*.dict.yaml; do
-        [ -f "$dict_file" ] || continue  # 防止无文件出错
+        [ -f "$dict_file" ] || continue
         base=$(basename "$dict_file")
         python "tool/rime#U56fa#U5b9a#U6216#U7528#U6237#U8bcd#U5178#U5237#U65b0#U4e3a#U5e26#U58f0#U8c03#U7f16#U7801.py" --input "$dict_file" --output "../cn_dicts_converted/$base"
       done
@@ -43,8 +43,14 @@ let
       # 创建输出目录（在上层）
       mkdir ../converted
 
-      # 安全复制整个源到 ../converted（* 不会匹配 ../ 路径）
-      cp -r ./* ../converted
+      # 关键：让 * 匹配隐藏文件
+      shopt -s dotglob
+
+      # 现在复制所有文件（包括隐藏的）
+      cp -r * ../converted
+
+      # 关闭 dotglob（好习惯）
+      shopt -u dotglob
 
       # 用转换后的替换原 cn_dicts
       rm -rf ../converted/cn_dicts
@@ -81,20 +87,6 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    # home.packages = with pkgs; [
-    #   librime  # 确保 librime 支持 octagram 插件
-    # ];
-
-    # 放置自定义 RIME 配置
     home.file.".local/share/fcitx5/rime".source = customRimeDir;
-
-    # # librime-octagram overlay（如果需要）
-    # nixpkgs.overlays = [
-    #   (self: super: {
-    #     librime = super.librime.overrideAttrs (old: {
-    #       buildInputs = old.buildInputs ++ [ super.librime-plugin-octagram ];
-    #     });
-    #   })
-    # ];
   };
 }
