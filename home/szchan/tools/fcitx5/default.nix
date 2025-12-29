@@ -1,13 +1,13 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [
-    ./custom-rime.nix  # 导入模块
-  ];
+  # imports = [
+  #   ./custom-rime.nix  # 导入模块
+  # ];
 
   i18n.inputMethod = {
     enable = true;
-    type = "fcitx5";  # 或使用 enabled = "fcitx5";（旧方式兼容）
+    type = "fcitx5";
 
     fcitx5 = {
       waylandFrontend = true;  # Wayland 必需
@@ -25,7 +25,7 @@
       ];
 
       # 这里启用自定义 Rime
-      customRime.enable = false;
+      # customRime.enable = false;
     };
   };
 
