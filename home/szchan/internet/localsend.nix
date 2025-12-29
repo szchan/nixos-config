@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-    home.packages = with pkgs; [
-        localsend
-    ];
+  home.packages = with pkgs; [
+    localsend
+  ];
 }
