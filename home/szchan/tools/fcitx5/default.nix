@@ -25,7 +25,7 @@
       ];
 
       # 这里启用自定义 Rime
-      customRime.enable = true;
+      customRime.enable = false;
     };
   };
 
