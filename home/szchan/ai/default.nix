@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-    imports = [
-        ./cherry-studio.nix
-    ];
+  imports = [
+    ./cherry-studio.nix
+  ];
 }

@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-    home.packages = with pkgs;[
-        cherry-studio
-    ];
+  home.packages = with pkgs;[
+    cherry-studio
+  ];
 }
