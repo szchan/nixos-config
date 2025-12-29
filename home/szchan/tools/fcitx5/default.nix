@@ -1,42 +1,41 @@
-{config, pkgs, lib, ...}: 
+{ config, pkgs, lib, ... }:
 
 {
   imports = [
-    ./custom-rime.nix  # 导入自定义 RIME 模块
+    ./custom-rime.nix  # 导入模块
   ];
 
   i18n.inputMethod = {
     enable = true;
-    type = "fcitx5";
-    fcitx5.waylandFrontend = true;
-    fcitx5.addons = with pkgs; [
-      qt6Packages.fcitx5-configtool # GUI for fcitx5
-      fcitx5-gtk # gtk im module
+    type = "fcitx5";  # 或使用 enabled = "fcitx5";（旧方式兼容）
 
-      # Themes
-      fcitx5-nord
-      fcitx5-material-color
-      fcitx5-tokyonight
+    fcitx5 = {
+      waylandFrontend = true;  # Wayland 必需
 
-    ];
+      addons = with pkgs; [
+        qt6Packages.fcitx5-configtool  # 配置工具
+        fcitx5-gtk                     # GTK 支持
+        # 主题
+        fcitx5-nord
+        fcitx5-material-color
+        fcitx5-tokyonight
+      ];
 
-    customRime.enable = true;  # 启用雾凇 + 万象 + 语法模型
-  };
-
-  xdg.configFile = {
-    "fcitx5/profile" = {
-      source = ./profile;
-      # every time fcitx5 switch input method, it will modify ~/.config/fcitx5/profile,
-      # so we need to force replace it in every rebuild to avoid file conflict.
-      force = true;
+      # 这里启用自定义 Rime
+      customRime.enable = true;
     };
   };
 
+  xdg.configFile."fcitx5/profile" = {
+    source = ./profile;
+    force = true;  # 强制覆盖，避免冲突
+  };
+
   home.sessionVariables = {
-    XIM="fcitx";
     GTK_IM_MODULE = "fcitx";
     QT_IM_MODULE = "fcitx";
     XMODIFIERS = "@im=fcitx";
+    # XIM 已过时，但保留无害
+    XIM = "fcitx";
   };
-
 }
