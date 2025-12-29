@@ -35,7 +35,7 @@ let
       for dict_file in cn_dicts/*.dict.yaml; do
         [ -f "$dict_file" ] || continue  # 防止 glob 没匹配时出错
         base=$(basename "$dict_file")
-        python "tool/rime固定词典和用户词典刷新为带声调编码.py" --input "$dict_file" --output "converted/cn_dicts/$base"
+        python tool/rime#U56fa#U5b9a#U6216#U7528#U6237#U8bcd#U5178#U5237#U65b0#U4e3a#U5e26#U58f0#U8c03#U7f16#U7801.py --input "$dict_file" --output "converted/cn_dicts/$base"
       done
 
       # 复制 en_dicts 原样（英文词库不需要声调）
