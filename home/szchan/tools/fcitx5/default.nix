@@ -14,7 +14,9 @@
       fcitx5-gtk # gtk im module
 
       # Chinese
-      fcitx5-rime 
+      fcitx5-rime
+
+      fcitx5-with-addons.kimpanel
 
     ];
   };
