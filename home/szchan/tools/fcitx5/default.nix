@@ -14,7 +14,7 @@
       fcitx5-gtk # gtk im module
 
       # Chinese
-      fcitx5-rime # for flypy chinese input method
+      fcitx5-rime 
 
     ];
   };
@@ -26,6 +26,13 @@
       # so we need to force replace it in every rebuild to avoid file conflict.
       force = true;
     };
+  };
+
+  home.sessionVariables = {
+    XIM="fcitx";
+    GTK_IM_MODULE = "fcitx";
+    QT_IM_MODULE = "fcitx";
+    XMODIFIERS = "@im=fcitx";
   };
 
   # 启用自定义 RIME 模块
