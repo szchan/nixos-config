@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 
 {
-    programs.localsend = {
-        enable = true;
-        openFirewall = true;
-    };
+  programs.localsend = {
+    enable = true;
+    openFirewall = true;
+  };
 }

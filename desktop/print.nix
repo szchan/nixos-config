@@ -1,4 +1,6 @@
-{ config, pkgs, ... }: {
-    # Enable CUPS to print documents.
-    services.printing.enable = true;
+{ config, pkgs, ... }:
+
+{
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
 }

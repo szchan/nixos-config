@@ -19,7 +19,7 @@
       ./cli
 
       # Include desktop configuration
-      ./desktop/desktop.nix
+      ./desktop
 
       # Include develop configuration
       ./develop
