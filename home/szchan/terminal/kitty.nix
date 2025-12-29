@@ -1,12 +1,10 @@
 { config, pkgs, ... }:
 
 {
-
-    home.packages = with pkgs; [
-        kitty
-    ];
-
-    programs.kitty = {
-        enable = true;
-    };
+  programs.kitty = {
+    enable = true;
+    font = nerd-fonts.jetbrains-mono;
+    font.size = 12;
+    
+  };
 }
