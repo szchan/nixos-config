@@ -15,6 +15,9 @@
       addons = with pkgs; [
         qt6Packages.fcitx5-configtool  # 配置工具
         fcitx5-gtk                     # GTK 支持
+
+        fcitx5-rime
+
         # 主题
         fcitx5-nord
         fcitx5-material-color
