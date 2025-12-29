@@ -16,8 +16,6 @@
       # Chinese
       fcitx5-rime
 
-      qt6Packages.fcitx5-with-addons.kimpanel
-
     ];
   };
 
