@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-    home.packages = with pkgs;[
-        kazumi
-    ];
+  home.packages = with pkgs;[
+    kazumi
+  ];
 }
