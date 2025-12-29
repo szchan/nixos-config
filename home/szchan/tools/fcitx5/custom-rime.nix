@@ -32,7 +32,7 @@ in
     # 下载并部署万象语法大模型
     home.file.".local/share/fcitx5/rime/wanxiang-lts-zh-hans.gram".source = builtins.fetchurl {
       url = cfg.extraGramUrl;
-      sha256 = "sha256-WnIdOzF9FYyzVs+waD+DHKvAaAI8EQTIYwMD4I9jhVE="
+      sha256 = "sha256-WnIdOzF9FYyzVs+waD+DHKvAaAI8EQTIYwMD4I9jhVE=";
     };
 
     # 默认启用雾凇 + 万象两个方案
