@@ -19,6 +19,15 @@
     ];
   };
 
+  xdg.configFile = {
+    "fcitx5/profile" = {
+      source = ./profile;
+      # every time fcitx5 switch input method, it will modify ~/.config/fcitx5/profile,
+      # so we need to force replace it in every rebuild to avoid file conflict.
+      force = true;
+    };
+  };
+
   # 启用自定义 RIME 模块
   customRime.enable = true;
 }

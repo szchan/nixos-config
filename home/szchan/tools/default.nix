@@ -3,6 +3,6 @@
 {
   imports = [
     ./appimage-run.nix
-    ./fcitx5.nix
+    ./fcitx5
   ];
 }
