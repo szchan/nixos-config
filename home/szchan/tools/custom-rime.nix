@@ -81,8 +81,6 @@ in {
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
-      fcitx5
-      fcitx5-rime
       librime  # 确保 librime 支持 octagram 插件（如果需要，手动检查或 overlay）
     ];
 
