@@ -16,6 +16,8 @@
       # Chinese
       fcitx5-rime
 
+      fcitx5-nord
+
     ];
   };
 
