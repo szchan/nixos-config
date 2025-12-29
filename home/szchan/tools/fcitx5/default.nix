@@ -13,15 +13,14 @@
       qt6Packages.fcitx5-configtool # GUI for fcitx5
       fcitx5-gtk # gtk im module
 
-      # Chinese
-      fcitx5-rime
-
       # Themes
       fcitx5-nord
       fcitx5-material-color
       fcitx5-tokyonight
 
     ];
+
+    customRime.enable = true;  # 启用雾凇 + 万象 + 语法模型
   };
 
   xdg.configFile = {
@@ -40,6 +39,4 @@
     XMODIFIERS = "@im=fcitx";
   };
 
-  # 启用自定义 RIME 模块
-  customRime.enable = true;
 }

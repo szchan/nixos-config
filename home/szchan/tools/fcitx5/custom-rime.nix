@@ -1,92 +1,54 @@
-{ config, pkgs, lib, inputs, ... }:
+# custom-rime.nix
+{ config, lib, pkgs, ... }:
 
 let
-  cfg = config.customRime;
+  cfg = config.programs.fcitx5.customRime;
+in
+{
+  options.programs.fcitx5.customRime = {
+    enable = lib.mkEnableOption "自定义 Rime 配置（雾凇冰 + 万象拼音 + wanxiang-lts-zh-hans.gram 语法大模型）";
 
-  gram = pkgs.fetchurl {
-    url = "https://github.com/amzxyz/RIME-LMDG/releases/download/LTS/wanxiang-lts-zh-hans.gram";
-    hash = "sha256-WnIdOzF9FYyzVs+waD+DHKvAaAI8EQTIYwMD4I9jhVE=";
-  };
-
-  dictToolsZip = pkgs.fetchurl {
-    url = "https://github.com/amzxyz/RIME-LMDG/releases/download/dict-nightly/dict-pinyin-tools.zip";
-    hash = "sha256-q/kK750aTJY+Q+xf3ouDyBZX33bRzvwj5mEvdtSbi80=";
-  };
-
-  customRimeDir = pkgs.stdenv.mkDerivation {
-    name = "custom-rime-data";
-
-    nativeBuildInputs = with pkgs; [
-      unzip
-      (python3.withPackages (ps: with ps; [ pypinyin tqdm ]))
-    ];
-
-    src = inputs.rime-ice;
-
-    phases = [ "unpackPhase" "buildPhase" "installPhase" ];
-
-    buildPhase = ''
-      # 解压工具包
-      mkdir tool
-      unzip ${dictToolsZip} -d tool
-
-      # 创建临时转换目录（在上层）
-      mkdir ../cn_dicts_converted
-
-      # 转换 cn_dicts 中的词库为带声调格式
-      for dict_file in cn_dicts/*.dict.yaml; do
-        [ -f "$dict_file" ] || continue
-        base=$(basename "$dict_file")
-        python "tool/rime#U56fa#U5b9a#U6216#U7528#U6237#U8bcd#U5178#U5237#U65b0#U4e3a#U5e26#U58f0#U8c03#U7f16#U7801.py" --input "$dict_file" --output "../cn_dicts_converted/$base"
-      done
-
-      # 创建输出目录（在上层）
-      mkdir ../converted
-
-      # 关键：让 * 匹配隐藏文件
-      shopt -s dotglob
-
-      # 现在复制所有文件（包括隐藏的）
-      cp -r * ../converted
-
-      # 关闭 dotglob（好习惯）
-      shopt -u dotglob
-
-      # 用转换后的替换原 cn_dicts
-      rm -rf ../converted/cn_dicts
-      mv ../cn_dicts_converted ../converted/cn_dicts
-
-      # 添加语言模型
-      cp ${gram} ../converted/wanxiang-lts-zh-hans.gram
-
-      # 添加自定义 patch 以启用万象模型
-      cat > ../converted/rime_ice.custom.yaml << 'EOF'
-      patch:
-        grammar:
-          language: wanxiang-lts-zh-hans
-          collocation_max_length: 5
-          collocation_min_length: 2
-          collocation_penalty: -10
-          non_collocation_penalty: -20
-          weak_collocation_penalty: -45
-          rear_penalty: -5
-        translator/contextual_suggestions: true
-        translator/max_homophones: 7
-        translator/max_homographs: 7
-      EOF
-    '';
-
-    installPhase = ''
-      mkdir -p $out
-      cp -r ../converted/* $out/
-    '';
-  };
-in {
-  options.customRime = {
-    enable = lib.mkEnableOption "Enable custom RIME with merged rime-ice and wanxiang optimizations";
+    extraGramUrl = lib.mkOption {
+      type = lib.types.str;
+      default = "https://github.com/amzxyz/RIME-LMDG/releases/download/LTS/wanxiang-lts-zh-hans.gram";
+      description = "万象语法大模型下载 URL（最新 LTS 版）";
+    };
   };
 
   config = lib.mkIf cfg.enable {
-    home.file.".local/share/fcitx5/rime".source = customRimeDir;
+    # 启用 fcitx5-rime
+    programs.fcitx5.addons = [ pkgs.fcitx5-rime ];
+
+    # 部署雾凇冰数据（官方包）
+    home.activation.deployRimeIce = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      ${pkgs.rsync}/bin/rsync -a --delete ${pkgs.rime-ice}/share/rime-data/ $HOME/.local/share/fcitx5/rime/
+    '';
+
+    # 部署万象数据（官方包）
+    home.activation.deployWanxiang = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      ${pkgs.rsync}/bin/rsync -a --delete ${pkgs.rime-wanxiang}/share/rime-data/ $HOME/.local/share/fcitx5/rime/
+    '';
+
+    # 下载并部署万象语法大模型（放在根目录，对万象方案生效）
+    home.file.".local/share/fcitx5/rime/wanxiang-lts-zh-hans.gram".source = builtins.fetchurl {
+      url = cfg.extraGramUrl;
+      # 首次 switch 若需 sha256，Nix 会提示正确值，可手动添加固定
+    };
+
+    # 默认启用雾凇 + 万象两个方案（可在 fcitx 配置工具中切换）
+    xdg.configFile."fcitx5/rime/default.custom.yaml".text = ''
+      patch:
+        schema_list:
+          - schema: rime_ice              # 雾凇拼音（全拼/双拼等）
+          - schema: rime_wanxiang_pinyin  # 万象全拼（带语法模型增强）
+    '';
+
+    # 雾凇常用翻页设置（逗号上页、句号下页）
+    xdg.configFile."fcitx5/rime/rime_ice.custom.yaml".text = ''
+      patch:
+        key_binder/bindings/++:
+          - { when: paging, accept: comma, send: Page_Up }
+          - { when: has_menu, accept: period, send: Page_Down }
+    '';
   };
 }
