@@ -81,20 +81,20 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = with pkgs; [
-      librime  # 确保 librime 支持 octagram 插件
-    ];
+    # home.packages = with pkgs; [
+    #   librime  # 确保 librime 支持 octagram 插件
+    # ];
 
     # 放置自定义 RIME 配置
     home.file.".local/share/fcitx5/rime".source = customRimeDir;
 
-    # librime-octagram overlay（如果需要）
-    nixpkgs.overlays = [
-      (self: super: {
-        librime = super.librime.overrideAttrs (old: {
-          buildInputs = old.buildInputs ++ [ super.librime-plugin-octagram ];
-        });
-      })
-    ];
+    # # librime-octagram overlay（如果需要）
+    # nixpkgs.overlays = [
+    #   (self: super: {
+    #     librime = super.librime.overrideAttrs (old: {
+    #       buildInputs = old.buildInputs ++ [ super.librime-plugin-octagram ];
+    #     });
+    #   })
+    # ];
   };
 }

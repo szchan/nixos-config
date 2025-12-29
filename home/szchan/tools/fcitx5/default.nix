@@ -36,5 +36,5 @@
   };
 
   # 启用自定义 RIME 模块
-  customRime.enable = false;
+  customRime.enable = true;
 }
