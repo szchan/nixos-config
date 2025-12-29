@@ -27,12 +27,20 @@
     };
 
     # nix-vscode-extensions
-    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+    nix-vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
+    };
 
     # nixvim
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # rime-ice
+    rime-ice = {
+      url = "github:iDvel/rime-ice/nightly";
+      flake = false;
     };
 
     # Dank-Material-Shell
@@ -48,7 +56,7 @@
     # };
   };
 
-  outputs = inputs@{ self, nixpkgs, disko, home-manager, nixpak, nix-vscode-extensions, nixvim, ... }: 
+  outputs = inputs@{ self, nixpkgs, disko, home-manager, nixpak, nix-vscode-extensions, nixvim, rime-ice, ... }: 
   let
     system = "x86_64-linux";
 
