@@ -38,10 +38,10 @@
     };
 
     # rime-ice
-    rime-ice = {
-      url = "github:iDvel/rime-ice/nightly";
-      flake = false;
-    };
+    # rime-ice = {
+    #   url = "github:iDvel/rime-ice/nightly";
+    #   flake = false;
+    # };
 
     # Dank-Material-Shell
     # dms = {
