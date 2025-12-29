@@ -13,7 +13,7 @@
       ./base
 
       # Include Security configuration
-      ./security/security.nix
+      ./security
 
       # Include CommandLine configuration
       ./cli/default.nix
