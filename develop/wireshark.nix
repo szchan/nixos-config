@@ -7,8 +7,9 @@
     usbmon.enable = true;
   };
 
-    environment.systemPackages = [
+  environment.systemPackages = [
+    pkgs.wireshark
     pkgs.termshark
   ];
-  
+
 }
