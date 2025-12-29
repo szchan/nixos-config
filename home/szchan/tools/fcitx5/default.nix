@@ -16,7 +16,10 @@
       # Chinese
       fcitx5-rime
 
+      # Themes
       fcitx5-nord
+      fcitx5-material-color
+      fcitx5-tokyonight
 
     ];
   };
