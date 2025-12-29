@@ -30,32 +30,31 @@ let
       mkdir tool
       unzip ${dictToolsZip} -d tool
 
-      # 创建临时目录用于存放转换后的 cn_dicts
-      mkdir cn_dicts_converted
+      # 创建临时转换目录（在上层，避免复制冲突）
+      mkdir ../cn_dicts_converted
 
-      # 转换所有 cn_dicts/*.dict.yaml 到临时目录（带声调格式）
+      # 转换 cn_dicts 中的词库为带声调格式
       for dict_file in cn_dicts/*.dict.yaml; do
-        [ -f "$dict_file" ] || continue
+        [ -f "$dict_file" ] || continue  # 防止无文件出错
         base=$(basename "$dict_file")
-        python "tool/rime#U56fa#U5b9a#U6216#U7528#U6237#U8bcd#U5178#U5237#U65b0#U4e3a#U5e26#U58f0#U8c03#U7f16#U7801.py" --input "$dict_file" --output "cn_dicts_converted/$base"
+        python "tool/rime#U56fa#U5b9a#U6216#U7528#U6237#U8bcd#U5178#U5237#U65b0#U4e3a#U5e26#U58f0#U8c03#U7f16#U7801.py" --input "$dict_file" --output "../cn_dicts_converted/$base"
       done
 
-      # 创建输出目录
-      mkdir converted
+      # 创建输出目录（在上层）
+      mkdir ../converted
 
-      # 安全复制源目录所有内容到 converted（排除临时目录 cn_dicts_converted，避免任何冲突）
-      shopt -s dotglob nullglob
-      cp -r --no-target-directory * converted/ || true  # 安全 fallback
+      # 安全复制整个源到 ../converted（* 不会匹配 ../ 路径）
+      cp -r ./* ../converted
 
-      # 用转换后的 cn_dicts 替换原来的
-      rm -rf converted/cn_dicts
-      mv cn_dicts_converted converted/cn_dicts
+      # 用转换后的替换原 cn_dicts
+      rm -rf ../converted/cn_dicts
+      mv ../cn_dicts_converted ../converted/cn_dicts
 
-      # 放入万象语言模型
-      cp ${gram} converted/wanxiang-lts-zh-hans.gram
+      # 添加语言模型
+      cp ${gram} ../converted/wanxiang-lts-zh-hans.gram
 
       # 添加自定义 patch 以启用万象模型
-      cat > converted/rime_ice.custom.yaml << 'EOF'
+      cat > ../converted/rime_ice.custom.yaml << 'EOF'
       patch:
         grammar:
           language: wanxiang-lts-zh-hans
@@ -73,7 +72,7 @@ let
 
     installPhase = ''
       mkdir -p $out
-      cp -r converted/* $out/
+      cp -r ../converted/* $out/
     '';
   };
 in {
@@ -83,13 +82,13 @@ in {
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
-      librime  # 确保 librime 支持 octagram 插件（如果需要，手动检查或 overlay）
+      librime  # 确保 librime 支持 octagram 插件
     ];
 
     # 放置自定义 RIME 配置
     home.file.".local/share/fcitx5/rime".source = customRimeDir;
 
-    # 添加 librime-octagram [八股文]语法插件
+    # librime-octagram overlay（如果需要）
     nixpkgs.overlays = [
       (self: super: {
         librime = super.librime.overrideAttrs (old: {
