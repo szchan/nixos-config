@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-    home.packages = with pkgs;[
-        folo
-    ];
+  home.packages = with pkgs;[
+    folo
+  ];
 }

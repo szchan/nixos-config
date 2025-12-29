@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-    home.packages = with pkgs;[
-        evince
-    ];
+  home.packages = with pkgs;[
+    evince
+  ];
 }
