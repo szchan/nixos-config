@@ -3,8 +3,10 @@
 {
   programs.kitty = {
     enable = true;
-    font = nerd-fonts.jetbrains-mono;
-    font.size = 12;
-    
+    font = {
+      nerd-fonts.jetbrains-mono;
+      size = 12;
+    };
+
   };
 }
