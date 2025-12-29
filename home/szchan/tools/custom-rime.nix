@@ -33,13 +33,13 @@ let
       # 创建干净的输出目录
       mkdir converted
 
-      # 用 rsync 复制整个 rime-ice 到 converted（安全、忽略自我、覆盖）
-      rsync -av --exclude=converted . converted/
+      # 用 tar 管道安全复制整个源目录到 converted（Nix 标准技巧，避免自我复制和 glob 问题）
+      tar c . | tar x -C converted
 
       # 转换 cn_dicts 中的所有 .dict.yaml 为带声调格式
       mkdir -p converted/cn_dicts_new
       for dict_file in cn_dicts/*.dict.yaml; do
-        [ -f "$dict_file" ] || continue  # 安全处理无文件情况
+        [ -f "$dict_file" ] || continue
         base=$(basename "$dict_file")
         python "tool/rime#U56fa#U5b9a#U6216#U7528#U6237#U8bcd#U5178#U5237#U65b0#U4e3a#U5e26#U58f0#U8c03#U7f16#U7801.py" --input "$dict_file" --output "converted/cn_dicts_new/$base"
       done
@@ -51,7 +51,7 @@ let
       # 放入万象语言模型
       cp ${gram} converted/wanxiang-lts-zh-hans.gram
 
-      # 添加自定义 patch 文件（启用模型）
+      # 添加自定义 patch 以启用万象模型
       cat > converted/rime_ice.custom.yaml << 'EOF'
       patch:
         grammar:
