@@ -25,7 +25,7 @@ let
 
     phases = [ "unpackPhase" "buildPhase" "installPhase" ];
 
-        buildPhase = ''
+    buildPhase = ''
       # 解压工具包
       mkdir tool
       unzip ${dictToolsZip} -d tool
@@ -40,9 +40,12 @@ let
         python "tool/rime#U56fa#U5b9a#U6216#U7528#U6237#U8bcd#U5178#U5237#U65b0#U4e3a#U5e26#U58f0#U8c03#U7f16#U7801.py" --input "$dict_file" --output "cn_dicts_converted/$base"
       done
 
-      # 现在安全复制整个源目录到 converted（此时没有子目录冲突）
+      # 创建输出目录
       mkdir converted
-      cp -r --no-preserve=mode ./* converted/  # 或用 tar c ./* | tar x -C converted 如果你喜欢
+
+      # 安全复制源目录所有内容到 converted（排除临时目录 cn_dicts_converted，避免任何冲突）
+      shopt -s dotglob nullglob
+      cp -r --no-target-directory * converted/ || true  # 安全 fallback
 
       # 用转换后的 cn_dicts 替换原来的
       rm -rf converted/cn_dicts
