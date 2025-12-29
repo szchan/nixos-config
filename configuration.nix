@@ -22,7 +22,7 @@
       ./desktop/desktop.nix
 
       # Include develop configuration
-      ./develop/develop.nix
+      ./develop
 
       # Include virtualisation configuration
       ./virtualisation
@@ -39,7 +39,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.szchan = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "libvirt" "kvm" "docker" ];
+    extraGroups = [ "wheel" "libvirt" "kvm" "docker" "wireshark" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
     ];
