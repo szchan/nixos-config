@@ -4,7 +4,7 @@
   programs.kitty = {
     enable = true;
     font = {
-      nerd-fonts.jetbrains-mono;
+      package = pkgs.nerd-fonts.jetbrains-mono;
       size = 12;
     };
 
