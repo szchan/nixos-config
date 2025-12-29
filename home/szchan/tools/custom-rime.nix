@@ -30,24 +30,23 @@ let
       mkdir tool
       unzip ${dictToolsZip} -d tool
 
-      # 先复制整个 rime-ice 到 converted作为基础
+      # 创建干净的输出目录
       mkdir converted
-      cp -r ./* converted/  # 用 ./* 避免把 . 本身复制进去
+
+      # 先复制整个 rime-ice 到 converted（排除可能的残留 converted 目录）
+      cp -r --no-target-directory ./* converted/ || cp -r ./* converted/
 
       # 转换 cn_dicts 中的词库为带声调格式
-      mkdir -p converted/cn_dicts_converted
+      mkdir -p converted/cn_dicts_new
       for dict_file in cn_dicts/*.dict.yaml; do
         [ -f "$dict_file" ] || continue
         base=$(basename "$dict_file")
-        python tool/rime#U56fa#U5b9a#U6216#U7528#U6237#U8bcd#U5178#U5237#U65b0#U4e3a#U5e26#U58f0#U8c03#U7f16#U7801.py --input "$dict_file" --output "converted/cn_dicts_converted/$base"
+        python "tool/rime#U56fa#U5b9a#U6216#U7528#U6237#U8bcd#U5178#U5237#U65b0#U4e3a#U5e26#U58f0#U8c03#U7f16#U7801.py" --input "$dict_file" --output "converted/cn_dicts_new/$base"
       done
 
-      # 用转换后的词库替换原来的 cn_dicts
+      # 用转换后的替换原 cn_dicts
       rm -rf converted/cn_dicts
-      mv converted/cn_dicts_converted converted/cn_dicts
-
-      # 复制 en_dicts 确保存在
-      # rime-ice 本身就有 en_dicts, 直接保留上面的复制即可
+      mv converted/cn_dicts_new converted/cn_dicts
 
       # 放入语言模型
       cp ${gram} converted/wanxiang-lts-zh-hans.gram
