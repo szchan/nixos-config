@@ -25,32 +25,34 @@ let
 
     phases = [ "unpackPhase" "buildPhase" "installPhase" ];
 
-    buildPhase = ''
+        buildPhase = ''
       # 解压工具包
       mkdir tool
       unzip ${dictToolsZip} -d tool
 
-      # 转换 cn_dicts 中的词库为带声调格式, 跳过 en_dicts, 英文无需声调
+      # 转换 cn_dicts 中的词库为带声调格式（只处理 .dict.yaml 文件）
       mkdir -p converted/cn_dicts
       for dict_file in cn_dicts/*.dict.yaml; do
+        [ -f "$dict_file" ] || continue  # 防止 glob 没匹配时出错
         base=$(basename "$dict_file")
-        python tool/rime固定词典和用户词典刷新为带声调编码.py --input "$dict_file" --output "converted/cn_dicts/$base"
+        python tool/convert_dict_to_pinyin.py --input "$dict_file" --output "converted/cn_dicts/$base"
       done
 
-      # 复制 en_dicts 原样
+      # 复制 en_dicts 原样（英文词库不需要声调）
       mkdir -p converted/en_dicts
-      cp -r en_dicts/*.dict.yaml converted/en_dicts/
+      cp -r en_dicts/*.dict.yaml converted/en_dicts/ 2>/dev/null || true
 
-      # 复制其他 rime-ice 文件
+      # 复制 rime-ice 其余所有文件（包括方案、符号等）
       cp -r . converted/
+      # 用转换后的 cn_dicts 替换原来的
       rm -rf converted/cn_dicts
-      mv converted/cn_dicts converted/  # 用转换后的替换原 cn_dicts
+      mv converted/cn_dicts converted/
 
-      # 添加语言模型
+      # 放入语言模型
       cp ${gram} converted/wanxiang-lts-zh-hans.gram
 
-      # 创建自定义 patch 文件
-      cat > converted/rime_ice.custom.yaml << EOF
+      # 添加自定义 patch 以启用万象语言模型
+      cat > converted/rime_ice.custom.yaml << 'EOF'
       patch:
         grammar:
           language: wanxiang-lts-zh-hans
