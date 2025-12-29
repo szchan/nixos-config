@@ -10,7 +10,7 @@
       ./hardware-configuration.nix
       
       # Include base configuration
-      ./base/base.nix
+      ./base
 
       # Include Security configuration
       ./security/security.nix
