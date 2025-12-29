@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-    home.packages = with pkgs;[
-        gimp
-    ];
+  home.packages = with pkgs;[
+    gimp
+  ];
 }

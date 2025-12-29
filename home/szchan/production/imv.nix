@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-    home.packages = with pkgs;[
-        imv
-    ];
+	home.packages = with pkgs;[
+		imv
+	];
 }
