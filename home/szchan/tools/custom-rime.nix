@@ -25,28 +25,28 @@ let
 
     phases = [ "unpackPhase" "buildPhase" "installPhase" ];
 
-    buildPhase = ''
+        buildPhase = ''
       # 解压工具包
       mkdir tool
       unzip ${dictToolsZip} -d tool
 
-      # 创建干净的输出目录
-      mkdir converted
+      # 创建临时目录用于存放转换后的 cn_dicts
+      mkdir cn_dicts_converted
 
-      # 用 tar 管道安全复制整个源目录到 converted（Nix 标准技巧，避免自我复制和 glob 问题）
-      tar c . | tar x -C converted
-
-      # 转换 cn_dicts 中的所有 .dict.yaml 为带声调格式
-      mkdir -p converted/cn_dicts_new
+      # 转换所有 cn_dicts/*.dict.yaml 到临时目录（带声调格式）
       for dict_file in cn_dicts/*.dict.yaml; do
         [ -f "$dict_file" ] || continue
         base=$(basename "$dict_file")
-        python "tool/rime#U56fa#U5b9a#U6216#U7528#U6237#U8bcd#U5178#U5237#U65b0#U4e3a#U5e26#U58f0#U8c03#U7f16#U7801.py" --input "$dict_file" --output "converted/cn_dicts_new/$base"
+        python "tool/rime#U56fa#U5b9a#U6216#U7528#U6237#U8bcd#U5178#U5237#U65b0#U4e3a#U5e26#U58f0#U8c03#U7f16#U7801.py" --input "$dict_file" --output "cn_dicts_converted/$base"
       done
 
-      # 替换原 cn_dicts
+      # 现在安全复制整个源目录到 converted（此时没有子目录冲突）
+      mkdir converted
+      cp -r --no-preserve=mode ./* converted/  # 或用 tar c ./* | tar x -C converted 如果你喜欢
+
+      # 用转换后的 cn_dicts 替换原来的
       rm -rf converted/cn_dicts
-      mv converted/cn_dicts_new converted/cn_dicts
+      mv cn_dicts_converted converted/cn_dicts
 
       # 放入万象语言模型
       cp ${gram} converted/wanxiang-lts-zh-hans.gram
