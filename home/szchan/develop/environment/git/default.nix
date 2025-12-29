@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-    imports = [
-        ./git.nix
-    ];
+  imports = [
+    ./git.nix
+  ];
 }
