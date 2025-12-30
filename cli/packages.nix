@@ -6,6 +6,7 @@
     wget
     curl
     aria2
+    trash-cli
     tmux
     htop
     btop
