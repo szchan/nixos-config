@@ -114,6 +114,7 @@
         home-manager.nixosModules.home-manager{
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          home-manager.backupFileExtension = "bak";
           home-manager.users.szchan = ./home/szchan/home.nix;
           home-manager.extraSpecialArgs = {
             inherit inputs;
