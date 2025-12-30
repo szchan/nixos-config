@@ -25,9 +25,6 @@
     procs
     zoxide
     direnv
-    lazydocker
-    lazygit
-    gh
     starship
     lm_sensors # for `sensors` command
     ethtool
