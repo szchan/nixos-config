@@ -17,6 +17,7 @@
         fcitx5-gtk                     # GTK 支持
 
         fcitx5-rime
+        rime-ice
 
         # 主题
         fcitx5-nord
