@@ -42,12 +42,12 @@
   #   tunMode = true;
   # };
 
-  services.mihomo = {
-    enable = true;
-    tunMode = true;
-    webui = "/home/szchan/Projects/clash/metacubex";
-    configFile = "/home/szchan/Projects/clash/clash-verge.yaml";
-  };
+  # services.mihomo = {
+  #   enable = true;
+  #   tunMode = true;
+  #   webui = "/home/szchan/Projects/clash/metacubex";
+  #   configFile = "/home/szchan/Projects/clash/clash-verge.yaml";
+  # };
 
 
   # Proxy
