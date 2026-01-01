@@ -45,7 +45,7 @@
   services.mihomo = {
     enable = true;
     tunMode = true;
-    webui = "https://metacubex.github.io/metacubexd";
+    webui = "/home/szchan/Projects/clash/metacubex";
     configFile = "/home/szchan/Projects/clash/clash-verge.yaml";
   };
 
