@@ -42,6 +42,13 @@
   #   tunMode = true;
   # };
 
+  services.mihomo = {
+    enable = true;
+    tunMode = true;
+    webui = "https://metacubex.github.io/metacubexd";
+    configFile = "/home/szchan/Projects/clash/clash-verge.yaml";
+  };
+
 
   # Proxy
   # networking.proxy.default = "http://user:password@proxy:port/";
