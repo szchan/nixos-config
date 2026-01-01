@@ -21,10 +21,10 @@
     };
 
     # nixos-private
-    nixos-private = {
-      url = "git+ssh://git@github.com/szchan/nixos-private.git";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # nixos-private = {
+    #   url = "git+ssh://git@github.com/szchan/nixos-private.git";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     # nixpak 模块
     nixpak = {
@@ -62,7 +62,7 @@
     # };
   };
 
-  outputs = inputs@{ self, nixpkgs, disko, home-manager, nixpak, nix-vscode-extensions, nixvim, nixos-private, ... }: 
+  outputs = inputs@{ self, nixpkgs, disko, home-manager, nixpak, nix-vscode-extensions, nixvim, ... }: 
   let
     system = "x86_64-linux";
 
@@ -116,7 +116,7 @@
         disko.nixosModules.disko
         ./disko/disko.nix
 
-        inputs.nixos-private.nixosModules.default
+        # inputs.nixos-private.nixosModules.default
         
         # 导入 home-manager 模块
         home-manager.nixosModules.home-manager{
