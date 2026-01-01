@@ -11,7 +11,7 @@
 							priority = 1;
 							name = "ESP";
 							start = "1M";
-							end = "128M";
+							end = "1024M";
 							type = "EF00";
 							content = {
 								type = "filesystem";
@@ -47,12 +47,12 @@
 										];
 										mountpoint = "/nix";
 									};
-									"@varlog" = {
+									"@var" = {
 										mountOptions = [
 											"compress=zstd"
 											"noatime"
 										];
-										mountpoint = "/var/log";
+										mountpoint = "/var";
 									};
 									"@tmp" = {
 										mountOptions = [
