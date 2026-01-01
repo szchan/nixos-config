@@ -23,7 +23,7 @@
     # nixos-private
     nixos-private = {
       url = "git+ssh://git@github.com/szchan/nixos-private.git";
-      inputs.nixpkgs.follows = "nixpkgs"
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # nixpak 模块
