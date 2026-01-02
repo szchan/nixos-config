@@ -33,12 +33,7 @@ echo "=== 2. 生成 hardware-configuration.nix ==="
 sudo nixos-generate-config --no-filesystems --root /mnt
 
 echo "=== 3. 复制整个配置到目标系统 ==="
-# 确保 /mnt/etc/nixos 存在并清空旧内容
-sudo rsync -a --delete \
-    --exclude='.git/' \
-    --exclude='install.sh' \
-    --exclude='*.bak' \
-    ./ /mnt/etc/nixos/
+sudo cp -r ./* /mnt/etc/nixos
 
 echo "=== 4. 执行 nixos-install ==="
 sudo nixos-install --flake "/mnt/etc/nixos#$HOSTNAME" --no-root-password
