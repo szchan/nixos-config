@@ -27,10 +27,10 @@
     # };
 
     # nixpak 模块
-    #nixpak = {
-    #  url = "github:nixpak/nixpak";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
+    nixpak = {
+      url = "github:nixpak/nixpak";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # nix-vscode-extensions
     nix-vscode-extensions = {
@@ -62,7 +62,7 @@
     # };
   };
 
-  outputs = inputs@{ self, nixpkgs, disko, home-manager, nix-vscode-extensions, nixvim, ... }: 
+  outputs = inputs@{ self, nixpkgs, disko, home-manager, nixpak, nix-vscode-extensions, nixvim, ... }: 
   let
     system = "x86_64-linux";
 
@@ -72,27 +72,27 @@
       config.allowUnfree = true;  # 全局允许unfree软件
       # 修改nix-vscode-extensions以允许安装unfree扩展
       overlays = [
-      # 先引入官方的 nix-vscode-extensions overlay，得到完整的 extensions
+      # 引入官方的 nix-vscode-extensions overlay，得到完整的 extensions
       nix-vscode-extensions.overlays.default
 
-      # 再强制把所有扩展的 license 改成 free（绕过 unfree 检查）
+      # 强制把所有扩展的 license 改成 free（绕过 unfree 检查）
       (final: prev: {
         vscode-extensions = prev.vscode-extensions // {
-          # 构造我们想要的.open-vsx结构
+          # 构造.open-vsx结构
           open-vsx = builtins.mapAttrs
             (_: ext: ext.overrideAttrs (old: {
               meta = (old.meta or {}) // { license = final.lib.licenses.free; };
             }))
             prev.vscode-extensions.open-vsx or { };
           
-          # 构造我们想要的.vscode-marketplace结构
+          # 构造.vscode-marketplace结构
           vscode-marketplace = builtins.mapAttrs
             (_: ext: ext.overrideAttrs (old: {
               meta = (old.meta or {}) // { license = final.lib.licenses.free; };
             }))
             prev.vscode-extensions.vscode-marketplace or { };
 
-          # 保留扁平的直接访问方式（以防万一）
+          # 保留扁平的直接访问方式
           inherit (prev) vscode-extensions;
         };
       })

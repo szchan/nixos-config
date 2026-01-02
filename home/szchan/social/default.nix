@@ -2,7 +2,7 @@
 
 {
   imports = [
-    #./wechat-uos-nixpak.nix
-    #./qq-nixpak.nix
+    ./wechat-uos-nixpak.nix
+    ./qq-nixpak.nix
   ];
 }
