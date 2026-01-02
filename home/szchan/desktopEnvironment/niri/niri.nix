@@ -13,6 +13,16 @@
   #   package = pkgs.niri-unstable;  # 如果想用 stable，改成 pkgs.niri-stable
 
   # };
+
+  # 显式启用dbus
+  services.dbus.enable = true;
+
+  # 启用portal（远程桌面支持）
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
+  };
+
   systemd.user.services.niri-flake-polkit = {
 		enable = false;  # 或直接 lib.mkForce false;
 	};
