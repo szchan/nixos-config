@@ -114,7 +114,7 @@
 
         # 导入 disko 模块
         disko.nixosModules.disko
-        ./disko/disko-config.nix
+        ./disko/disko.nix
 
         # inputs.nixos-private.nixosModules.default
         
