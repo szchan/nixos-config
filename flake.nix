@@ -27,10 +27,10 @@
     # };
 
     # nixpak 模块
-    nixpak = {
-      url = "github:nixpak/nixpak";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #nixpak = {
+    #  url = "github:nixpak/nixpak";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
 
     # nix-vscode-extensions
     nix-vscode-extensions = {
@@ -62,7 +62,7 @@
     # };
   };
 
-  outputs = inputs@{ self, nixpkgs, disko, home-manager, nixpak, nix-vscode-extensions, nixvim, ... }: 
+  outputs = inputs@{ self, nixpkgs, disko, home-manager, nix-vscode-extensions, nixvim, ... }: 
   let
     system = "x86_64-linux";
 
