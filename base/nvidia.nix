@@ -22,7 +22,7 @@
 
   hardware.nvidia = {
 
-    # Modesetting is required.
+    # Modesetting is required.解决wayland compositors的bug
     modesetting.enable = true;
 
     # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
@@ -42,9 +42,6 @@
     # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
     # Only available from driver 515.43.04+
     open = true;
-
-    # 解决wayland compositors的bug
-    modesetting.enable = true;
 
     # Enable the Nvidia settings menu,
 	# accessible via `nvidia-settings`.
