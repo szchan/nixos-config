@@ -27,7 +27,6 @@
       export PATH=$PATH:~/.local/bin/
       export EDITOR=nvim
 
-      # Proxy
       export http_proxy="http://127.0.0.1:7897"
       export HTTP_PROXY="http://127.0.0.1:7897"
       export https_proxy="http://127.0.0.1:7897"
