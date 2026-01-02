@@ -56,13 +56,13 @@
     };
 
     # niri-flake
-    niri-flake = {
+    niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, disko, home-manager, nixpak, nix-vscode-extensions, nixvim, dms, niri-flake, ... }: 
+  outputs = inputs@{ self, nixpkgs, disko, home-manager, nixpak, nix-vscode-extensions, nixvim, dms, niri, ... }: 
   let
     system = "x86_64-linux";
 

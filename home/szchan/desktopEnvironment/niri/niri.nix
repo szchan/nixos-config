@@ -3,7 +3,7 @@
 {
 
   imports = [
-    inputs.niri-flake.homeModules.niri
+    inputs.niri.homeModules.niri
     ../shell/dms.nix
   ];
 
@@ -11,7 +11,7 @@
   nixpkgs.overlays = [
     inputs.niri.overlays.niri
   ];
-  
+
   programs.niri = {
     enable = true;
 
