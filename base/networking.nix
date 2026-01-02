@@ -54,7 +54,7 @@
 
 
   # Proxy
-  # networking.proxy.default = "http://192.168.50.203:1082/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  networking.proxy.default = "http://127.0.0.1:7897/";
+  networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
   
 }
