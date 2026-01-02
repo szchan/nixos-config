@@ -1,10 +1,21 @@
 { config, lib, pkgs, ... }:
 {
 
+  boot.kernelParams = [
+    # NVIDA不再默认加载kernel mode setting,
+    # 显式开启它确保 Wayland compositors function properly.
+    "nvidia-drm.fbdev=1"
+  ];
+
   # Enable OpenGL
   hardware.graphics = {
     enable = true;
+    # 解决nvidia-container的bug
+    enable32Bit = true;
   };
+
+  # 开启NVIDIA容器支持
+  hardware.nvidia-container-toolkit.enable = true;
 
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"];
@@ -31,6 +42,9 @@
     # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
     # Only available from driver 515.43.04+
     open = true;
+
+    # 解决wayland compositors的bug
+    modesetting.enable = true;
 
     # Enable the Nvidia settings menu,
 	# accessible via `nvidia-settings`.
