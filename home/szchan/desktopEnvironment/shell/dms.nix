@@ -1,6 +1,11 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {   
+
+	imports = [
+		inputs.dms.homeModules.dankMaterialShell.default
+		inputs.dms.homeModules.dankMaterialShell.niri
+	];
 
 	programs.dankMaterialShell = {
 		enable = true;
@@ -25,9 +30,5 @@
 		default.session = {
 			# Session state defaults
 		};
-	};
-
-	systemd.user.services.niri-flake-polkit = {
-		enable = false;  # 或直接 lib.mkForce false;
 	};
 }

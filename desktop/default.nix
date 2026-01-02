@@ -4,7 +4,7 @@
   imports = [ 
     ./windowing.nix
     # ./gnome/gnome.nix
-    ./niri/niri.nix
+    # ./niri/niri.nix
     ./keymap.nix
     ./print.nix
     ./sound.nix

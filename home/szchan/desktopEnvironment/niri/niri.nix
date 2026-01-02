@@ -2,6 +2,10 @@
 
 {
 
+  imports = [
+    inputs.niri.homeModules.niri
+    ../shell/dms.nix
+  ];
   # programs.niri = {
   #   enable = true;
 
@@ -9,4 +13,8 @@
   #   package = pkgs.niri-unstable;  # 如果想用 stable，改成 pkgs.niri-stable
 
   # };
+  systemd.user.services.niri-flake-polkit = {
+		enable = false;  # 或直接 lib.mkForce false;
+	};
+
 }
