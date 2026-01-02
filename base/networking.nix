@@ -31,9 +31,9 @@
   # ];
 
   # Clash proxy service
-  # environment.systemPackages = [
-  #   pkgs.clash-verge-rev
-  # ];
+  environment.systemPackages = [
+    pkgs.clash-verge-rev
+  ];
   # Clash Verge configuration
   programs.clash-verge = {
     enable = true;
