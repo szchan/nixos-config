@@ -11,7 +11,7 @@ DISKO_CONFIG="./disko/disko-config.nix"
 # 目标磁盘（安装时会完全擦除！务必确认正确）
 # 如果是物理机，通常是 /dev/nvme0n1 或 /dev/sda
 # 如果是虚拟机测试，通常是 /dev/vda
-DISK="/dev/vda"  # <--- 请根据实际情况修改 !!!
+DISK="/dev/nvme0n1"  # <--- 请根据实际情况修改 !!!
 
 echo "警告：此脚本将完全擦除 $DISK 并安装 NixOS 到 $HOSTNAME"
 echo "磁盘: $DISK"
