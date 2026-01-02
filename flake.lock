@@ -151,7 +151,7 @@
         "type": "github"
       }
     },
-    "niri-flake": {
+    "niri": {
       "inputs": {
         "niri-stable": "niri-stable",
         "niri-unstable": "niri-unstable",
@@ -346,7 +346,7 @@
         "disko": "disko",
         "dms": "dms",
         "home-manager": "home-manager",
-        "niri-flake": "niri-flake",
+        "niri": "niri",
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixpak": "nixpak",
         "nixpkgs": "nixpkgs_2",
