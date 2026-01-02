@@ -6,7 +6,7 @@ set -euo pipefail  # 遇到错误立即退出，防止半途而废
 HOSTNAME="szchanNixOSStation"
 
 # disko 配置文件相对路径（相对于 repo 根目录）
-DISKO_CONFIG="./disko/disko.nix"
+DISKO_CONFIG="./disko/disko-config.nix"
 
 # 目标磁盘（安装时会完全擦除！务必确认正确）
 # 如果是物理机，通常是 /dev/nvme0n1 或 /dev/sda
