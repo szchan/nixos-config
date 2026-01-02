@@ -7,8 +7,8 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      # ./host/vm.nix
-      ./hardware-configuration.nix
+      ./host/vm.nix
+      # ./hardware-configuration.nix
       
       # Include base configuration
       ./base
