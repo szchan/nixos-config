@@ -6,6 +6,12 @@
     inputs.niri-flake.homeModules.niri
     ../shell/dms.nix
   ];
+
+  # 添加 overlay，让 pkgs 有 niri-unstable 等包
+  nixpkgs.overlays = [
+    inputs.niri.overlays.niri
+  ];
+  
   programs.niri = {
     enable = true;
 
