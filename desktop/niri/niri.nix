@@ -7,17 +7,18 @@
     
   # 一些基本工具（否则刚启动 Niri 时可能无法打开应用）
   environment.systemPackages = with pkgs; [
-    alacritty  # 终端
+    kitty  # 终端
     fuzzel     # 应用启动器（类似 rofi）
-    waybar     # 状态栏（可选）
+    quickshell     # 状态栏（可选）
     swayidle   # 闲置管理
     swaylock   # 锁屏
     xdg-desktop-portal-gnome  # 屏幕共享等 portal 支持
-    dms-shell
   ];
 
-  # 启用一些配套服务
+  # 显式启用dbus
   services.dbus.enable = true;
+
+  # 启用portal（远程桌面支持）
   xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gnome ];

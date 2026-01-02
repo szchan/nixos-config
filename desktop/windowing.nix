@@ -1,4 +1,7 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+
+{
+  # 显式配置使用Wayland
   services.xserver.enable = false;
     
   # 解决使用WM时 解决fcitx5无法启动
