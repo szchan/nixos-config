@@ -15,7 +15,7 @@
   # };
 
   # 显式启用dbus
-  services.dbus.enable = true;
+  # services.dbus.enable = true;
 
   # 启用portal（远程桌面支持）
   xdg.portal = {
