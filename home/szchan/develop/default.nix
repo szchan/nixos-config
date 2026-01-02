@@ -6,7 +6,7 @@
     ./hugo.nix
     ./zed-editor.nix
     ./vscode.nix
-    # ./bruno.nix
+    ./bruno.nix
     ./dbeaver.nix
     ./nixvim.nix
     
