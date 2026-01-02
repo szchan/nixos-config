@@ -16,9 +16,9 @@
     enable = true;
 
     # # 用 inputs.niri 的包（自动匹配 nixpkgs + follows，确保 Mesa 同步，避免黑屏）
-    package = inputs.niri.packages.${pkgs.system}.niri-unstable;  # 如果想用 stable，改成 pkgs.niri-stable
+    package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;  # 如果想用 stable，改成 pkgs.niri-stable
 
-    # 如果想用 stable 版：inputs.niri.packages.${pkgs.system}.niri-stable
+    # 如果想用 stable 版：inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-stable
 
   };
 
