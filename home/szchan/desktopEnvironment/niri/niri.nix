@@ -3,7 +3,7 @@
 {
 
   imports = [
-    inputs.niri.homeModules.niri
+    inputs.niri-flake.homeModules.niri
     ../shell/dms.nix
   ];
   # programs.niri = {
