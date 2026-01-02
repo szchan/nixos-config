@@ -3,6 +3,7 @@
 {
   imports = [ 
     ./windowing.nix
+    ./displaymanager.nix
     ./xdg-desktop-portal.nix
     # ./gnome/gnome.nix
     # ./niri/niri.nix
