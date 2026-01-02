@@ -8,7 +8,7 @@
   # networking.wireless.enable = true;
 
   # Tsinghua Mirror
-  nix.settings.substituters = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
+  # nix.settings.substituters = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
 
   # Avahi for local network service discovery
   services.avahi = {
