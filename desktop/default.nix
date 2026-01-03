@@ -4,7 +4,7 @@
   imports = [ 
     ./windowing.nix
     # ./displaymanager.nix
-    ./greetd
+    ./greetd.nix
     ./xdg-desktop-portal.nix
     # ./gnome/gnome.nix
     # ./niri/niri.nix
