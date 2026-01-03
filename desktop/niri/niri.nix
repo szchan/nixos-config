@@ -5,10 +5,10 @@
   programs.niri = {
     enable = true;
     useNautilus = true;
-  }
+  };
 
     
-  # 一些基本工具（否则刚启动 Niri 时可能无法打开应用）
+  # dms Niri 依赖
   environment.systemPackages = with pkgs; [
     adapta-gtk-theme
     kdePackages.qt6ct
@@ -20,8 +20,9 @@
     cliphist
     cava
     kitty  # 终端
-    quickshell     # 状态栏（可选）
+    quickshell     # 状态栏
     xdg-desktop-portal-gnome  # 屏幕共享等 portal 支持
+    xdg-desktop-portal-gtk
   ];
 
   # 显式启用dbus
