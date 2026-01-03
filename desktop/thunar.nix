@@ -20,10 +20,8 @@
 	programs.xfconf.enable = true;
 	programs.dconf.enable = true;
 
-	# 压缩包工具
-	programs.file-roller.enable = true;
-
 	environment.systemPackages = with pkgs; [
 		xdg-utils
+		file-roller
 	];
 }
