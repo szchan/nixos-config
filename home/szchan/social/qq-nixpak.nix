@@ -11,6 +11,9 @@ let
       # 使用 nixpkgs 官方 qq 包（稳定、已缓存）
       app.package = pkgs.qq;
       app.binPath = "bin/qq";  # 官方包的实际可执行路径
+      app.env = {
+        QQ_FIX_MAC = "1";  # 强制启用固定 MAC 模式
+      };
 
       # Flatpak-like ID，用于桌面集成
       flatpak.appId = "com.tencent.QQ";
@@ -43,6 +46,7 @@ let
           (sloth.concat' sloth.homeDir "/.local/share/QQ")     # QQ 主数据目录（首次运行后会创建）
           (sloth.concat' sloth.homeDir "/.config/QQ")          # 部分配置可能在这里
           (sloth.concat' sloth.xdgCacheHome "/QQ")
+          (sloth.concat' sloth.homeDir "/.config/tencent-qq")  # 部分配置可能在这里
           (sloth.env "XDG_RUNTIME_DIR")
           "/tmp"
         ];
