@@ -7,8 +7,12 @@
   # Enable Wi-Fi support.
   # networking.wireless.enable = true;
 
-  # Tsinghua Mirror
-  # nix.settings.substituters = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
+  # Nixpkgs Mirror
+  nix.settings.substituters = [
+    "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+    "https://mirrors.ustc.edu.cn/nix-channels/store"
+    "https://cache.nixos.org/"
+  ];
 
   # Avahi for local network service discovery
   services.avahi = {
