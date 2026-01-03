@@ -3,11 +3,11 @@
 {
   imports = [ 
     ./windowing.nix
-    # ./displaymanager.nix
-    ./greetd.nix
+    ./displaymanager.nix
+    # ./greetd.nix
     ./xdg-desktop-portal.nix
     # ./gnome/gnome.nix
-    # ./niri/niri.nix
+    ./niri/niri.nix
     ./keymap.nix
     ./print.nix
     ./sound.nix
