@@ -14,17 +14,17 @@
     xwayland-satellite
     adapta-gtk-theme
     kdePackages.qt6ct
-    dgop
-    dsearch
-    matugen
-    i2c-tools
-    wl-clipboard
-    cliphist
-    cava
+    # dgop
+    # dsearch
+    # matugen
+    # i2c-tools
+    # wl-clipboard
+    # cliphist
+    # cava
     kitty  # 终端
-    quickshell     # 状态栏
-    xdg-desktop-portal-gnome  # 屏幕共享等 portal 支持
-    xdg-desktop-portal-gtk
+    # quickshell     # 状态栏
+    # xdg-desktop-portal-gnome  # 屏幕共享等 portal 支持
+    # xdg-desktop-portal-gtk
   ];
 
   # 显式启用dbus
