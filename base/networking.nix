@@ -25,7 +25,7 @@
   services.openssh.enable = true;
 
   # Firewall
-  networking.firewall.enable = true;
+  networking.firewall.enable = false;
   # networking.firewall.allowedTCPPorts = [ 
   #   22 
   # ];
@@ -34,27 +34,26 @@
   # ];
 
   # Clash proxy service
-  environment.systemPackages = [
-    pkgs.clash-verge-rev
-  ];
-  # Clash Verge configuration
-  programs.clash-verge = {
-    enable = true;
-    autoStart = true;
-    serviceMode = true;
-    tunMode = true;
-  };
-
-  # services.mihomo = {
+  # environment.systemPackages = [
+  #   pkgs.clash-verge-rev
+  # ];
+  # # Clash Verge configuration
+  # programs.clash-verge = {
   #   enable = true;
+  #   autoStart = true;
+  #   serviceMode = true;
   #   tunMode = true;
-  #   webui = "/home/szchan/Projects/clash/metacubex";
-  #   configFile = "/home/szchan/Projects/clash/clash-verge.yaml";
   # };
+
+  services.mihomo = {
+    enable = true;
+    tunMode = true;
+    configFile = "/home/szchan/Projects/mihomo-config/config-p.yaml";
+  };
 
 
   # Proxy
-  networking.proxy.default = "http://127.0.0.1:7897/";
-  networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  # networking.proxy.default = "http://127.0.0.1:7897/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
   
 }

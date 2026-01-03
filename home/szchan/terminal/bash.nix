@@ -6,14 +6,6 @@
     enableCompletion = true;
     # TODO 在这里添加你的自定义 bashrc 内容
     bashrcExtra = ''
-      
-      # Proxy
-      export http_proxy="http://127.0.0.1:7897"
-      export HTTP_PROXY="http://127.0.0.1:7897"
-      export https_proxy="http://127.0.0.1:7897"
-      export HTTPS_PROXY="http://127.0.0.1:7897"
-      export all_proxy="http://127.0.0.1:7897"
-      export ALL_PROXY="http://127.0.0.1:7897"
 
     '';
 
