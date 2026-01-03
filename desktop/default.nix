@@ -11,6 +11,8 @@
     ./localsend.nix
 
     # ./gnome/gnome.nix
-    ./niri/niri.nix
+
+    # Dank Marterial Shell - Niri
+    ./dms-niri
   ];
 }

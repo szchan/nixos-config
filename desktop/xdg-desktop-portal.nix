@@ -4,7 +4,10 @@
   # 启用portal（远程桌面支持）
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gnome
+      pkgs.xdg-desktop-portal-gtk
+    ];
     config = {
       # 文件选择器支持
       common = {
