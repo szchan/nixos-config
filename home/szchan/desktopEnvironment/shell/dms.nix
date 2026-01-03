@@ -4,7 +4,7 @@
 
 	imports = [
 		inputs.dms.homeModules.dankMaterialShell.default
-		inputs.dms.homeModules.dankMaterialShell.niri
+		# inputs.dms.homeModules.dankMaterialShell.niri
 	];
 
 	programs.dankMaterialShell = {
