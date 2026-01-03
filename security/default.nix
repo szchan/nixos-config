@@ -4,5 +4,6 @@
     ./ssh.nix
     ./age.nix
     ./sops.nix
+    ./polkit.nix
   ];
 }
