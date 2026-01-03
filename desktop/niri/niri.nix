@@ -16,7 +16,7 @@
   ];
 
   # 显式启用dbus
-  services.dbus.enable = true;
+  # services.dbus.enable = true;
 
   # 启用portal（远程桌面支持）
   xdg.portal = {
@@ -24,35 +24,41 @@
     extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
   };
 
-  # display manager
-  # services.displayManager.dms-greeter = {
-  #   enable = true;
-  #   # package = pkgs.dms-greeter;
-  #   quickshell.package = pkgs.quickshell;
-  #   logs = {
-  #     save = true;
-  #     path = "/var/log/dms-greeter.log";
-  #   };
-  #   compositor.name = "niri";
+  # Greeter
+  services.displayManager.dms-greeter = {
+    enable = true;
+    # package = pkgs.dms-greeter;
+    quickshell.package = pkgs.quickshell;
+    logs = {
+      save = true;
+      path = "/var/log/dms-greeter.log";
+    };
+    compositor.name = "niri";
 
-  # };
+    configHome = "/home/szchan";
+    configFiles = [
+      "/home/szchan/.config/DankMaterialShell/settings.json"
+      "/home/szchan/.local/state/DankMaterialShell/session.json"
+    ];
+
+  };
 
   # Desktop Shell
-  # programs.dms-shell = {
-  #   enable = true;
-  #   package = pkgs.dms-shell;
-  #   systemd = {
-  #     # enable = true;
-  #     target = "graphical-session.target";
-  #     restartIfChanged = true;
-  #   };
-  #   quickshell.package = pkgs.quickshell;
-  #   enableVPN = true;
-  #   enableSystemMonitoring = true;
-  #   enableDynamicTheming = true;
-  #   enableClipboard = true;
-  #   enableCalendarEvents = true;
-  #   enableAudioWavelength = true;
-  # };
+  programs.dms-shell = {
+    enable = true;
+    package = pkgs.dms-shell;
+    systemd = {
+      # enable = true;
+      target = "graphical-session.target";
+      restartIfChanged = true;
+    };
+    quickshell.package = pkgs.quickshell;
+    enableVPN = true;
+    enableSystemMonitoring = true;
+    enableDynamicTheming = true;
+    enableClipboard = true;
+    enableCalendarEvents = true;
+    enableAudioWavelength = true;
+  };
 
 }
