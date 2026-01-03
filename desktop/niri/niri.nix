@@ -10,6 +10,8 @@
     
   # dms Niri 依赖
   environment.systemPackages = with pkgs; [
+    accountsservice
+    xwayland-satellite
     adapta-gtk-theme
     kdePackages.qt6ct
     dgop
