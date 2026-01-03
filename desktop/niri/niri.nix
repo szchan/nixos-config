@@ -21,6 +21,7 @@
   environment.systemPackages = with pkgs; [
     accountsservice
     xwayland-satellite
+    niriswitcher
     adapta-gtk-theme
     kdePackages.qt6ct
     # dgop
