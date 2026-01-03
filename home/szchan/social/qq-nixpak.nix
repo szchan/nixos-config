@@ -52,7 +52,7 @@ let
 
         sockets = {
           wayland = true;
-          x11 = true;
+          x11 = false;
           pipewire = true;  # 语音/视频通话音频支持
         };
       };
