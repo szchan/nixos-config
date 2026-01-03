@@ -20,6 +20,8 @@ let
         "org.freedesktop.portal.*" = "talk";       # 文件选择、截屏等
         "org.freedesktop.Notifications" = "talk";
         "ca.desrt.dconf" = "talk";                 # 设置存储
+        "org.kde.StatusNotifierWatcher" = "talk";     # 注册系统托盘项
+        "org.freedesktop.StatusNotifierHost" = "own"; # 作为 Host 发通知
       };
 
       etc.sslCertificates.enable = true;           # 网络 HTTPS
