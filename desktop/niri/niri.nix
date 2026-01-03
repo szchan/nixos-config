@@ -2,7 +2,10 @@
 
 {
   # 启用 Niri
-  programs.niri.enable = true;
+  programs.niri = {
+    enable = true;
+    useNautilus = true;
+  }
 
     
   # 一些基本工具（否则刚启动 Niri 时可能无法打开应用）
@@ -27,7 +30,10 @@
   # 启用portal（远程桌面支持）
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gnome
+      pkgs.xdg-desktop-portal-gtk
+    ];
   };
 
   # Greeter
