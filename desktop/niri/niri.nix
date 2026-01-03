@@ -1,6 +1,15 @@
 { config, pkgs, ... }:
 
 {
+
+  imports = [
+    # 使用gnome-polkit提供权限
+    ../polkit-gnome.nix
+    ../displaymanager.nix
+    ../xdg-desktop-portal.nix
+    ../thunar.nix
+  ];
+
   # 启用 Niri
   programs.niri = {
     enable = true;
