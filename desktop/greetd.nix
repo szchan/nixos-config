@@ -21,3 +21,4 @@ in
       # (e.g., tuigreet or gtkgreet).
     };
   };
+}
