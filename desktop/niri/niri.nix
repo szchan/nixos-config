@@ -93,10 +93,4 @@
       target = "graphical-session.target";
     };
   };
-
-  # Auto Theming Required
-  services.gvfs.enable = true;
-  programs.xfconf.enable = true;
-  programs.dconf.enable = true;
-
 }
