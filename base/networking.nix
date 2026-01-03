@@ -49,6 +49,7 @@
     enable = true;
     tunMode = true;
     configFile = "/home/szchan/Projects/mihomo-config/config-p.yaml";
+    webui = pkgs.metacubexd;
   };
 
 
