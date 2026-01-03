@@ -51,7 +51,7 @@ let
 
         sockets = {
           wayland = true;
-          x11 = true;
+          x11 = false;
           pipewire = true;
         };
       };
