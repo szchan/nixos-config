@@ -28,11 +28,11 @@
   services.displayManager.dms-greeter = {
     enable = true;
     # package = pkgs.dms-greeter;
-    quickshell.package = pkgs.quickshell;
-    logs = {
-      save = true;
-      path = "/var/log/dms-greeter.log";
-    };
+    # quickshell.package = pkgs.quickshell;
+    # logs = {
+    #   save = true;
+    #   path = "/var/log/dms-greeter.log";
+    # };
     compositor.name = "niri";
 
     configHome = "/home/szchan";
