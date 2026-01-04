@@ -40,17 +40,6 @@ input {
     variable-refresh-rate
 }
 
-output "HDMI-A-4" {
-  mode  "1920x1080@60.000"
-  position  x=0 y=0
-}
-
-output "DP-4" {
-  mode  "2560x1440@74.971"
-  position  x=1920 y=0
-  scale 1.25
-}
-
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
@@ -246,3 +235,6 @@ include "startup.kdl"
 
 // Include custom keybinding
 include "keybinding.kdl"
+
+// Include custom outputs
+include "output.kdl"
