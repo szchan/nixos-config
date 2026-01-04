@@ -9,4 +9,6 @@
       name = "Bibata-Modern-Ice";
     };
   };
+
+  home.packages = [ pkgs.bibata-cursors ];
 }

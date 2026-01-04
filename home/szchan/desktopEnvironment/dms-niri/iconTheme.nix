@@ -9,4 +9,6 @@
       name = "Papirus-Dark";  # 包内的主题名称（Papirus 有 Papirus、Papirus-Dark 等变体）
     };
   };
+
+  home.packages = [ pkgs.papirus-icon-theme ];
 }
