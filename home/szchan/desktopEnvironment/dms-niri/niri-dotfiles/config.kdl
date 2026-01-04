@@ -240,3 +240,6 @@ include "dms/binds.kdl"
 
 // Include env files
 include "env.kdl"
+
+//Include startup files
+include "startup.kdl"
