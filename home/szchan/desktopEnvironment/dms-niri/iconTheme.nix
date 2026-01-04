@@ -13,16 +13,16 @@
   qt = {
     qt6ctSettings = {
       Appearance = {
-        # style = "kvantum";
+        style = "kvantum";
         icon_theme = "Papirus-Dark";
-        # standar_dialogs = "xdgdesktopportal";
+        standar_dialogs = "xdgdesktopportal";
       };
     };
     qt5ctSettings = {
       Appearance = {
-        # style = "kvantum";
+        style = "kvantum";
         icon_theme = "Papirus-Dark";
-        # standar_dialogs = "xdgdesktopportal";
+        standar_dialogs = "xdgdesktopportal";
       };
     };
   };
