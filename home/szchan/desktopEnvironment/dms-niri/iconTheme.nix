@@ -10,12 +10,21 @@
     };
   };
 
-  qt.qt6ctSettings = {
-    Appearance = {
-      icon_theme = "Papirus-Dark";
-      # standar_dialogs = "xdgdesktopportal";
+  qt = {
+    qt6ctSettings = {
+      Appearance = {
+        # style = "kvantum";
+        icon_theme = "Papirus-Dark";
+        # standar_dialogs = "xdgdesktopportal";
+      };
+    };
+    qt5ctSettings = {
+      Appearance = {
+        # style = "kvantum";
+        icon_theme = "Papirus-Dark";
+        # standar_dialogs = "xdgdesktopportal";
+      };
     };
   };
-
   home.packages = [ pkgs.papirus-icon-theme ];
 }
