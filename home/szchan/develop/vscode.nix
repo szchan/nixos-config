@@ -48,9 +48,9 @@
         rust-lang.rust-analyzer
 
         # GitHub Integration
-        github.vscode-pull-request-github
+        # github.vscode-pull-request-github
         github.vscode-github-actions
-        github.copilot-chat  # Copilot Chat
+        # github.copilot-chat  # Copilot Chat
 
         # LLM Dev Tools
 
