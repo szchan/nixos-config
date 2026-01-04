@@ -3,6 +3,7 @@
 {
   imports = [
     ../polkit-gnome.nix
+    ../gnome-keyring.nix
     ../xdg-desktop-portal.nix
     ../thunar.nix
     ./niri
