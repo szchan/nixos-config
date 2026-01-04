@@ -12,7 +12,7 @@
         vscodevim.vim
 
         # Cline AI
-        saoudrizwan.claude-dev
+        # saoudrizwan.claude-dev
 
         # Theming and appearance
         catppuccin.catppuccin-vsc
