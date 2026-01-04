@@ -5,7 +5,8 @@
     ../polkit-gnome.nix
     ../gnome-keyring.nix
     ../xdg-desktop-portal.nix
-    ../thunar.nix
+    # ../thunar.nix
+    ../nautilus.nix
     ./niri
     ./dms
   ];
