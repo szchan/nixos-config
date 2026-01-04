@@ -26,4 +26,6 @@
     # cava
     kitty  # 终端
   ];
+
+  qt.platformTheme = "qt6ct";
 }
