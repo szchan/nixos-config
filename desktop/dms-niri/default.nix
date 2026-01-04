@@ -15,7 +15,7 @@
     accountsservice
     xwayland-satellite
     niriswitcher
-    adapta-gtk-theme
+    adw-gtk3
     kdePackages.qt6ct
     # dgop
     # dsearch

@@ -27,5 +27,8 @@
       };
     };
   };
-  home.packages = [ pkgs.papirus-icon-theme ];
+  home.packages = with pkgs; [
+    papirus-icon-theme
+    kdePackages.qt6ct
+  ];
 }
