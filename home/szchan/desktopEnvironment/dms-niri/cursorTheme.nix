@@ -6,7 +6,7 @@
 
     cursorTheme = {
       package = pkgs.bibata-cursors;
-      name = "Bibata-Cursors";
+      name = "Bibata-Modern-Ice";
     };
   };
 }
