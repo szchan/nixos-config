@@ -4,7 +4,7 @@
   boot.kernelParams = [
     # NVIDA不再默认加载kernel mode setting,
     # 显式开启它确保 Wayland compositors function properly.
-    "nvidia-drm.fbdev=1"
+    # "nvidia-drm.fbdev=1"
   ];
 
   # Enable OpenGL
@@ -52,11 +52,11 @@
   };
 
   # 强制Electron使用Wayland和显式声明使用NVIDIA GPU，解决部分Electron应用画面撕裂问题
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-    LIBVA_DRIVER_NAME = "nvidia";
-    GBM_BACKEND = "nvidia-drm";
-    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    WLR_NO_HARDWARE_CURSORS = "1";
-  };
+  # environment.sessionVariables = {
+  #   NIXOS_OZONE_WL = "1";
+  #   LIBVA_DRIVER_NAME = "nvidia";
+  #   GBM_BACKEND = "nvidia-drm";
+  #   __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+  #   WLR_NO_HARDWARE_CURSORS = "1";
+  # };
 }
