@@ -1,8 +1,9 @@
 binds {
+    
     // 截图
-    Mod+S { screenshot; }
-    Mod+Shift+S { screenshot-window; }
-    Mod+Ctrl+S { screenshot-screen; }
+    Mod+S hotkey-overlay-title="ScreenShot" { screenshot; }
+    Mod+Shift+S hotkey-overlay-title="ScreenShot by Window" { screenshot-window; }
+    Mod+Ctrl+S hotkey-overlay-title="ScreenShot by Screen" { screenshot-screen; }
 
     // 取色
     Mod+C hotkey-overlay-title="Color Picker in hex" { spawn "dms" "color" "pick" "-a"; }
