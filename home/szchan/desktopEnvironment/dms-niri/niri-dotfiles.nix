@@ -13,7 +13,7 @@
     "niri/startup.kdl".source = ./niri-dotfiles/startup.kdl;
 
     # 管理快捷键配置
-    "niri/keybinding.kdl".source = ./niri-dotfiles/keybinding.kdl
+    "niri/keybinding.kdl".source = ./niri-dotfiles/keybinding.kdl;
 
     # "niri" = {
     #   recursive = true;
