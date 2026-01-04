@@ -20,5 +20,11 @@ binds {
 
     // 知识管理
     Mod+Ctrl+N hotkey-overlay-title="Open Logseq" { spawn "logseq"; }
+
+    // IDE
+    Mod+Alt+C hotkey-overlay-title="Open VSCodium" { spawn "codium"; }
+
+    // 系统管理
+    Mod+Alt+U hotkey-overlay-title="Edit Nixos Configuration" { spawn "codium" "/etc/nixos"; }
     
 }
