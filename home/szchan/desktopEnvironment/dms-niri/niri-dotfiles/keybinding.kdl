@@ -25,6 +25,6 @@ binds {
     Mod+Alt+C hotkey-overlay-title="Open VSCodium" { spawn "codium"; }
 
     // 系统管理
-    Mod+Alt+U hotkey-overlay-title="Edit Nixos Configuration" { spawn "codium" "/etc/nixos"; }
+    Mod+Alt+U hotkey-overlay-title="Edit Nixos Configuration" { spawn "codium" "/home/szchan/Projects/nixos-config"; }
     
 }
