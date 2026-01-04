@@ -1,1 +1,5 @@
+// 剪贴板历史
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
+
+// 1Password
+spawn-at-startup "1password" "--silent"

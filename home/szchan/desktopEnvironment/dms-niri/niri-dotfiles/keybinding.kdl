@@ -1,10 +1,24 @@
 binds {
-    //截图
+    // 截图
     Mod+S { screenshot; }
     Mod+Shift+S { screenshot-window; }
     Mod+Ctrl+S { screenshot-screen; }
 
-    //取色
-    Mod+P { spawn "dms" "color" "pick" "-a"; }
-    Mod+Ctrl+P { spawn "dms" "color" "pick" "--rgb" "-a"; }
+    // 取色
+    Mod+C hotkey-overlay-title="Color Picker in hex" { spawn "dms" "color" "pick" "-a"; }
+    Mod+Ctrl+C hotkey-overlay-title="Color Picker in rgb" { spawn "dms" "color" "pick" "--rgb" "-a"; }
+
+    // 浏览器
+    Mod+B hotkey-overlay-title="Open Browser" { spawn "vivaldi"; }
+
+    // 文件管理器
+    Mod+E hotkey-overlay-title="Open File Manager" { spawn "nautilus" "--new-window"; }
+
+    // 密码管理器
+    Mod+P hotkey-overlay-title="Show 1Password Manager" { spawn "1password" "--toggle"; }
+    Mod+Ctrl+P hotkey-overlay-title="Open 1Password Quick Access" { spawn "1password" "--quick-access"; }
+
+    // 知识管理
+    Mod+Ctrl+N hotkey-overlay-title="Open Logseq" { spawn "logseq"; }
+    
 }
