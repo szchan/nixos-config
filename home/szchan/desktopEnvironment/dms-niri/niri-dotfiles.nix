@@ -15,6 +15,9 @@
     # 管理快捷键配置
     "niri/keybinding.kdl".source = ./niri-dotfiles/keybinding.kdl;
 
+    # 管理输出配置
+    "niri/output.kdl".source = ./niri-dotfiles/output.kdl;
+
     # "niri" = {
     #   recursive = true;
     #   source = ./niri-dotfiles;
