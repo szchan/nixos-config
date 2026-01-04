@@ -18,6 +18,9 @@
     # 管理输出配置
     "niri/output.kdl".source = ./niri-dotfiles/output.kdl;
 
+    # 管理输入配置
+    "niri/input.kdl".source = ./niri-dotfiles/input.kdl;
+
     # "niri" = {
     #   recursive = true;
     #   source = ./niri-dotfiles;

@@ -238,3 +238,6 @@ include "keybinding.kdl"
 
 // Include custom outputs
 include "output.kdl"
+
+// Include custom inputs
+include "input.kdl"
