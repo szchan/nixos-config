@@ -10,5 +10,12 @@
     };
   };
 
+  qt.qt6ctSettings = {
+    Appearance = {
+      icon_theme = "Papirus-Dark";
+      # standar_dialogs = "xdgdesktopportal";
+    };
+  };
+
   home.packages = [ pkgs.papirus-icon-theme ];
 }
