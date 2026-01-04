@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ../seatd.nix
     ../polkit-gnome.nix
     ../gnome-keyring.nix
     ../xdg-desktop-portal.nix
