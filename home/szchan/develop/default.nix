@@ -8,7 +8,7 @@
     ./vscode.nix
     # ./bruno.nix
     ./dbeaver.nix
-    ./filezilla
+    ./filezilla.nix
     ./nixvim.nix
     
     ./environment
