@@ -1,3 +1,10 @@
 binds {
-    Mod+Shift+S { screenshot; }
+    //截图
+    Mod+S { screenshot; }
+    Mod+Shift+S { screenshot-window; }
+    Mod+Ctrl+S { screenshot-screen; }
+
+    //取色
+    Mod+P { spawn "dms" "color" "pick" "-a"; }
+    Mod+Ctrl+P { spawn "dms" "color" "pick" "--rgb" "-a"; }
 }
