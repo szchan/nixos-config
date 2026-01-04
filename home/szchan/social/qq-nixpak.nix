@@ -45,6 +45,7 @@ let
         bind.rw = [
           (sloth.concat' sloth.homeDir "/.local/share/QQ")     # QQ 主数据目录（首次运行后会创建）
           (sloth.concat' sloth.homeDir "/.config/QQ")          # 部分配置可能在这里
+          (sloth.concat' sloth.homeDir "/.local/state/QQ")     # xdg新标准的位置，以防万一
           (sloth.concat' sloth.xdgCacheHome "/QQ")
           (sloth.concat' sloth.homeDir "/.config/tencent-qq")  # 部分配置可能在这里
           (sloth.env "XDG_RUNTIME_DIR")
