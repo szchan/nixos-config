@@ -1,0 +1,3 @@
+binds {
+    Mod+Shift+S { screenshot; }
+}
