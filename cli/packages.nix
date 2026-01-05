@@ -11,6 +11,7 @@
     htop
     btop
     btop-cuda
+    nvtopPackages.nvidia
     fastfetch
     git
     tree
