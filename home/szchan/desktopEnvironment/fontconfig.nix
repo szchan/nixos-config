@@ -39,7 +39,15 @@
         emoji = [
           "Noto Color Emoji"
         ];
-        
+
+      };
+    
+      configFile = {
+        nix = {
+          enable = true;
+          priority = 100;
+          source = "./fontconfig-dotfiles/100-nix.conf";
+        };
       };
     };
   };
