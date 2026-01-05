@@ -53,8 +53,8 @@
             <!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
             <fontconfig>
               <!-- NIX_PROFILE is the path to your Nix profile. See Nix Reference Manual for details. -->
-              <dir>NIX_PROFILE/lib/X11/fonts</dir>
-              <dir>NIX_PROFILE/share/fonts</dir>
+              <dir prefix="cwd">NIX_PROFILE/lib/X11/fonts</dir>
+              <dir prefix="cwd">NIX_PROFILE/share/fonts</dir>
             </fontconfig>
           '';
         };
