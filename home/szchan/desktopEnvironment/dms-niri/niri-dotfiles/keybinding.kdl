@@ -27,5 +27,8 @@ binds {
 
     // 系统管理
     Mod+Alt+U hotkey-overlay-title="Edit Nixos Configuration" { spawn "codium" "/home/szchan/Projects/nixos-config"; }
+
+    // 音乐
+    Mod+Alt+M hotkey-overlay-title="Open MusicFox" {spawn "musicfox"; }
     
 }
