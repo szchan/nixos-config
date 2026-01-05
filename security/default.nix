@@ -5,5 +5,6 @@
     ./age.nix
     ./sops.nix
     ./polkit.nix
+    ./trustedCache.nix
   ];
 }
