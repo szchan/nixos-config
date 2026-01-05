@@ -10,6 +10,7 @@
     tmux
     htop
     btop
+    btop-cuda
     fastfetch
     git
     tree
