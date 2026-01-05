@@ -10,6 +10,7 @@
     ./dbeaver.nix
     ./filezilla.nix
     ./nixvim.nix
+    ./btop.nix
     
     ./environment
 

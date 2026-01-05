@@ -5,10 +5,10 @@
     enable = true;
     settings = {
       color_theme = "catppuccin_mocha";
-      theme_background = true;
+      theme_background = false;
     };
     themes = {
-      catppuccin_mocha = "
+      catppuccin_mocha = ''
         # Main background, empty for terminal default, need to be empty if you want transparent background
         theme[main_bg]="#1e1e2e"
 
@@ -92,7 +92,7 @@
         theme[process_start]="#74c7ec"
         theme[process_mid]="#b4befe"
         theme[process_end]="#cba6f7"
-      ";
+      '';
     };
   };
 }
