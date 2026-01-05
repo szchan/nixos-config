@@ -43,6 +43,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Zed-editor
+    zed = {
+      url = "github:zed-industries/zed";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # rime-ice
     # rime-ice = {
     #   url = "github:iDvel/rime-ice/nightly";
@@ -62,7 +68,7 @@
     # };
   };
 
-  outputs = inputs@{ self, nixpkgs, disko, home-manager, nixpak, nix-vscode-extensions, nixvim, ... }: 
+  outputs = inputs@{ self, nixpkgs, disko, home-manager, nixpak, nix-vscode-extensions, nixvim, zed, ... }: 
   let
     system = "x86_64-linux";
 
