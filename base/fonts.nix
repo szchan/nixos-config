@@ -3,7 +3,7 @@
   # all fonts are linked to /nix/var/nix/profiles/system/sw/share/X11/fonts
   fonts = {
     # use fonts specified by user rather than default ones
-    enableDefaultPackages = false;
+    enableDefaultPackages = true;
     fontDir.enable = true;
 
     # fonts are defined in /modules/base/fonts.nix, used by both NixOS & Darwin.
