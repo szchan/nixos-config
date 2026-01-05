@@ -23,5 +23,9 @@
       dynamic_background_opacity = true;
       confirm_os_window_close = 0;
     };
+    extraConfig = "
+      include dank-theme.conf
+      include dank-tabs.conf
+    ";
   };
 }
