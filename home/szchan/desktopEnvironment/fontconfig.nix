@@ -2,9 +2,10 @@
 
 
 {
-  fontconfig = {
-      # User defined default fonts
-      # https://catcat.cc/post/2021-03-07/
+  fonts = {
+
+    fontconfig = {
+
       defaultFonts = {
 
         serif = [
@@ -35,15 +36,10 @@
           "JetBrainsMono Nerd Font"
         ];
 
-        emoji = [ "Noto Color Emoji" ];
-      };
-
-      antialias = true; # 抗锯齿
-
-      hinting.enable = false; # 禁止字体微调 - 高分辨率下没这必要
-
-      subpixel = {
-        rgba = "rgb"; # IPS 屏幕使用 rgb 排列
+        emoji = [
+          "Noto Color Emoji"
+        ];
+        
       };
     };
   };
