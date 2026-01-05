@@ -12,6 +12,7 @@
     btop
     btop-cuda
     nvtopPackages.nvidia
+    usbtop
     fastfetch
     git
     tree
