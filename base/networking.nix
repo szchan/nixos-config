@@ -16,6 +16,7 @@
       domain = true;
       userServices = true;
     };
+    openFirewall = true;
   };
 
   # Openssh server for remote access
