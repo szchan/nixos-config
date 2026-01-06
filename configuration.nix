@@ -27,8 +27,6 @@
       # Include virtualisation configuration
       ./virtualisation
     ];
-  
-  hardware.graphics.enable = true;
 
   # enable Flakes support
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
