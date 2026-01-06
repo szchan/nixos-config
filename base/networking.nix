@@ -19,9 +19,6 @@
     openFirewall = true;
   };
 
-  # Openssh server for remote access
-  services.openssh.enable = true;
-
   # Firewall
   networking.firewall.enable = false;
   # networking.firewall.allowedTCPPorts = [ 
