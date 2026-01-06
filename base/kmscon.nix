@@ -2,7 +2,9 @@
 
 {
   # Window managers无法从KMSCON启动
-  # 从命令行启动 Xorg 或 Wayland 会话，比如 startx 或 sway，会失败。
+  # 从命令行启动 Xorg 或 Wayland 会话，比如 startx sway niri，会失败。
+  # 如果有相关需求，不要开启这个功能
+
   # https://wiki.archlinux.org/title/KMSCON
   services.kmscon = {
     # Use kmscon as the virtual console instead of gettys.
