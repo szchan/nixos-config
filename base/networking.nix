@@ -19,15 +19,6 @@
     openFirewall = true;
   };
 
-  # Firewall
-  networking.firewall.enable = false;
-  # networking.firewall.allowedTCPPorts = [ 
-  #   22 
-  # ];
-  # networking.firewall.allowedUDPPorts = [ 
-  #   22
-  # ];
-
   # Clash proxy service
   # environment.systemPackages = [
   #   pkgs.clash-verge-rev

@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./firewall.nix
     ./suid.nix
     ./ssh.nix
     ./age.nix
