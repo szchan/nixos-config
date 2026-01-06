@@ -12,6 +12,11 @@
     settings.general.inhibit_screensaver = 0;
   };
 
+  programs.gamescope = {
+    enable = true;
+    capSysNice = true;
+  };
+
   # Steam
   programs.steam = {
     enable = true;
