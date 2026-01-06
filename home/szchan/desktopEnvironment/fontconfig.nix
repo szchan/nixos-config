@@ -39,6 +39,10 @@
     edukai
     eduli
     cns11643-kai
+
+    # Twitter打造的emoji字体
+    twitter-color-emoji
+    twemoji-color-font
     
     # 覆盖低分辨率和pixel字体,保证最大兼容性
     liberation_ttf
@@ -83,7 +87,7 @@
         ];
 
         emoji = [
-          "Noto Color Emoji"
+          "Twitter Color Emoji"
         ];
 
       };
