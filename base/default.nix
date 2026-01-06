@@ -8,6 +8,7 @@
     ./networking.nix
     ./nvidia.nix
     ./bluetooth.nix
+    # ./kmscon.nix
     ./i18n.nix
     ./fonts.nix
     ./nix-ld.nix
