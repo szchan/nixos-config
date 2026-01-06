@@ -1,5 +1,50 @@
 { pkgs, ... }:
 {
+  environment.systemPackages = with pkgs; [
+    # 谷歌Noto Unicode码全覆盖
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-color-emoji
+
+    # 微软用于web的TrueType字体
+    corefonts
+
+    # 为开发者打造的字体
+    fira-code
+    fira-code-symbols
+    maple-mono.NF-CN
+    nerd-fonts.jetbrains-mono
+    
+    # 中文字体
+    source-han-mono
+    source-han-sans
+    source-han-sans-vf-otf
+    source-han-sans-vf-ttf
+    source-han-serif
+    source-han-serif-vf-otf
+    source-han-serif-vf-ttf
+    lxgw-wenkai-screen
+    lxgw-wenkai
+    lxgw-neoxihei
+    lxgw-fusionkai
+    lxgw-wenkai-tc
+    wqy_microhei
+    wqy_zenhei
+    arphic-ukai
+    arphic-uming
+    ark-pixel-font
+    edusong
+    edukai
+    eduli
+    cns11643-kai
+    
+    # 覆盖低分辨率和pixel字体,保证最大兼容性
+    liberation_ttf
+    mplus-outline-fonts.githubRelease
+    # dina-font
+    proggyfonts
+    dejavu_fonts
+  ];
   # all fonts are linked to /nix/var/nix/profiles/system/sw/share/X11/fonts
   fonts = {
     # use fonts specified by user rather than default ones
