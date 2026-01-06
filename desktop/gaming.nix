@@ -12,6 +12,7 @@
     settings.general.inhibit_screensaver = 0;
   };
 
+  # Gamescope
   programs.gamescope = {
     enable = true;
     capSysNice = true;
@@ -32,4 +33,14 @@
     ];
     protontricks.enable = true;
   };
+
+  # https://wiki.nixos.org/wiki/Heroic_Games_Launcher
+  # Heroic Game Launcher
+  environment.systemPackages = with pkgs; [
+    (heroic.override {
+      extraPkgs = pkgs: [
+        pkgs.gamescope
+      ];
+    })
+  ];
 }
