@@ -34,5 +34,10 @@
     ethtool
     pciutils # lspci
     usbutils # lsusb
+    mesa-demos
+    vulkan-tools
+    clinfo
+    libva-utils
+    vdpauinfo
   ];
 }
