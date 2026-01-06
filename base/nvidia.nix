@@ -14,9 +14,6 @@
     enable32Bit = true;
   };
 
-  # 开启NVIDIA容器支持
-  hardware.nvidia-container-toolkit.enable = true;
-
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"];
 
