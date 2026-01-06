@@ -1,7 +1,7 @@
 {config, pkgs, ...}:
 
 {
-  environment.systemPackages = [
-    pkgs.age
+  environment.systemPackages = with pkgs; [
+    age
   ];
 }

@@ -1,7 +1,7 @@
 {config, pkgs, ...}:
 
 {
-  environment.systemPackages = [
-    pkgs.sops
+  environment.systemPackages = with pkgs; [
+    sops
   ];
 }
