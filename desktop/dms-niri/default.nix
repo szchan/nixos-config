@@ -1,4 +1,4 @@
-{config, pkgs, ...}:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -24,7 +24,7 @@
     wl-clipboard
     # cliphist
     # cava
-    kitty  # 终端
+    kitty # 终端
   ];
 
   # qt.platformTheme = "qt6ct";
