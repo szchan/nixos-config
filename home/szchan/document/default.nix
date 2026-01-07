@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 {
   imports = [
@@ -11,5 +11,6 @@
     ./marktext.nix
     # ./onlyoffice.nix
     ./libreoffice.nix
+    ./calculator.nix
   ];
 }
