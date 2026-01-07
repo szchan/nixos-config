@@ -1,4 +1,4 @@
-{config, pkgs, ...}:
+{ pkgs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -12,5 +12,5 @@
   };
 
   services.gnome.sushi.enable = true;
-  
+
 }

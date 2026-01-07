@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 let
   # Define the command to start Niri, using niri-session is recommended
   niriSessionCommand = "${pkgs.niri}/bin/niri-session";

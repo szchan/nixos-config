@@ -1,7 +1,7 @@
-{config, pkgs, ... }:
+{ ... }:
 
 {
-  imports = [ 
+  imports = [
     ./windowing.nix
     ./keymap.nix
     ./print.nix
