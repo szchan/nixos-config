@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 # Zed无法正常在我的电脑上使用vulkan导致冻结，我给它加了参数，以WAYLAND_DISPLAY "" zeditor启动以fallback到x11(使用Xwayland)
 let

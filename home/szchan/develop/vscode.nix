@@ -82,7 +82,7 @@
       userSettings = {
         # 自动保存
         "files.autoSave" = "afterDelay";
-        "files.autoSaveDelay" = 1000;  # 延迟多少秒后保存，单位毫秒
+        "files.autoSaveDelay" = 1000; # 延迟多少秒后保存，单位毫秒
 
         # Git
         "git.autofetch" = true;
@@ -100,9 +100,9 @@
 
         # 编辑器主字体（代码区）
         "editor.fontFamily" = "'JetBrainsMono Nerd Font', 'monospace'";
-        "editor.fontSize" = 14;  # 根据你的显示器调整，13-15 常见
-        "editor.fontLigatures" = true;  # 启用连字（=> => => 变成箭头等）
-        "editor.lineHeight" = 1.8;  # 行距
+        "editor.fontSize" = 14; # 根据你的显示器调整，13-15 常见
+        "editor.fontLigatures" = true; # 启用连字（=> => => 变成箭头等）
+        "editor.lineHeight" = 1.8; # 行距
 
         # 终端字体
         "terminal.integrated.fontFamily" = "'JetBrainsMono Nerd Font'";
@@ -111,12 +111,12 @@
 
         # 左侧侧边栏（包括 Explorer、Search 等）的字体和字号
         "workbench.sideBar.fontFamily" = "'JetBrainsMono Nerd Font', 'monospace'";
-        "workbench.sideBar.fontSize" = 13;  # 推荐 13~14，清晰不占空间
+        "workbench.sideBar.fontSize" = 13; # 推荐 13~14，清晰不占空间
 
         # Tab 标题的字体和字号（打开文件后的标签）
         "workbench.editor.tabFontFamily" = "'JetBrainsMono Nerd Font', 'monospace'";
-        "workbench.editor.tabFontSize" = 13;  # 推荐 13，比正文略小，层次感好
-        "workbench.editor.tabFontWeight" = "600";  # 活动 Tab（当前打开的文件）加粗，更突出
+        "workbench.editor.tabFontSize" = 13; # 推荐 13，比正文略小，层次感好
+        "workbench.editor.tabFontWeight" = "600"; # 活动 Tab（当前打开的文件）加粗，更突出
 
         # Activity Bar
         "workbench.activityBar.fontFamily" = "'JetBrainsMono Nerd Font', 'monospace'";
@@ -124,11 +124,11 @@
 
         # Nix-IDE
         "nix.enableLanguageServer" = true;
-        "nix.serverPath" = "nixd";  # 直接使用 nixd 可执行文件（假设它在你的 PATH 中）
+        "nix.serverPath" = "nixd"; # 直接使用 nixd 可执行文件（假设它在你的 PATH 中）
         "nix.serverSettings" = {
           nixd = {
             formatting = {
-              command = [ "nixfmt" ];  # 使用 nixfmt 格式化（LSP 会优先使用这个）
+              command = [ "nixfmt" ]; # 使用 nixfmt 格式化（LSP 会优先使用这个）
             };
             options = {
               # 如果你使用 flake 配置 NixOS，可启用 NixOS 选项补全

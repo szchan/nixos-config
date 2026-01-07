@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   # 导入 nixvim 的 home-manager 模块
@@ -50,7 +50,7 @@
     # 颜色主题
     colorschemes.tokyonight = {
       enable = true;
-      style = "storm";  # storm / night / moon / day
+      style = "storm"; # storm / night / moon / day
       transparent = false;
       terminalColors = true;
     };
@@ -99,12 +99,12 @@
       lsp = {
         enable = true;
         servers = {
-          nil_ls.enable = false;        # Nix
-          nixd.enable = true;         # 使用nixd 关 nil_ls
+          nil_ls.enable = false; # Nix
+          nixd.enable = true; # 使用nixd 关 nil_ls
           lua_ls.enable = true;
           rust_analyzer = {
             enable = true;
-            installCargo = false;      # 如果用 rustup 管理 cargo，就关掉
+            installCargo = false; # 如果用 rustup 管理 cargo，就关掉
             installRustc = false;
           };
           pyright.enable = true;
@@ -183,10 +183,30 @@
       }
 
       # 窗口快速切换
-      { mode = "n"; key = "<C-h>"; action = "<C-w>h"; options.silent = true; }
-      { mode = "n"; key = "<C-j>"; action = "<C-w>j"; options.silent = true; }
-      { mode = "n"; key = "<C-k>"; action = "<C-w>k"; options.silent = true; }
-      { mode = "n"; key = "<C-l>"; action = "<C-w>l"; options.silent = true; }
+      {
+        mode = "n";
+        key = "<C-h>";
+        action = "<C-w>h";
+        options.silent = true;
+      }
+      {
+        mode = "n";
+        key = "<C-j>";
+        action = "<C-w>j";
+        options.silent = true;
+      }
+      {
+        mode = "n";
+        key = "<C-k>";
+        action = "<C-w>k";
+        options.silent = true;
+      }
+      {
+        mode = "n";
+        key = "<C-l>";
+        action = "<C-w>l";
+        options.silent = true;
+      }
     ];
   };
 
@@ -197,21 +217,21 @@
     fd
 
     # Nix 相关
-    nixd               # 或 nixd，如果你用了 nixd
-    nixfmt-rfc-style  # nix 格式化
+    nixd # 或 nixd，如果你用了 nixd
+    nixfmt-rfc-style # nix 格式化
 
     # Lua
     stylua
 
     # rust-analyzer
-    rust-analyzer     
+    rust-analyzer
 
-    # Python 
+    # Python
     # nodePackages.pyright
-    
+
     # TypeScript / JavaScript
     gopls
-    
+
     # C/C++
     clang-tools
   ];
