@@ -1,7 +1,7 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
-	home.packages = with pkgs;[
-		pinta
-	];
+  home.packages = with pkgs; [
+    pinta
+  ];
 }
