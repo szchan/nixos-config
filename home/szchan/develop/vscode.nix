@@ -84,6 +84,10 @@
         "files.autoSave" = "afterDelay";
         "files.autoSaveDelay" = 1000;  # 延迟多少秒后保存，单位毫秒
 
+        # Git
+        "git.autofetch" = true;
+        "git.confirmSync" = false;
+
         # 设置Color Theme和Icon Theme 为Catppuccin Mocha
         "workbench.colorTheme" = "Catppuccin Mocha";
         "workbench.iconTheme" = "catppuccin-mocha";
