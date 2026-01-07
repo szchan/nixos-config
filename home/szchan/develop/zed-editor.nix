@@ -18,9 +18,17 @@ in
     package = zed-wrapped;
     extensions = [
       "nix"
+      "catppuccin"
+      "catppuccin-icons"
     ];
     themes = {
-
+      mode = "system";
+      light = "Catppuccin Latte";
+      dark = "Catppuccin Mocha";
     };
   };
+
+  home.packages = with pkgs; [
+    nil
+  ];
 }
