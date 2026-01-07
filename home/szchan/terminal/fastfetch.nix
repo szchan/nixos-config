@@ -1,4 +1,4 @@
-{config, pkgs, ...}:
+{ ... }:
 
 {
   programs.fastfetch = {
@@ -33,7 +33,7 @@
           key = "│ {#33}󰅐 uptime  {#keys}│";
           type = "uptime";
         }
-          {
+        {
           key = "│ {#34}{icon} distro  {#keys}│";
           type = "os";
         }
