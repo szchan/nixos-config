@@ -9,6 +9,7 @@
     ./folo.nix
     ./logseq.nix
     ./marktext.nix
-    ./onlyoffice.nix
+    # ./onlyoffice.nix
+    ./libreoffice.nix
   ];
 }
