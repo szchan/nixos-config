@@ -2,9 +2,9 @@
 {
 
   boot.kernelParams = [
-    # NVIDA不再默认加载kernel mode setting,
+    # NVIDA将fbdev作为实验性功能默认关闭
     # 显式开启它确保 Wayland compositors function properly.
-    # "nvidia-drm.fbdev=1"
+    "nvidia-drm.fbdev=1"
   ];
 
   # Enable OpenGL
