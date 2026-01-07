@@ -1,11 +1,11 @@
-{config, pkgs, ...}:
+{ ... }:
 
 {
   xdg.configFile = {
 
     # 管理通用配置
     "niri/config.kdl".source = ./niri-dotfiles/config.kdl;
-    
+
     # 管理环境变量配置
     "niri/env.kdl".source = ./niri-dotfiles/env.kdl;
 
