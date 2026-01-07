@@ -1,5 +1,10 @@
 # custom-rime.nix
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.i18n.inputMethod.fcitx5.customRime;
@@ -20,12 +25,12 @@ in
     i18n.inputMethod.fcitx5.addons = [ pkgs.fcitx5-rime ];
 
     # 部署官方雾凇冰数据
-    home.activation.deployRimeIce = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    home.activation.deployRimeIce = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       ${pkgs.rsync}/bin/rsync -a --delete ${pkgs.rime-ice}/share/rime-data/ $HOME/.local/share/fcitx5/rime/
     '';
 
     # 部署官方万象数据
-    home.activation.deployWanxiang = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    home.activation.deployWanxiang = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       ${pkgs.rsync}/bin/rsync -a --delete ${pkgs.rime-wanxiang}/share/rime-data/ $HOME/.local/share/fcitx5/rime/
     '';
 

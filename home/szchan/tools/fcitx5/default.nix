@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, ... }:
 
 {
   # imports = [
@@ -10,11 +10,11 @@
     type = "fcitx5";
 
     fcitx5 = {
-      waylandFrontend = true;  # Wayland 必需
+      waylandFrontend = true; # Wayland 必需
 
       addons = with pkgs; [
-        qt6Packages.fcitx5-configtool  # 配置工具
-        fcitx5-gtk                     # GTK 支持
+        qt6Packages.fcitx5-configtool # 配置工具
+        fcitx5-gtk # GTK 支持
 
         fcitx5-rime
         # rime-ice
@@ -32,7 +32,7 @@
 
   xdg.configFile."fcitx5/profile" = {
     source = ./profile;
-    force = true;  # 强制覆盖，避免冲突
+    force = true; # 强制覆盖，避免冲突
   };
 
   home.sessionVariables = {
