@@ -37,7 +37,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.szchan = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "libvirt" "kvm" "docker" "wireshark" "gamemode" ];
+    extraGroups = [ "wheel" "libvirt" "kvm" "docker" "podman" "wireshark" "gamemode" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
     ];
