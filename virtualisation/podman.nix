@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   virtualisation.containers.enable = true;
@@ -17,7 +17,7 @@
 
   };
 
-  hardware.nvidia-container-toolkit.enable = true;  # 如果需要 NVIDIA GPU 支持则启用此选项
+  hardware.nvidia-container-toolkit.enable = true; # 如果需要 NVIDIA GPU 支持则启用此选项
 
   environment.systemPackages = with pkgs; [
     podman-compose

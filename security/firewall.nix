@@ -1,12 +1,12 @@
-{config, pkgs, ...}:
+{ ... }:
 
 {
   networking.firewall = {
     enable = false;
-    allowedTCPPorts = [ 
+    allowedTCPPorts = [
       22
     ];
-    allowedUDPPorts = [ 
+    allowedUDPPorts = [
       22
     ];
   };

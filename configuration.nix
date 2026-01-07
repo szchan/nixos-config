@@ -2,42 +2,58 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./host/pc.nix
-      
-      # Include base configuration
-      ./base
+  imports = [
+    # Include the results of the hardware scan.
+    ./host/pc.nix
 
-      # Include Security configuration
-      ./security
+    # Include base configuration
+    ./base
 
-      # Include CommandLine configuration
-      ./cli
+    # Include Security configuration
+    ./security
 
-      # Include desktop configuration
-      ./desktop
+    # Include CommandLine configuration
+    ./cli
 
-      # Include develop configuration
-      ./develop
+    # Include desktop configuration
+    ./desktop
 
-      # Include virtualisation configuration
-      ./virtualisation
-    ];
+    # Include develop configuration
+    ./develop
+
+    # Include virtualisation configuration
+    ./virtualisation
+  ];
 
   # enable Flakes support
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
   # Define your hostname.
   networking.hostName = "szchanNixOSStation";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.szchan = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "libvirt" "kvm" "docker" "podman" "wireshark" "gamemode" ];
+    extraGroups = [
+      "wheel"
+      "libvirt"
+      "kvm"
+      "docker"
+      "podman"
+      "wireshark"
+      "gamemode"
+    ];
     shell = pkgs.zsh;
     packages = with pkgs; [
     ];
@@ -71,4 +87,3 @@
   system.stateVersion = "25.11"; # Did you read the comment?
 
 }
-
