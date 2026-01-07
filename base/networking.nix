@@ -1,4 +1,4 @@
-{config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   # Enable NetworkManager for managing network connections.
@@ -38,9 +38,8 @@
     webui = pkgs.metacubexd;
   };
 
-
   # Proxy
   # networking.proxy.default = "http://127.0.0.1:7897/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-  
+
 }

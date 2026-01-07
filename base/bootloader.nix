@@ -1,4 +1,4 @@
-{config, pkgs, lib, ... }:
+{ lib, ... }:
 
 {
   boot.loader.systemd-boot = {
@@ -13,7 +13,7 @@
   };
 
   # wait for x seconds to select the boot entry.
-  boot.loader.timeout = lib.mkDefault 8; 
+  boot.loader.timeout = lib.mkDefault 8;
 
   boot.loader.efi.canTouchEfiVariables = true;
 }

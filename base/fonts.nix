@@ -14,7 +14,7 @@
     fira-code-symbols
     maple-mono.NF-CN
     nerd-fonts.jetbrains-mono
-    
+
     # 中文字体
     source-han-mono
     source-han-sans
@@ -41,7 +41,7 @@
     # Twitter打造的emoji字体
     twitter-color-emoji
     twemoji-color-font
-    
+
     # 覆盖低分辨率和pixel字体,保证最大兼容性
     liberation_ttf
     mplus-outline-fonts.githubRelease
