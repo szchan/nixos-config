@@ -76,6 +76,14 @@ let
             (sloth.concat' sloth.xdgCacheHome "/mesa_shader_cache")
             (sloth.concat' sloth.xdgCacheHome "/mesa_shader_cache_db")
             (sloth.concat' sloth.xdgCacheHome "/radv_builtin_shaders")
+
+            (sloth.concat' sloth.homeDir "/.local/share/QQ") # QQ 主数据目录（首次运行后会创建）
+            (sloth.concat' sloth.homeDir "/.config/QQ") # 部分配置可能在这里
+            (sloth.concat' sloth.homeDir "/.local/state/QQ") # xdg新标准的位置，以防万一
+            (sloth.concat' sloth.xdgCacheHome "/QQ")
+            (sloth.concat' sloth.homeDir "/.config/tencent-qq") # 部分配置可能在这里
+            (sloth.env "XDG_RUNTIME_DIR")
+            "/tmp"
           ];
 
           bind.ro = [
@@ -86,6 +94,9 @@ let
             (sloth.concat' sloth.xdgConfigHome "/gtk-4.0")
             (sloth.concat' sloth.xdgConfigHome "/fontconfig")
             (sloth.concat' sloth.xdgConfigHome "/dconf")
+
+            (sloth.concat' sloth.homeDir "/Downloads") # 文件接收默认目录，只读即可
+            # "/etc"
 
             # Use system font settings instead
             "/etc/fonts"
