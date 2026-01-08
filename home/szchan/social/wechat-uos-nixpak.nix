@@ -73,6 +73,11 @@ let
             (sloth.concat' sloth.xdgCacheHome "/mesa_shader_cache")
             (sloth.concat' sloth.xdgCacheHome "/mesa_shader_cache_db")
             (sloth.concat' sloth.xdgCacheHome "/radv_builtin_shaders")
+
+            (sloth.concat' sloth.homeDir "/.local/share/wechat-uos") # 数据和配置目录
+            (sloth.concat' sloth.xdgCacheHome "/wechat-uos")
+            (sloth.env "XDG_RUNTIME_DIR")
+            "/tmp"
           ];
 
           bind.ro = [
@@ -83,6 +88,8 @@ let
             (sloth.concat' sloth.xdgConfigHome "/gtk-4.0")
             (sloth.concat' sloth.xdgConfigHome "/fontconfig")
             (sloth.concat' sloth.xdgConfigHome "/dconf")
+
+            (sloth.concat' sloth.homeDir "/Downloads")
 
             # Use system font settings instead
             "/etc/fonts"
