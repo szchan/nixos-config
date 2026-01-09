@@ -1,6 +1,11 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    opencode
-  ];
+  programs.opencode = {
+    enable = true;
+    package = pkgs.opencode;
+    enableMcpIntegration = true;
+    settings = {
+      theme = "system";
+    };
+  };
 }
