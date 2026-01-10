@@ -30,7 +30,7 @@
         vue.volar
 
         # Test
-        bruno-api-client.bruno
+        # bruno-api-client.bruno
 
         # Remote Development / Containers (Microsoft 官方)
         ms-vscode-remote.remote-ssh
