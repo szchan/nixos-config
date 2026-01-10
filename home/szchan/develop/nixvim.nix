@@ -218,7 +218,7 @@
 
     # Nix 相关
     nixd # 或 nixd，如果你用了 nixd
-    nixfmt-rfc-style # nix 格式化
+    nixfmt # nix 格式化
 
     # Lua
     stylua
