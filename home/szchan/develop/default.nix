@@ -4,7 +4,7 @@
   imports = [
     ./nom.nix
     ./hugo.nix
-    ./zed-editor.nix
+    # ./zed-editor.nix
     ./vscode.nix
     ./bruno.nix
     ./dbeaver.nix
