@@ -40,7 +40,7 @@
 
     # Twitter打造的emoji字体
     twitter-color-emoji
-    twemoji-color-font
+    # twemoji-color-font
 
     # 覆盖低分辨率和pixel字体,保证最大兼容性
     liberation_ttf
