@@ -119,5 +119,6 @@ in
   # 复制 .desktop 文件到本地
   home.activation.createQQDesktopAlias = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     ln -sf ${sandboxed-qq.config.env}/share/applications/* $HOME/.local/share/applications/ || true
+    mkdir -p /tmp/QQ
   '';
 }

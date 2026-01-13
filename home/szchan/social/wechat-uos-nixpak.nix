@@ -77,7 +77,7 @@ let
             (sloth.concat' sloth.homeDir "/.local/share/wechat-uos") # 数据和配置目录
             (sloth.concat' sloth.xdgCacheHome "/wechat-uos")
             (sloth.env "XDG_RUNTIME_DIR")
-            "/tmp"
+            "/tmp/wechat"
           ];
 
           bind.ro = [
@@ -119,5 +119,6 @@ in
   # 复制 .desktop 文件到本地
   home.activation.createWeChatDesktopAlias = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     ln -sf ${sandboxed-wechat.config.env}/share/applications/* $HOME/.local/share/applications/ || true
+    mkdir -p /tmp/wechat
   '';
 }
