@@ -14,7 +14,7 @@
     enableVPN = true;
     enableSystemMonitoring = true;
     enableDynamicTheming = true;
-    enableClipboard = true;
+    # enableClipboard = true;
     enableCalendarEvents = true;
     enableAudioWavelength = true;
   };
