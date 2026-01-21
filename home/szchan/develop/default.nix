@@ -11,7 +11,7 @@
     ./filezilla.nix
     ./nixvim.nix
     ./btop.nix
-    ./opencode.nix
+    # ./opencode.nix
 
     ./environment
 
