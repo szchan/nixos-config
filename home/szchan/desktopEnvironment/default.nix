@@ -3,6 +3,7 @@
 {
   imports = [
     ./fontconfig.nix
+    ./xdg
 
     # ./niri/niri.nix
     # ./shell/dms.nix
