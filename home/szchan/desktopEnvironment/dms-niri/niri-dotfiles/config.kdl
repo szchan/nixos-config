@@ -226,6 +226,9 @@ include "dms/colors.kdl"
 include "dms/layout.kdl"
 include "dms/alttab.kdl"
 include "dms/binds.kdl"
+include "dms/cursor.kdl"
+include "dms/wpblur.kdl"
+include "dms/outputs.kdl"
 
 // Include env files
 include "env.kdl"
@@ -237,7 +240,7 @@ include "startup.kdl"
 include "keybinding.kdl"
 
 // Include custom outputs
-include "output.kdl"
+// include "output.kdl"
 
 // Include custom inputs
 include "input.kdl"
