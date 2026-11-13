@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "astryx": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1794573517,
+        "narHash": "sha256-htZT790yh0yS0+k4ro69pzPqCChq2+Rh8qQ2tOtPR0Y=",
+        "owner": "meta",
+        "repo": "astryx",
+        "rev": "251f9fa51fa442479cf25ec79c27ad324ffee2fc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "meta",
+        "repo": "astryx",
+        "type": "github"
+      }
+    },
     "bun2nix": {
       "inputs": {
         "flake-parts": "flake-parts_3",
@@ -186,6 +202,22 @@
       "original": {
         "owner": "hercules-ci",
         "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "graphify": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1794519193,
+        "narHash": "sha256-qvIIUEQTJ0QjJHKg8BPhuQGYz5Kcl8I5VPE4ORqfRpc=",
+        "owner": "Graphify-Labs",
+        "repo": "graphify",
+        "rev": "52cb28218eea0c68d80a9f4b2ae102d2fa63e267",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Graphify-Labs",
+        "repo": "graphify",
         "type": "github"
       }
     },
@@ -452,6 +484,22 @@
         "type": "github"
       }
     },
+    "obsidian-skills": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1794413553,
+        "narHash": "sha256-+BUNxlcper8xFl0Kuxfe30crKhtrzBiDCiC8sr2IRcM=",
+        "owner": "kepano",
+        "repo": "obsidian-skills",
+        "rev": "398127736bd4ba42d767b1419fee1a927508370b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kepano",
+        "repo": "obsidian-skills",
+        "type": "github"
+      }
+    },
     "omp": {
       "inputs": {
         "bun2nix": "bun2nix",
@@ -476,10 +524,28 @@
         "type": "github"
       }
     },
+    "remotion-skills": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1794425010,
+        "narHash": "sha256-CRt5vSvx9gDranWlOCYk6EupGOWusqu6KPB20XufmYI=",
+        "owner": "remotion-dev",
+        "repo": "skills",
+        "rev": "7e541aa4d7361dfaca0780a565a47307eb7bdfbb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "remotion-dev",
+        "repo": "skills",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
+        "astryx": "astryx",
         "chatgpt-desktop-app": "chatgpt-desktop-app",
         "disko": "disko",
+        "graphify": "graphify",
         "grok-bot": "grok-bot",
         "herdr": "herdr",
         "home-manager": "home-manager",
@@ -488,7 +554,10 @@
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-pi": "nixpkgs-pi",
         "nixvim": "nixvim",
-        "omp": "omp"
+        "obsidian-skills": "obsidian-skills",
+        "omp": "omp",
+        "remotion-skills": "remotion-skills",
+        "vercel-skills": "vercel-skills"
       }
     },
     "rust-overlay": {
@@ -619,6 +688,22 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "vercel-skills": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1794525922,
+        "narHash": "sha256-ADvbHoiYUSsvXAjEGKwE4cAjnl1Fk3ztr2UthP/dLHM=",
+        "owner": "vercel-labs",
+        "repo": "skills",
+        "rev": "b716f9dc2ba36b6aa8f0080615e5a3a6caeac63b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vercel-labs",
+        "repo": "skills",
         "type": "github"
       }
     }

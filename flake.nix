@@ -65,6 +65,28 @@
     # 当前锁定的 nixpkgs 还没有 pi-coding-agent。
     nixpkgs-pi.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    # 这些输入跟随上游默认分支。修订记录在 flake.lock，用 nix flake update 更新。
+    remotion-skills = {
+      url = "github:remotion-dev/skills";
+      flake = false;
+    };
+    vercel-skills = {
+      url = "github:vercel-labs/skills";
+      flake = false;
+    };
+    graphify = {
+      url = "github:Graphify-Labs/graphify";
+      flake = false;
+    };
+    obsidian-skills = {
+      url = "github:kepano/obsidian-skills";
+      flake = false;
+    };
+    astryx = {
+      url = "github:meta/astryx";
+      flake = false;
+    };
+
     # Zed-editor
     # zed = {
     #   url = "github:zed-industries/zed";
