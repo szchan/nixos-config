@@ -1,13 +1,13 @@
 { ... }:
 
 {
-  # Set your time zone.
-  time.timeZone = "Asia/Shanghai";
+  # Los Angeles time, Pacific Time with daylight saving.
+  time.timeZone = "America/Los_Angeles";
 
-  # Use an NTP server located in the mainland of China to synchronize the system time.
+  # Cloudflare and Google public NTP servers.
   networking.timeServers = [
-    "ntp.aliyun.com" # Aliyun NTP Server
-    "ntp.tencent.com" # Tencent NTP Server
+    "time.cloudflare.com"
+    "time.google.com"
   ];
 
   # Select internationalisation properties.
