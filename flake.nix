@@ -53,6 +53,18 @@
     # 当前锁定的 home-manager 还没有 programs.herdr。
     herdr.url = "github:herdrdev/herdr";
 
+    # oh-my-pi 官方 flake，带 programs.omp。工具链跟随它自己的 nixpkgs。
+    omp.url = "github:can1357/oh-my-pi";
+
+    # Grok Bot 官方 Linux 包不在 nixpkgs。这个 flake 只提供打包。
+    grok-bot = {
+      url = "github:ponelat/grok-bot-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # 当前锁定的 nixpkgs 还没有 pi-coding-agent。
+    nixpkgs-pi.url = "github:NixOS/nixpkgs/nixos-unstable";
+
     # Zed-editor
     # zed = {
     #   url = "github:zed-industries/zed";
@@ -98,6 +110,8 @@
         config.allowUnfree = true; # 全局允许unfree软件
         # 修改nix-vscode-extensions以允许安装unfree扩展
         overlays = [
+          inputs.grok-bot.overlays.default
+
           # 引入官方的 nix-vscode-extensions overlay，得到完整的 extensions
           nix-vscode-extensions.overlays.default
 

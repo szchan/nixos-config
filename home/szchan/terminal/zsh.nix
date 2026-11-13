@@ -25,9 +25,6 @@
       fastfetch
       export PATH="$PATH:$HOME/.local/bin"
       export EDITOR=nvim
-      if command -v mise >/dev/null; then
-        eval "$(mise activate zsh)"
-      fi
       if [ -r "$HOME/.local/bin/env" ]; then
         . "$HOME/.local/bin/env"
       fi
