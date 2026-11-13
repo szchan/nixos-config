@@ -2,6 +2,6 @@
 
 {
   imports = [
-    ./wireshark.nix
+    # ./wireshark.nix
   ];
 }
