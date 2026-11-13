@@ -1,5 +1,6 @@
 # 这台 ThinkPad 的分区。disko 会清空 /dev/nvme0n1。
-# 16 GB 内存使用 base 里的 zram，不再划 40 GB 磁盘交换。
+# 交换分区 48G：休眠镜像最多约占 16G，其余留给已经换出的内存。
+# btrfs 上的交换文件不能休眠，所以这里用独立分区。
 {
   disko.devices = {
     disk = {
@@ -20,6 +21,15 @@
                 format = "vfat";
                 mountpoint = "/boot";
                 mountOptions = [ "umask=0077" ];
+              };
+            };
+            swap = {
+              priority = 2;
+              size = "48G";
+              content = {
+                type = "swap";
+                discardPolicy = "both";
+                resumeDevice = true;
               };
             };
             root = {
