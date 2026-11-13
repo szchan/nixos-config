@@ -6,7 +6,6 @@
     ./kernel.nix
     ./zramSwap.nix
     ./networking.nix
-    ./nvidia.nix
     ./bluetooth.nix
     # ./kmscon.nix
     ./i18n.nix

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   # Enable NetworkManager for managing network connections.
@@ -31,12 +31,8 @@
   #   tunMode = true;
   # };
 
-  services.mihomo = {
-    enable = true;
-    tunMode = true;
-    configFile = "/home/szchan/Projects/mihomo-config/config-p.yaml";
-    webui = pkgs.metacubexd;
-  };
+  # mihomo 只属于原先的台式机，见 host/station.nix。
+  # 这台 ThinkPad 使用 Clash Verge，见 hosts/x1c8/default.nix。
 
   # Proxy
   # networking.proxy.default = "http://127.0.0.1:7897/";

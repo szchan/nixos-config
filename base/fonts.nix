@@ -83,12 +83,11 @@
 
         # 等宽字体
         monospace = [
-          # 中文
-          "Maple Mono NF CN" # 中英文宽度完美 2:1 的字体
-          "Source Han Mono SC" # 思源等宽
-          "Source Han Mono TC"
-          # 西文
+          # 与当前 Ghostty 和 fontconfig 一致
           "JetBrainsMono Nerd Font"
+          "Maple Mono NF CN"
+          "Source Han Mono SC"
+          "Source Han Mono TC"
         ];
 
         emoji = [
@@ -104,6 +103,56 @@
       subpixel = {
         rgba = "rgb"; # IPS 屏幕使用 rgb 排列
       };
+
+      # 当前 fontconfig：非日文、韩文和繁体时，中文回落到思源。
+      localConf = ''
+        <?xml version="1.0"?>
+        <!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+        <fontconfig>
+          <match target="pattern">
+            <test name="lang" qual="all" compare="not_contains">
+              <string>ja</string>
+            </test>
+            <test name="lang" qual="all" compare="not_contains">
+              <string>ko</string>
+            </test>
+            <test name="lang" qual="all" compare="not_contains">
+              <string>zh-tw</string>
+            </test>
+            <test name="lang" qual="all" compare="not_contains">
+              <string>zh-hk</string>
+            </test>
+            <test name="family" qual="any" compare="eq">
+              <string>serif</string>
+            </test>
+            <edit name="family" mode="append_last" binding="strong">
+              <string>Source Han Serif SC</string>
+              <string>Noto Serif CJK SC</string>
+            </edit>
+          </match>
+          <match target="pattern">
+            <test name="lang" qual="all" compare="not_contains">
+              <string>ja</string>
+            </test>
+            <test name="lang" qual="all" compare="not_contains">
+              <string>ko</string>
+            </test>
+            <test name="lang" qual="all" compare="not_contains">
+              <string>zh-tw</string>
+            </test>
+            <test name="lang" qual="all" compare="not_contains">
+              <string>zh-hk</string>
+            </test>
+            <test name="family" qual="all" compare="not_eq">
+              <string>serif</string>
+            </test>
+            <edit name="family" mode="append_last" binding="strong">
+              <string>Source Han Sans SC</string>
+              <string>Noto Sans CJK SC</string>
+            </edit>
+          </match>
+        </fontconfig>
+      '';
     };
   };
 

@@ -10,6 +10,8 @@
     ./dbeaver.nix
     ./filezilla.nix
     ./nixvim.nix
+    ./mise.nix
+    ./cursor.nix
     ./btop.nix
     # ./opencode.nix
 

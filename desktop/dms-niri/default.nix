@@ -22,9 +22,9 @@
     # matugen
     i2c-tools
     wl-clipboard
-    # cliphist
+    cliphist
     # cava
-    kitty # 终端
+    # 默认终端是 Home Manager 里的 Ghostty。
   ];
 
   # qt.platformTheme = "qt6ct";

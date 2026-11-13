@@ -137,7 +137,7 @@
               # 如果你使用 flake 配置 NixOS，可启用 NixOS 选项补全
               # 将 <name> 替换为你的 hostname 或 configuration name
               nixos = {
-                expr = "(builtins.getFlake \"/home/szchan/Projects/nixos-config\").nixosConfigurations.szchanNixOSStation.options";
+                expr = "(builtins.getFlake \"/home/szchan/nixos-config\").nixosConfigurations.x1c8.options";
               };
               # 如果你使用 Home Manager standalone 或 flake，需要启用 HM 选项补全
               # home-manager = {

@@ -109,8 +109,7 @@ overview {
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
-// This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-at-startup "bash" "-c" "wl-paste --watch cliphist store &"
+// Clipboard history is started from startup.kdl.
 environment {
   XDG_CURRENT_DESKTOP "niri"
 }
@@ -240,7 +239,7 @@ include "startup.kdl"
 include "keybinding.kdl"
 
 // Include custom outputs
-// include "output.kdl"
+include "output.kdl"
 
 // Include custom inputs
 include "input.kdl"

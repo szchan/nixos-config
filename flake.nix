@@ -121,27 +121,16 @@
         ];
       };
 
-    in
-    {
-      # 定义 NixOS 系统配置
-      nixosConfigurations.szchanNixOSStation = nixpkgs.lib.nixosSystem {
-        inherit system pkgs; # ← 传入自定义的 pkgs
+      mkSystem = extraModules: nixpkgs.lib.nixosSystem {
+        inherit system pkgs;
         specialArgs = {
           inherit inputs;
-          # 使用修改后的 vscode-extensions
           vscode-extensions = pkgs.vscode-extensions;
         };
         modules = [
-          # Include the main configuration file
           ./configuration.nix
-
-          # 导入 disko 模块
           disko.nixosModules.disko
-          ./disko/disko.nix
-
           # inputs.nixos-private.nixosModules.default
-
-          # 导入 home-manager 模块
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -150,11 +139,24 @@
             home-manager.users.szchan = ./home/szchan/home.nix;
             home-manager.extraSpecialArgs = {
               inherit inputs;
-              # 使用修改后的 vscode-extensions
               vscode-extensions = pkgs.vscode-extensions;
             };
           }
-        ];
+        ] ++ extraModules;
       };
+    in
+    {
+      # 原先的 NVIDIA 台式机。
+      nixosConfigurations.szchanNixOSStation = mkSystem [
+        ./host/pc.nix
+        ./host/station.nix
+        ./disko/disko.nix
+      ];
+
+      # 这台 ThinkPad X1 Carbon Gen 8。安装时使用这个配置。
+      nixosConfigurations.x1c8 = mkSystem [
+        ./hosts/x1c8
+        ./hosts/x1c8/disko.nix
+      ];
     };
 }

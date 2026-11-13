@@ -7,10 +7,10 @@
     ./drawio.nix
     ./foliate.nix
     ./folo.nix
-    ./logseq.nix
     ./marktext.nix
     # ./onlyoffice.nix
     ./libreoffice.nix
+    ./obsidian.nix
     ./calculator.nix
   ];
 }

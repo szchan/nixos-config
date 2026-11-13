@@ -18,14 +18,16 @@
 
     # 设置一些别名方便使用，你可以根据自己的需要进行增删
     shellAliases = {
-      
+      vim = "nvim";
     };
 
-    # 在这里添加自定义 zshrc 内容
-    initContent = "
+    initContent = ''
       fastfetch
-      export PATH=$PATH:~/.local/bin/
+      export PATH="$PATH:$HOME/.local/bin"
       export EDITOR=nvim
-    ";
+      if command -v mise >/dev/null; then
+        eval "$(mise activate zsh)"
+      fi
+    '';
   };
 }

@@ -15,6 +15,6 @@
   };
 
   home.packages = with pkgs; [
-    vivaldi
+    brave
   ];
 }

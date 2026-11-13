@@ -9,5 +9,6 @@
     ./sops.nix
     ./polkit.nix
     ./trustedCache.nix
+    ./1password.nix
   ];
 }

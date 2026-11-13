@@ -3,6 +3,8 @@
 {
   imports = [
     ./starship.nix
+    ./ghostty.nix
+    ./herdr.nix
     # ./alacritty.nix
     ./kitty.nix
     ./bash.nix

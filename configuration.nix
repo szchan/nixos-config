@@ -11,8 +11,7 @@
 
 {
   imports = [
-    # Include the results of the hardware scan.
-    ./host/pc.nix
+    # 硬件、主机名和磁盘由 flake 里的具体机器导入。
 
     # Include base configuration
     ./base
@@ -39,8 +38,7 @@
     "flakes"
   ];
 
-  # Define your hostname.
-  networking.hostName = "szchanNixOSStation";
+  # 主机名写在 host/station.nix 或 hosts/x1c8/default.nix。
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.szchan = {

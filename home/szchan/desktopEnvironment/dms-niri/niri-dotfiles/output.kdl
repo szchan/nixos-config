@@ -1,10 +1,20 @@
-output "HDMI-A-4" {
-  mode  "1920x1080@60.000"
-  position  x=0 y=0
+// 2026-11-12 从这台 ThinkPad 的当前布局写入。坐标是逻辑像素。
+// 从左到右：红米、LG QHD、内置屏。
+
+output "HDMI-A-1" {
+    mode "1920x1080@60.000"
+    scale 1
+    position x=-3968 y=270
 }
 
-output "DP-4" {
-  mode  "2560x1440@74.971"
-  position  x=1920 y=0
-  scale 1.25
+output "DP-2" {
+    mode "2560x1440@74.971"
+    scale 1.25
+    position x=-2048 y=0
+}
+
+output "eDP-1" {
+    mode "2560x1440@60.000"
+    scale 1.75
+    position x=0 y=252
 }
