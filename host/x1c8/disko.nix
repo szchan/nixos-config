@@ -1,6 +1,8 @@
 # 这台 ThinkPad 的分区。disko 会清空 /dev/nvme0n1。
-# 交换分区 48G：休眠镜像最多约占 16G，其余留给已经换出的内存。
-# btrfs 上的交换文件不能休眠，所以这里用独立分区。
+# 固件读取的 EFI 分区保持明文。其余空间是一个 LUKS 卷。
+# 安装时 disko 会询问密码；启动时 initrd 用同一密码解开这个卷。
+# 卷内用 LVM：48G 交换分区用于休眠，其余是 btrfs。
+# btrfs 上的交换文件不能休眠，所以交换空间是独立的逻辑卷。
 {
   disko.devices = {
     disk = {
@@ -23,56 +25,74 @@
                 mountOptions = [ "umask=0077" ];
               };
             };
-            swap = {
-              priority = 2;
-              size = "48G";
-              content = {
-                type = "swap";
-                discardPolicy = "both";
-                resumeDevice = true;
-              };
-            };
-            root = {
+            cryptroot = {
               size = "100%";
               content = {
-                type = "btrfs";
-                extraArgs = [ "-f" ];
-                subvolumes = {
-                  "@root" = {
-                    mountOptions = [
-                      "compress=zstd"
-                      "noatime"
-                    ];
-                    mountpoint = "/";
-                  };
-                  "@home" = {
-                    mountOptions = [
-                      "compress=zstd"
-                      "noatime"
-                    ];
-                    mountpoint = "/home";
-                  };
-                  "@nix" = {
-                    mountOptions = [
-                      "compress=zstd"
-                      "noatime"
-                    ];
-                    mountpoint = "/nix";
-                  };
-                  "@var" = {
-                    mountOptions = [
-                      "compress=zstd"
-                      "noatime"
-                    ];
-                    mountpoint = "/var";
-                  };
-                  "@tmp" = {
-                    mountOptions = [
-                      "compress=zstd"
-                      "noatime"
-                    ];
-                    mountpoint = "/tmp";
-                  };
+                type = "luks";
+                name = "cryptroot";
+                settings.allowDiscards = true;
+                content = {
+                  type = "lvm_pv";
+                  vg = "pool";
+                };
+              };
+            };
+          };
+        };
+      };
+    };
+    lvm_vg = {
+      pool = {
+        type = "lvm_vg";
+        lvs = {
+          swap = {
+            size = "48G";
+            content = {
+              type = "swap";
+              discardPolicy = "both";
+              resumeDevice = true;
+            };
+          };
+          root = {
+            size = "100%";
+            content = {
+              type = "btrfs";
+              extraArgs = [ "-f" ];
+              subvolumes = {
+                "@root" = {
+                  mountOptions = [
+                    "compress=zstd"
+                    "noatime"
+                  ];
+                  mountpoint = "/";
+                };
+                "@home" = {
+                  mountOptions = [
+                    "compress=zstd"
+                    "noatime"
+                  ];
+                  mountpoint = "/home";
+                };
+                "@nix" = {
+                  mountOptions = [
+                    "compress=zstd"
+                    "noatime"
+                  ];
+                  mountpoint = "/nix";
+                };
+                "@var" = {
+                  mountOptions = [
+                    "compress=zstd"
+                    "noatime"
+                  ];
+                  mountpoint = "/var";
+                };
+                "@tmp" = {
+                  mountOptions = [
+                    "compress=zstd"
+                    "noatime"
+                  ];
+                  mountpoint = "/tmp";
                 };
               };
             };
