@@ -38,7 +38,7 @@
     "flakes"
   ];
 
-  # 主机名写在 host/station.nix 或 hosts/x1c8/default.nix。
+  # 主机名写在 host/station.nix 或 host/x1c8/default.nix。
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.szchan = {

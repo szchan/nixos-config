@@ -179,8 +179,8 @@
 
       # 这台 ThinkPad X1 Carbon Gen 8。安装时使用这个配置。
       nixosConfigurations.x1c8 = mkSystem [
-        ./hosts/x1c8
-        ./hosts/x1c8/disko.nix
+        ./host/x1c8
+        ./host/x1c8/disko.nix
       ];
     };
 }
