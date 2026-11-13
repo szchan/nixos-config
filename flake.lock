@@ -99,6 +99,18 @@
         "type": "github"
       }
     },
+    "deepseek-harness-desktop": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-biIqLda1lt8mu3Du4bgFrKtLJ/jhaKfCpA55lw2eRyY=",
+        "type": "file",
+        "url": "https://github.com/ffyfox/dsh-desktop-linux/releases/download/v0.2.2rc2/deepseek-harness-0.2.2-rc.2-linux-x86_64-unsigned.AppImage"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/ffyfox/dsh-desktop-linux/releases/download/v0.2.2rc2/deepseek-harness-0.2.2-rc.2-linux-x86_64-unsigned.AppImage"
+      }
+    },
     "disko": {
       "inputs": {
         "nixpkgs": [
@@ -544,6 +556,7 @@
       "inputs": {
         "astryx": "astryx",
         "chatgpt-desktop-app": "chatgpt-desktop-app",
+        "deepseek-harness-desktop": "deepseek-harness-desktop",
         "disko": "disko",
         "graphify": "graphify",
         "grok-bot": "grok-bot",
@@ -557,6 +570,7 @@
         "obsidian-skills": "obsidian-skills",
         "omp": "omp",
         "remotion-skills": "remotion-skills",
+        "t3code": "t3code",
         "vercel-skills": "vercel-skills"
       }
     },
@@ -645,6 +659,18 @@
         "owner": "nix-systems",
         "repo": "x86_64-darwin",
         "type": "github"
+      }
+    },
+    "t3code": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-cbqCxBjLfJzHGmh3uwntT49AgX1i7kHyStj0rPbNvhY=",
+        "type": "file",
+        "url": "https://github.com/pingdotgg/t3code/releases/download/v0.1.9/T3-Code-0.1.9-x86_64.AppImage"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/pingdotgg/t3code/releases/download/v0.1.9/T3-Code-0.1.9-x86_64.AppImage"
       }
     },
     "treefmt-nix": {

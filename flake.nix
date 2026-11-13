@@ -87,6 +87,16 @@
       flake = false;
     };
 
+    # 上游发布的安装包。地址里的版本是锁，文件哈希在 flake.lock。
+    t3code = {
+      url = "https://github.com/pingdotgg/t3code/releases/download/v0.1.9/T3-Code-0.1.9-x86_64.AppImage";
+      flake = false;
+    };
+    deepseek-harness-desktop = {
+      url = "https://github.com/ffyfox/dsh-desktop-linux/releases/download/v0.2.2rc2/deepseek-harness-0.2.2-rc.2-linux-x86_64-unsigned.AppImage";
+      flake = false;
+    };
+
     # Zed-editor
     # zed = {
     #   url = "github:zed-industries/zed";

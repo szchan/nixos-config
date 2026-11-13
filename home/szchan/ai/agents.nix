@@ -37,6 +37,34 @@ let
     repo = inputs.astryx;
   };
 
+  # 以 AppImage 发布的 agent。DeepSeek 官方没有 Linux 安装包，用这台机器已在用的 Electron 构建。
+  agentApp = {
+    pname,
+    version,
+    src,
+    desktopName,
+    wmClass,
+    mimeTypes ? [ ],
+  }:
+  let
+    desktop = pkgs.makeDesktopItem {
+      name = pname;
+      inherit desktopName mimeTypes;
+      exec = "${pname} %U";
+      startupWMClass = wmClass;
+      categories = [ "Development" ];
+      terminal = false;
+    };
+  in
+  pkgs.appimageTools.wrapType2 {
+    inherit pname version src;
+    extraInstallCommands = ''
+      mkdir -p "$out/share/applications"
+      cp ${desktop}/share/applications/*.desktop "$out/share/applications/"
+    '';
+    meta.mainProgram = pname;
+  };
+
   astryxSkill = pkgs.runCommand "astryx-skill" { } ''
     mkdir -p "$out"
     ${pkgs.nodejs}/bin/node --input-type=module -e '
@@ -81,6 +109,22 @@ in
     }))
     pkgs.grok-bot
     astryx
+    (agentApp {
+      pname = "t3code";
+      version = "0.1.9";
+      src = inputs.t3code;
+      desktopName = "T3 Code";
+      wmClass = "t3code";
+      mimeTypes = [ "x-scheme-handler/t3code" ];
+    })
+    (agentApp {
+      pname = "deepseek-harness-desktop";
+      version = "0.2.2-rc.2";
+      src = inputs.deepseek-harness-desktop;
+      desktopName = "DeepSeek Harness";
+      wmClass = "deepseek-ai-dsh-desktop";
+      mimeTypes = [ "x-scheme-handler/dsh" ];
+    })
   ];
 
   # Codex 的 MCP 写进可修改的 config.toml。其余配置留给程序自己更新。
