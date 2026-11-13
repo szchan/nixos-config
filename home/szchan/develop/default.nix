@@ -3,10 +3,11 @@
 {
   imports = [
     ./nom.nix
-    ./hugo.nix
+    # ./hugo.nix
     # ./zed-editor.nix
     ./vscode.nix
-    ./bruno.nix
+    # ./bruno.nix
+    ./postman.nix
     ./dbeaver.nix
     ./filezilla.nix
     ./nixvim.nix
