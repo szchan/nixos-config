@@ -3,7 +3,9 @@
 
 {
   imports = [
-    ./hardware.nix
+    # 安装时生成：nixos-generate-config --no-filesystems --show-hardware-config
+    # 文件系统由 disko 管理，所以生成时跳过分区。
+    ./hardware-configuration.nix
     ./thermald.nix
     inputs.chatgpt-desktop-app.nixosModules.default
   ];
@@ -14,6 +16,9 @@
 
   # 逻辑容量等于内存。优先级高于磁盘交换，网页先留在压缩内存里。
   zramSwap.memoryPercent = 100;
+
+  # 扫描结果不包含可再分发固件。无线网卡需要它。
+  hardware.enableRedistributableFirmware = true;
 
   hardware.graphics = {
     enable = true;
