@@ -32,7 +32,8 @@
     };
   };
 
-  xdg.configFile."xdg-terminals.list".text = ''
-    com.mitchellh.ghostty.desktop
-  '';
+  xdg.terminal-exec = {
+    enable = true;
+    settings.default = [ "com.mitchellh.ghostty.desktop" ];
+  };
 }

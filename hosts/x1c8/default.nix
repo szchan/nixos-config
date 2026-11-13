@@ -1,11 +1,14 @@
 # 这台 ThinkPad X1 Carbon Gen 8。安装时选择 nixosConfigurations.x1c8。
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   imports = [
     ./hardware.nix
     ./thermald.nix
+    inputs.chatgpt-desktop-app.nixosModules.default
   ];
+
+  programs.chatgpt-desktop-app.enable = true;
 
   networking.hostName = "x1c8";
 

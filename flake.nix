@@ -43,6 +43,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # OpenAI 官方 Linux 桌面程序。nixpkgs 里的 chatgpt 只有 Darwin。
+    chatgpt-desktop-app = {
+      url = "github:poeck/chatgpt-desktop-app-nix-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # herdr 官方打包。它需要比本仓库更新的 Zig，所以使用它自己的 nixpkgs。
+    # 当前锁定的 home-manager 还没有 programs.herdr。
+    herdr.url = "github:herdrdev/herdr";
+
     # Zed-editor
     # zed = {
     #   url = "github:zed-industries/zed";
