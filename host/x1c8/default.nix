@@ -69,24 +69,24 @@
 
   # 与当前 Bash 的本机代理一致。Clash Verge 监听 127.0.0.1:7897。
   home-manager.users.szchan.home = {
-    # sessionVariables = {
-    #   http_proxy = "http://127.0.0.1:7897";
-    #   https_proxy = "http://127.0.0.1:7897";
-    #   HTTP_PROXY = "http://127.0.0.1:7897";
-    #   HTTPS_PROXY = "http://127.0.0.1:7897";
-    #   all_proxy = "socks5://127.0.0.1:7897";
-    #   ALL_PROXY = "socks5://127.0.0.1:7897";
-    #   ftp_proxy = "http://127.0.0.1:7897";
-    #   FTP_PROXY = "http://127.0.0.1:7897";
-    #   socks_proxy = "socks5://127.0.0.1:7897";
-    #   SOCKS_PROXY = "socks5://127.0.0.1:7897";
-    # };
-
     sessionVariables = {
-      http_proxy = "http://192.168.50.203:8899";
-      https_proxy = "http://192.168.50.203:8899";
-      socks_proxy = "http://192.168.50.203:9988";
+      http_proxy = "http://127.0.0.1:7897";
+      https_proxy = "http://127.0.0.1:7897";
+      HTTP_PROXY = "http://127.0.0.1:7897";
+      HTTPS_PROXY = "http://127.0.0.1:7897";
+      all_proxy = "socks5://127.0.0.1:7897";
+      ALL_PROXY = "socks5://127.0.0.1:7897";
+      ftp_proxy = "http://127.0.0.1:7897";
+      FTP_PROXY = "http://127.0.0.1:7897";
+      socks_proxy = "socks5://127.0.0.1:7897";
+      SOCKS_PROXY = "socks5://127.0.0.1:7897";
     };
+
+    # sessionVariables = {
+    #   http_proxy = "http://192.168.50.203:8899";
+    #   https_proxy = "http://192.168.50.203:8899";
+    #   socks_proxy = "http://192.168.50.203:9988";
+    # };
 
     # DMS 锁屏默认关闭指纹。只补上这个开关，文件保持可写。
     activation.dmsFingerprint = inputs.home-manager.lib.hm.dag.entryAfter [ "writeBoundary" ] ''
