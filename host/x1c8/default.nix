@@ -33,18 +33,22 @@
     brightnessctl
   ];
 
-  # programs.clash-verge = {
-  #   enable = true;
-  #   # serviceMode = true;
-  #   tunMode = true;
-  # };
+  programs.clash-verge = {
+    enable = true;
+    # serviceMode = true;
+    tunMode = true;
+  };
 
   services.mihomo = {
     enable = true;
-    configFile = "/etc/mihomo/subscription.yaml";
+    configFile = "/etc/mihomo/config.yaml";
     tunMode = true;
     webui = pkgs.metacubexd;
   };
+
+  enviroment.systemPackages = [
+    pkgs.clashtui
+  ];
 
   users.users.szchan.extraGroups = [
     "video"
