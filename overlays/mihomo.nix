@@ -11,9 +11,9 @@ final: prev: {
       vendorHash = "";
 
       preBuild = ''
-        export https_proxy = "http://192.168.50.203:8899"
-        export http_proxy = "http://192.168.50.203:8899"
-        export ALL_PROXY = "http://192.168.50.203:9988"
+        export https_proxy="http://192.168.50.203:8899"
+        export http_proxy="http://192.168.50.203:8899"
+        export ALL_PROXY="http://192.168.50.203:9988"
       '';
     });
   };
