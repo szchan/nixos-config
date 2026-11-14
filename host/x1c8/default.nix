@@ -39,16 +39,12 @@
     tunMode = true;
   };
 
-  services.mihomo = {
-    enable = true;
-    configFile = "/etc/mihomo/config.yaml";
-    tunMode = true;
-    webui = pkgs.metacubexd;
-  };
-
-  environment.systemPackages = [
-    pkgs.clashtui
-  ];
+  # services.mihomo = {
+  #   enable = true;
+  #   configFile = "/etc/mihomo/config.yaml";
+  #   tunMode = true;
+  #   webui = pkgs.metacubexd;
+  # };
 
   users.users.szchan.extraGroups = [
     "video"

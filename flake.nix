@@ -147,6 +147,9 @@
           # 引入官方的 nix-vscode-extensions overlay，得到完整的 extensions
           nix-vscode-extensions.overlays.default
 
+          # Force clash-verge-rev to use a vertion of mihomo
+          (import ./overlays/mihomo.nix)
+
           # 强制把所有扩展的 license 改成 free（绕过 unfree 检查）
           (final: prev: {
             vscode-extensions = prev.vscode-extensions // {
