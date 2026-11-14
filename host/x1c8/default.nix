@@ -46,7 +46,7 @@
     webui = pkgs.metacubexd;
   };
 
-  enviroment.systemPackages = [
+  environment.systemPackages = [
     pkgs.clashtui
   ];
 
