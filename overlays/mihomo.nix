@@ -6,7 +6,7 @@ final: prev: {
         owner = "MetaCubeX";
         repo = "mihomo";
         rev = "v${version}";
-        hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+        hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
       };
     });
   };
