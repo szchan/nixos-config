@@ -10,7 +10,7 @@
     inputs.chatgpt-desktop-app.nixosModules.default
   ];
 
-  programs.chatgpt-desktop-app.enable = true;
+  # programs.chatgpt-desktop-app.enable = true;
 
   networking.hostName = "szchan-thinkpad-nixos";
 
@@ -31,8 +31,20 @@
 
   environment.systemPackages = with pkgs; [
     brightnessctl
-    clash-verge-rev
   ];
+
+  # programs.clash-verge = {
+  #   enable = true;
+  #   # serviceMode = true;
+  #   tunMode = true;
+  # };
+
+  services.mihomo = {
+    enable = true;
+    configFile = "/etc/mihomo/subscription.yaml";
+    tunMode = true;
+    webui = pkgs.metacubexd;
+  };
 
   users.users.szchan.extraGroups = [
     "video"

@@ -50,7 +50,8 @@
 
   home.activation.deployRimeIce = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     mkdir -p "$HOME/.local/share/fcitx5/rime"
-    ${pkgs.rsync}/bin/rsync -a ${pkgs.rime-ice}/share/rime-data/ "$HOME/.local/share/fcitx5/rime/"
+
+    ${pkgs.rsync}/bin/rsync -a --no-perms --chmod=u+w ${pkgs.rime-ice}/share/rime-data/ "$HOME/.local/share/fcitx5/rime/"
     cat > "$HOME/.local/share/fcitx5/rime/default.custom.yaml" <<'EOF'
     # Managed addition from community.cn-input; other Rime settings may be added here.
     patch:

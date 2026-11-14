@@ -33,7 +33,7 @@
     arphic-ukai
     arphic-uming
     ark-pixel-font
-    edusong
+    # edusong
     edukai
     eduli
     cns11643-kai

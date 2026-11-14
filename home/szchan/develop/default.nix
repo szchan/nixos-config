@@ -5,7 +5,7 @@
     ./nom.nix
     # ./hugo.nix
     # ./zed-editor.nix
-    ./vscode.nix
+    # ./vscode.nix
     # ./bruno.nix
     ./postman.nix
     ./dbeaver.nix
