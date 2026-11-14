@@ -8,6 +8,7 @@ final: prev: {
         rev = "v${version}";
         hash = "sha256-O2OJ0WFt0T32yOIT1El+ACJWVm2oAJOjU1JTDXb2IEo=";
       };
+      vendorHash = "";
     });
   };
 }
