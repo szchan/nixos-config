@@ -50,7 +50,7 @@
     # 颜色主题
     colorschemes.tokyonight = {
       enable = true;
-      style = "storm"; # storm / night / moon / day
+      # style = "storm"; # storm / night / moon / day
       transparent = false;
       terminalColors = true;
     };
