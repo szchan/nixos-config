@@ -14,8 +14,9 @@ in
     # 模块自带的 matchBlocks."*" 会改掉转发、压缩和连接复用，并计划在后续版本删除。
     enableDefaultConfig = false;
     includes = [ "~/.ssh/config.d/1password-hosts" ];
-    matchBlocks."*" = {
-      identityAgent = "~/.1password/agent.sock";
+    # matchBlocks 已废弃，改用 settings；键名使用 OpenSSH 原生的指令名。
+    settings."*" = {
+      IdentityAgent = "~/.1password/agent.sock";
     };
   };
 

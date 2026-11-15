@@ -38,9 +38,11 @@
     };
 
     # nixvim
+    # 不跟随 nixpkgs：nixvim 按上游自己的 flake.lock 锁定 nixpkgs-unstable。
+    # 注意 home-manager 开了 useGlobalPkgs，实际构建仍复用系统 pkgs，
+    # 因此 programs.nixvim.nixpkgs.source 在 nixvim.nix 里显式指向系统 nixpkgs。
     nixvim = {
       url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # OpenAI 官方 Linux 桌面程序。nixpkgs 里的 chatgpt 只有 Darwin。

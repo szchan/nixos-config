@@ -1,4 +1,4 @@
-{ pkgs, ...}:
+{ config, pkgs, ...}:
 
 {
 
@@ -8,6 +8,8 @@
 
   programs.zsh = {
     enable = true;
+    # 26.05 起的新默认：配置文件放到 XDG 配置目录（~/.config/zsh）。
+    dotDir = "${config.xdg.configHome}/zsh";
     enableCompletion = true;
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;

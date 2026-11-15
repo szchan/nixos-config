@@ -7,6 +7,10 @@
   programs.nixvim = {
     enable = true;
 
+    # home-manager 的 useGlobalPkgs 让 nixvim 复用系统同一份 pkgs（build.package 就是系统
+    # 的 neovim-unwrapped），显式声明 source 与这一事实一致，并消除 nixvim 的 follows 警告。
+    nixpkgs.source = inputs.nixpkgs.outPath;
+
     # nvim 设置为默认编辑器
     defaultEditor = true;
 

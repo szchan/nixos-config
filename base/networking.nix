@@ -11,10 +11,16 @@
   services.avahi = {
     enable = true;
     nssmdns4 = true;
-    publish = {
-      enable = true;
-      domain = true;
-      userServices = true;
+    # 旧的 services.avahi.publish.* 布尔选项已废弃（部分改名为 settings.publish.*），
+    # 现在直接写 avahi-daemon.conf 的 [publish] 段。
+    settings.publish = {
+      # 原 publish.enable = true
+      disable-publishing = false;
+      # 原 publish.userServices = true（同时会发布地址记录）
+      disable-user-service-publishing = false;
+      publish-addresses = true;
+      # 原 publish.domain = true
+      publish-domain = true;
     };
     openFirewall = true;
   };
