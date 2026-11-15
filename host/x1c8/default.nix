@@ -1,107 +1,20 @@
 # 这台 ThinkPad X1 Carbon Gen 8。安装时选择 nixosConfigurations.x1c8。
-{ inputs, lib, pkgs, ... }:
+{ ... }:
 
 {
   imports = [
     # 安装时生成：nixos-generate-config --no-filesystems --show-hardware-config
     # 文件系统由 disko 管理，所以生成时跳过分区。
     ./hardware-configuration.nix
+    ./disko.nix
+
+    # 按配置类型拆分，每类一个文件。
+    ./hardware.nix
+    ./zramSwap.nix
+    ./networking.nix
+    ./fingerprint.nix
+
+    # 温控策略。
     ./thermald.nix
-    inputs.chatgpt-desktop-app.nixosModules.default
   ];
-
-  # programs.chatgpt-desktop-app.enable = true;
-
-  networking.hostName = "szchan-thinkpad-nixos";
-
-  # 逻辑容量等于内存。优先级高于磁盘交换，网页先留在压缩内存里。
-  zramSwap.memoryPercent = 100;
-
-  # 扫描结果不包含可再分发固件。无线网卡需要它。
-  hardware.enableRedistributableFirmware = true;
-
-  hardware.graphics = {
-    enable = true;
-    extraPackages = with pkgs; [
-      intel-media-driver
-    ];
-  };
-
-  environment.variables.LIBVA_DRIVER_NAME = "iHD";
-
-  environment.systemPackages = with pkgs; [
-    brightnessctl
-  ];
-
-  # programs.clash-verge = {
-  #   enable = true;
-  #   serviceMode = true;
-  #   tunMode = true;
-  # };
-
-  services.mihomo = {
-    enable = true;
-    package = pkgs.mihomo;
-    configFile = "/etc/mihomo/config.yaml";
-    tunMode = true;
-    webui = pkgs.metacubexd;
-  };
-
-  users.users.szchan.extraGroups = [
-    "video"
-    "input"
-  ];
-
-  # Synaptics Prometheus，USB 06cb:00bd，由 libfprint 1.94.9 的 Synaptics 驱动支持。
-  services.fprintd.enable = true;
-  services.udev.packages = [ pkgs.libfprint ];
-
-  # 指纹成功即通过，失败后仍可用密码。SSH、用户会话和打印不弹出指纹。
-  security.pam.services = {
-    sudo.fprintAuth = true;
-    login.fprintAuth = true;
-    polkit-1.fprintAuth = true;
-    dms-greeter.fprintAuth = true;
-    sshd.fprintAuth = false;
-    systemd-user.fprintAuth = false;
-    cups.fprintAuth = false;
-  };
-
-  # 与当前 Bash 的本机代理一致。Clash Verge 监听 127.0.0.1:7897。
-  home-manager.users.szchan.home = {
-    sessionVariables = {
-      http_proxy = "http://127.0.0.1:7897";
-      https_proxy = "http://127.0.0.1:7897";
-      HTTP_PROXY = "http://127.0.0.1:7897";
-      HTTPS_PROXY = "http://127.0.0.1:7897";
-      all_proxy = "socks5://127.0.0.1:7897";
-      ALL_PROXY = "socks5://127.0.0.1:7897";
-      ftp_proxy = "http://127.0.0.1:7897";
-      FTP_PROXY = "http://127.0.0.1:7897";
-      socks_proxy = "socks5://127.0.0.1:7897";
-      SOCKS_PROXY = "socks5://127.0.0.1:7897";
-    };
-
-    # DMS 锁屏默认关闭指纹。只补上这个开关，文件保持可写。
-    # Dux Shell 2.x 使用 ~/.config/dms，首次启动会把旧的 DankMaterialShell
-    # 目录迁移过去；迁移完成前继续写旧位置，避免破坏迁移。
-    activation.dmsFingerprint = inputs.home-manager.lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      settings="$HOME/.config/dms/settings.json"
-      legacy="$HOME/.config/DankMaterialShell/settings.json"
-
-      target="$settings"
-      if [ ! -e "$settings" ] && [ -e "$legacy" ]; then
-        target="$legacy"
-      fi
-
-      mkdir -p "$(dirname "$target")"
-      if [ ! -e "$target" ]; then
-        printf '%s\n' '{"enableFprint":true}' > "$target"
-      elif [ -f "$target" ] && ! ${lib.getExe pkgs.jq} -e 'has("enableFprint")' "$target" >/dev/null; then
-        tmp="$(mktemp)"
-        ${lib.getExe pkgs.jq} '.enableFprint = true' "$target" > "$tmp"
-        mv "$tmp" "$target"
-      fi
-    '';
-  };
 }

@@ -125,6 +125,11 @@ in
       wmClass = "deepseek-ai-dsh-desktop";
       mimeTypes = [ "x-scheme-handler/dsh" ];
     })
+
+    # OpenAI 官方 Linux 桌面程序。nixpkgs 里的 chatgpt 只有 Darwin，
+    # 这里用 flake 输入打包的版本；它跟随 szchan 用户，不属于某台机器。
+    # 当前停用，需要时取消下一行注释。
+    # inputs.chatgpt-desktop-app.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   # Codex 的 MCP 写进可修改的 config.toml。其余配置留给程序自己更新。
