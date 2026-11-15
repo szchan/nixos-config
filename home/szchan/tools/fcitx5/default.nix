@@ -49,11 +49,24 @@
   '';
 
   home.activation.deployRimeIce = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    mkdir -p "$HOME/.local/share/fcitx5/rime"
+    rimeDir="$HOME/.local/share/fcitx5/rime"
+    mkdir -p "$rimeDir"
 
-    ${pkgs.rsync}/bin/rsync -a --no-perms --chmod=u+w ${pkgs.rime-ice}/share/rime-data/ "$HOME/.local/share/fcitx5/rime/"
-    cat > "$HOME/.local/share/fcitx5/rime/default.custom.yaml" <<'EOF'
-    # Managed addition from community.cn-input; other Rime settings may be added here.
+    # Rime must be able to write user.yaml/build data here. The old rsync -a
+    # copied the Nix store's read-only (0555) permissions, so Rime could not
+    # save its config and never deployed any schema.
+    chmod -R u+w "$rimeDir"
+
+    # --checksum copies only content changes; dropping -t gives changed files a
+    # fresh mtime so Rime knows it has to rebuild its tables (Nix store files
+    # all have an epoch mtime).
+    ${pkgs.rsync}/bin/rsync -rl --checksum --no-perms --chmod=u+w ${pkgs.rime-ice}/share/rime-data/ "$rimeDir/"
+
+    # The shared fcitx5-rime default.yaml lists luna_pinyin/bopomofo/..., which
+    # are not installed here. Without this patch Rime starts with no usable
+    # schema and passes every key through as English.
+    cat > "$rimeDir/default.custom.yaml" <<'EOF'
+    # Managed by home-manager: home/szchan/tools/fcitx5/default.nix
     patch:
       schema_list:
         - schema: rime_ice
