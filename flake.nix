@@ -150,6 +150,9 @@
           # Force clash-verge-rev to use a vertion of mihomo
           (import ./overlays/mihomo.nix)
 
+          # localsend 1.18.0 缺少 libz.so.1 导致无法启动
+          (import ./overlays/localsend.nix)
+
           # 强制把所有扩展的 license 改成 free（绕过 unfree 检查）
           (final: prev: {
             vscode-extensions = prev.vscode-extensions // {
