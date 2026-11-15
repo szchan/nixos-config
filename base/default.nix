@@ -4,6 +4,7 @@
   imports = [
     ./bootloader.nix
     ./kernel.nix
+    ./storage.nix
     ./zramSwap.nix
     ./networking.nix
     ./bluetooth.nix
