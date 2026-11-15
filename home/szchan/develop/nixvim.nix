@@ -51,8 +51,8 @@
     colorschemes.tokyonight = {
       enable = true;
       # style = "storm"; # storm / night / moon / day
-      transparent = false;
-      terminalColors = true;
+      # transparent = false;
+      # terminalColors = true;
     };
 
     # 剪贴板集成
