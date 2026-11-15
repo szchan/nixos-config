@@ -65,7 +65,7 @@
       # 状态栏
       lualine = {
         enable = true;
-        theme = "tokyonight";
+        # theme = "tokyonight";
       };
 
       web-devicons = {
