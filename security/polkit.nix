@@ -3,7 +3,7 @@
 {
   security.polkit = {
     enable = true;
-    debug = true;
+    # debug = true;
     adminIdentities = [
       "unix-group:wheel"
     ];
