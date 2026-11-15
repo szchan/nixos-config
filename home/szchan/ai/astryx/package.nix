@@ -24,11 +24,14 @@ let
     inherit package packageLock nodejs;
     derivationArgs = {
       # postinstall 要读仓库里的脚本；依赖安装本身不执行这些脚本。
+      # importNpmLock 现在默认启用 structuredAttrs，sanitized package.json
+      # 和 package-lock.json 以 $package / $packageLock 字符串提供，
+      # 不再有 $packagePath / $packageLockPath。
       postPatch = ''
         cp -a ${cliRoot}/. .
         chmod -R u+w .
-        cp --no-preserve=mode "$packagePath" package.json
-        cp --no-preserve=mode "$packageLockPath" package-lock.json
+        printf "%s" "$package" > package.json
+        printf "%s" "$packageLock" > package-lock.json
       '';
     };
   };

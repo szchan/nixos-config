@@ -89,18 +89,24 @@
     # };
 
     # DMS 锁屏默认关闭指纹。只补上这个开关，文件保持可写。
+    # Dux Shell 2.x 使用 ~/.config/dms，首次启动会把旧的 DankMaterialShell
+    # 目录迁移过去；迁移完成前继续写旧位置，避免破坏迁移。
     activation.dmsFingerprint = inputs.home-manager.lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      settings="$HOME/.config/DankMaterialShell/settings.json"
-      mkdir -p "$(dirname "$settings")"
-      if [ -L "$settings" ]; then
-        rm "$settings"
+      settings="$HOME/.config/dms/settings.json"
+      legacy="$HOME/.config/DankMaterialShell/settings.json"
+
+      target="$settings"
+      if [ ! -e "$settings" ] && [ -e "$legacy" ]; then
+        target="$legacy"
       fi
-      if [ ! -e "$settings" ]; then
-        printf '%s\n' '{"enableFprint":true}' > "$settings"
-      elif [ -f "$settings" ] && ! ${lib.getExe pkgs.jq} -e 'has("enableFprint")' "$settings" >/dev/null; then
+
+      mkdir -p "$(dirname "$target")"
+      if [ ! -e "$target" ]; then
+        printf '%s\n' '{"enableFprint":true}' > "$target"
+      elif [ -f "$target" ] && ! ${lib.getExe pkgs.jq} -e 'has("enableFprint")' "$target" >/dev/null; then
         tmp="$(mktemp)"
-        ${lib.getExe pkgs.jq} '.enableFprint = true' "$settings" > "$tmp"
-        mv "$tmp" "$settings"
+        ${lib.getExe pkgs.jq} '.enableFprint = true' "$target" > "$tmp"
+        mv "$tmp" "$target"
       fi
     '';
   };

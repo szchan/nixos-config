@@ -2,9 +2,8 @@
 
 {
   # Greeter
-  services.displayManager.dms-greeter = {
+  services.displayManager.dux-greeter = {
     enable = true;
-    # package = pkgs.dms-greeter;
     quickshell.package = pkgs.quickshell;
     logs = {
       save = true;
@@ -12,11 +11,8 @@
     };
     compositor.name = "niri";
 
+    # Copies ~/.config/dms, ~/.local/state/dms and ~/.cache/dms into the
+    # greeter cache. Legacy DankMaterialShell paths are still picked up.
     configHome = "/home/szchan";
-    configFiles = [
-      "/home/szchan/.config/DankMaterialShell/settings.json"
-      "/home/szchan/.local/state/DankMaterialShell/session.json"
-    ];
-
   };
 }

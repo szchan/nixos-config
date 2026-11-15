@@ -2,25 +2,26 @@
 
 {
   # Desktop Shell
-  programs.dms-shell = {
+  #
+  # DMS 2.x is packaged in nixpkgs as Dux Shell. The old feature toggles
+  # (enableVPN, enableSystemMonitoring, enableDynamicTheming,
+  # enableAudioWavelength, enableCalendarEvents) were removed upstream:
+  # system monitoring is built in, matugen and cava ship in the default
+  # environment, VPN backends are detected at runtime and calendar support
+  # comes from a separately configured backend.
+  programs.dux-shell = {
     enable = true;
-    package = pkgs.dms-shell;
+    package = pkgs.dux-shell;
     systemd = {
       enable = true;
       target = "graphical-session.target";
       restartIfChanged = true;
     };
     quickshell.package = pkgs.quickshell;
-    enableVPN = true;
-    enableSystemMonitoring = true;
-    enableDynamicTheming = true;
-    # enableClipboard 已从当前 DMS 模块移除，剪贴板由 DMS 内建，cliphist 仍由 startup.kdl 启动。
-    enableCalendarEvents = true;
-    enableAudioWavelength = true;
   };
 
-  # dsearch
-  programs.dsearch = {
+  # Search (formerly dsearch)
+  programs.dux-search = {
     enable = true;
     systemd = {
       enable = true;
