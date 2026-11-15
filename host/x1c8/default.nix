@@ -82,12 +82,6 @@
       SOCKS_PROXY = "socks5://127.0.0.1:7897";
     };
 
-    # sessionVariables = {
-    #   http_proxy = "http://192.168.50.203:8899";
-    #   https_proxy = "http://192.168.50.203:8899";
-    #   socks_proxy = "http://192.168.50.203:9988";
-    # };
-
     # DMS 锁屏默认关闭指纹。只补上这个开关，文件保持可写。
     # Dux Shell 2.x 使用 ~/.config/dms，首次启动会把旧的 DankMaterialShell
     # 目录迁移过去；迁移完成前继续写旧位置，避免破坏迁移。

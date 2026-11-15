@@ -1,2 +1,2 @@
-/result
-
+# nix build 生成的 result 符号链接（含 host 子目录下的）
+**/result
