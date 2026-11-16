@@ -37,7 +37,7 @@
   #   tunMode = true;
   # };
 
-  # 代理服务按机器配置：原先的台式机见 host/station.nix，ThinkPad 见 host/x1c8/networking.nix。
+  # 代理服务按机器配置：原先的台式机见 host/station/networking.nix，ThinkPad 见 host/x1c8/networking.nix。
 
   # Proxy
   # networking.proxy.default = "http://127.0.0.1:7897/";

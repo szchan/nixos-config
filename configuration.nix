@@ -38,7 +38,7 @@
     "flakes"
   ];
 
-  # 主机名写在 host/station.nix 或 host/x1c8/networking.nix。
+  # 主机名写在 host/station/networking.nix 或 host/x1c8/networking.nix。
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.szchan = {
@@ -50,7 +50,6 @@
       "docker"
       "podman"
       "wireshark"
-      "gamemode"
     ];
     shell = pkgs.zsh;
     packages = with pkgs; [

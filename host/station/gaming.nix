@@ -1,3 +1,4 @@
+# 这台台式机的游戏运行环境：GameMode、Gamescope、Steam 和 Heroic。
 { pkgs, ... }:
 
 {
@@ -11,6 +12,9 @@
     enableRenice = true;
     settings.general.inhibit_screensaver = 0;
   };
+
+  # gamemode 服务通过这个组授予调整 CPU 调度和 GPU 性能的权限。
+  users.users.szchan.extraGroups = [ "gamemode" ];
 
   # Gamescope
   programs.gamescope = {

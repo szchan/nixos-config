@@ -1,3 +1,6 @@
+# 这台台式机的分区。disko 会清空 /dev/nvme0n1。
+# GPT：1G EFI 分区，其余空间是一个 btrfs 根分区。
+# btrfs 里单独划出 @swap 子卷放 40G 交换文件。
 {
   disko.devices = {
     disk = {

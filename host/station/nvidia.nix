@@ -1,4 +1,5 @@
-{ config, ... }:
+# 这台台式机的 NVIDIA 显卡驱动和监控工具。
+{ config, pkgs, ... }:
 {
 
   boot.kernelParams = [
@@ -49,6 +50,12 @@
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.production;
   };
+
+  # 查看 NVIDIA GPU 状态。
+  environment.systemPackages = with pkgs; [
+    btop-cuda
+    nvtopPackages.nvidia
+  ];
 
   # 强制Electron使用Wayland和显式声明使用NVIDIA GPU，解决部分Electron应用画面撕裂问题
   # environment.sessionVariables = {

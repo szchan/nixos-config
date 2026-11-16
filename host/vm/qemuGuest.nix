@@ -1,3 +1,4 @@
+# 虚拟机 guest 工具：QEMU guest agent 和 SPICE 的剪贴板/分辨率同步。
 { ... }:
 
 {

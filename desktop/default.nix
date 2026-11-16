@@ -8,7 +8,6 @@
     ./sound.nix
     ./touchpad.nix
     ./applications.nix
-    ./gaming.nix
     ./localsend.nix
 
     # ./gnome/gnome.nix
