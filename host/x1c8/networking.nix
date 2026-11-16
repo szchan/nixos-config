@@ -1,21 +1,12 @@
-# 主机名、本机代理服务，以及 szchan 会话里的代理环境变量。
-{ pkgs, ... }:
+# 主机名、mihomo 的机器差异，以及 szchan 会话里的代理环境变量。
+# 共用的 mihomo 版本、tunMode 和 webui 在 base/networking.nix。
+{ ... }:
 
 {
   networking.hostName = "szchan-thinkpad-nixos";
 
-  # programs.clash-verge = {
-  #   enable = true;
-  #   serviceMode = true;
-  #   tunMode = true;
-  # };
-
   services.mihomo = {
-    enable = true;
-    package = pkgs.mihomo;
     configFile = "/etc/mihomo/config.yaml";
-    tunMode = true;
-    webui = pkgs.metacubexd;
   };
 
   # 与当前 Bash 的本机代理一致。mihomo 监听 127.0.0.1:7897。

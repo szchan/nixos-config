@@ -1,8 +1,8 @@
-# Grok Bot。nixpkgs 没有它，包由 grok-bot flake 的 overlay 提供。
-{ pkgs, ... }:
+# Grok Bot。nixpkgs 没有它，直接用 grok-bot flake 提供的包。
+{ inputs, pkgs, ... }:
 
 {
   home.packages = [
-    pkgs.grok-bot
+    inputs.grok-bot.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }

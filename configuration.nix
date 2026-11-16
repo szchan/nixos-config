@@ -38,6 +38,9 @@
     "flakes"
   ];
 
+  # 全局允许 unfree 软件。
+  nixpkgs.config.allowUnfree = true;
+
   # 主机名写在 host/station/networking.nix 或 host/x1c8/networking.nix。
 
   # Define a user account. Don't forget to set a password with ‘passwd’.

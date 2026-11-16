@@ -1,4 +1,6 @@
-{ ... }:
+# 通用网络配置。mihomo 的版本和所有机器共用的开关在这里；
+# 每台机器不同的配置文件路径、代理环境变量在 host/<name>/networking.nix。
+{ pkgs, ... }:
 
 {
   # Enable NetworkManager for managing network connections.
@@ -25,22 +27,32 @@
     openFirewall = true;
   };
 
-  # Clash proxy service
-  # environment.systemPackages = [
-  #   pkgs.clash-verge-rev
-  # ];
-  # # Clash Verge configuration
-  # programs.clash-verge = {
-  #   enable = true;
-  #   autoStart = true;
-  #   serviceMode = true;
-  #   tunMode = true;
-  # };
+  # 固定 mihomo 版本。用 overlay 而不是只写 services.mihomo.package，
+  # 这样其他消费 mihomo 的包（例如 clash-verge）也会拿到同一个版本。
+  # 某台机器需要不同版本时，在它自己的 networking.nix 里再加一个 overlay。
+  nixpkgs.overlays = [
+    (final: prev: {
+      mihomo = prev.mihomo.overrideAttrs (old: rec {
+        version = "1.19.33";
+        src = prev.fetchFromGitHub {
+          owner = "MetaCubeX";
+          repo = "mihomo";
+          rev = "v${version}";
+          hash = "sha256-O2OJ0WFt0T32yOIT1El+ACJWVm2oAJOjU1JTDXb2IEo=";
+        };
+        vendorHash = "sha256-wPkqyp2iuA762qID2FK3xWOMU5ZNxAle8saCmZzpeSI=";
+      });
+    })
+  ];
 
-  # 代理服务按机器配置：原先的台式机见 host/station/networking.nix，ThinkPad 见 host/x1c8/networking.nix。
+  # mihomo 的公共开关；配置文件路径按机器在 host/*/networking.nix 里设置。
+  services.mihomo = {
+    enable = true;
+    tunMode = true;
+    webui = pkgs.metacubexd;
+  };
 
   # Proxy
   # networking.proxy.default = "http://127.0.0.1:7897/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
 }

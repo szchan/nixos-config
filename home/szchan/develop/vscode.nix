@@ -1,6 +1,5 @@
 {
   pkgs,
-  vscode-extensions,
   ...
 }:
 
@@ -11,7 +10,8 @@
     mutableExtensionsDir = false;
 
     profiles.default = {
-      extensions = with vscode-extensions; [
+      # 扩展直接取 nixpkgs 的 vscode-extensions；unfree 由 configuration.nix 的 allowUnfree 放行。
+      extensions = with pkgs.vscode-extensions; [
         # vim emulation
         vscodevim.vim
 

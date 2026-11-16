@@ -1,11 +1,17 @@
 {
   description = "gateway flake";
 
+  # 注意：flake 的 inputs 必须是字面量 attrset。
+  # Nix 不会求值这里的 import、函数或条件表达式（会报 expected a set but got a thunk），
+  # 所以 input 声明无法拆到别的文件，也无法按主机区分。
+  # 能拆的是“怎么使用这些 input”：模块、overlay 和包覆盖都在各自目录里，
+  # 通过 specialArgs 拿到 inputs，见 flake/mkSystem.nix。
   inputs = {
-    # NixOS 官方软件源，这里使用 nixos-25.11 分支
-    #nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    # ---- 核心 ----
 
-    # NixOS 官方软件源，这里使用 nixos-unstable 分支
+    # NixOS 官方软件源，这里使用 nixos-unstable 分支。
+    # 原来的 nixos-25.11 写法保留在注释里。
+    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     # disko 模块
@@ -20,22 +26,19 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # nixos-private
-    # nixos-private = {
-    #   url = "git+ssh://git@github.com/szchan/nixos-private.git";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
     # nixpak 模块
     nixpak = {
       url = "github:nixpak/nixpak";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # nix-vscode-extensions
-    nix-vscode-extensions = {
-      url = "github:nix-community/nix-vscode-extensions";
-    };
+    # nixos-private
+    # nixos-private = {
+    #   url = "git+ssh://git@github.com/szchan/nixos-private.git";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+
+    # ---- 开发 / 编辑 ----
 
     # nixvim
     # 不跟随 nixpkgs：nixvim 按上游自己的 flake.lock 锁定 nixpkgs-unstable。
@@ -45,11 +48,31 @@
       url = "github:nix-community/nixvim";
     };
 
+    # ---- 桌面应用 ----
+
     # OpenAI 官方 Linux 桌面程序。nixpkgs 里的 chatgpt 只有 Darwin。
     chatgpt-desktop-app = {
       url = "github:poeck/chatgpt-desktop-app-nix-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Grok Bot 官方 Linux 包不在 nixpkgs。这个 flake 只提供打包。
+    grok-bot = {
+      url = "github:ponelat/grok-bot-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # 上游发布的安装包。地址里的版本是锁，文件哈希在 flake.lock。
+    t3code = {
+      url = "https://github.com/pingdotgg/t3code/releases/download/v0.1.9/T3-Code-0.1.9-x86_64.AppImage";
+      flake = false;
+    };
+    deepseek-harness-desktop = {
+      url = "https://github.com/ffyfox/dsh-desktop-linux/releases/download/v0.2.2rc2/deepseek-harness-0.2.2-rc.2-linux-x86_64-unsigned.AppImage";
+      flake = false;
+    };
+
+    # ---- AI 工具 ----
 
     # herdr 官方打包。它需要比本仓库更新的 Zig，所以使用它自己的 nixpkgs。
     # 当前锁定的 home-manager 还没有 programs.herdr。
@@ -58,14 +81,10 @@
     # oh-my-pi 官方 flake，带 programs.omp。工具链跟随它自己的 nixpkgs。
     omp.url = "github:can1357/oh-my-pi";
 
-    # Grok Bot 官方 Linux 包不在 nixpkgs。这个 flake 只提供打包。
-    grok-bot = {
-      url = "github:ponelat/grok-bot-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # 当前锁定的 nixpkgs 还没有 pi-coding-agent。
     nixpkgs-pi.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    # ---- skills ----
 
     # 这些输入跟随上游默认分支。修订记录在 flake.lock，用 nix flake update 更新。
     remotion-skills = {
@@ -89,15 +108,7 @@
       flake = false;
     };
 
-    # 上游发布的安装包。地址里的版本是锁，文件哈希在 flake.lock。
-    t3code = {
-      url = "https://github.com/pingdotgg/t3code/releases/download/v0.1.9/T3-Code-0.1.9-x86_64.AppImage";
-      flake = false;
-    };
-    deepseek-harness-desktop = {
-      url = "https://github.com/ffyfox/dsh-desktop-linux/releases/download/v0.2.2rc2/deepseek-harness-0.2.2-rc.2-linux-x86_64-unsigned.AppImage";
-      flake = false;
-    };
+    # ---- 停用，需要时取消注释 ----
 
     # Zed-editor
     # zed = {
@@ -124,98 +135,6 @@
     # };
   };
 
-  outputs =
-    inputs@{
-      self,
-      nixpkgs,
-      disko,
-      home-manager,
-      nixpak,
-      nix-vscode-extensions,
-      nixvim,
-      ...
-    }:
-    let
-      system = "x86_64-linux";
-
-      # 定义一个允许 unfree 的 pkgs 实例
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true; # 全局允许unfree软件
-        # 修改nix-vscode-extensions以允许安装unfree扩展
-        overlays = [
-          inputs.grok-bot.overlays.default
-
-          # 引入官方的 nix-vscode-extensions overlay，得到完整的 extensions
-          nix-vscode-extensions.overlays.default
-
-          # Force clash-verge-rev to use a vertion of mihomo
-          (import ./overlays/mihomo.nix)
-
-          # localsend 1.18.0 缺少 libz.so.1 导致无法启动
-          (import ./overlays/localsend.nix)
-
-          # 强制把所有扩展的 license 改成 free（绕过 unfree 检查）
-          (final: prev: {
-            vscode-extensions = prev.vscode-extensions // {
-              # 构造.open-vsx结构
-              open-vsx = builtins.mapAttrs (
-                _: ext:
-                ext.overrideAttrs (old: {
-                  meta = (old.meta or { }) // {
-                    license = final.lib.licenses.free;
-                  };
-                })
-              ) prev.vscode-extensions.open-vsx or { };
-
-              # 构造.vscode-marketplace结构
-              vscode-marketplace = builtins.mapAttrs (
-                _: ext:
-                ext.overrideAttrs (old: {
-                  meta = (old.meta or { }) // {
-                    license = final.lib.licenses.free;
-                  };
-                })
-              ) prev.vscode-extensions.vscode-marketplace or { };
-
-              # 保留扁平的直接访问方式
-              inherit (prev) vscode-extensions;
-            };
-          })
-        ];
-      };
-
-      mkSystem = extraModules: nixpkgs.lib.nixosSystem {
-        inherit system pkgs;
-        specialArgs = {
-          inherit inputs;
-          vscode-extensions = pkgs.vscode-extensions;
-        };
-        modules = [
-          ./configuration.nix
-          disko.nixosModules.disko
-          # inputs.nixos-private.nixosModules.default
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "bak";
-            home-manager.users.szchan = ./home/szchan/home.nix;
-            home-manager.extraSpecialArgs = {
-              inherit inputs;
-              vscode-extensions = pkgs.vscode-extensions;
-            };
-          }
-        ] ++ extraModules;
-      };
-    in
-    {
-      # 原先的 NVIDIA 台式机。
-      nixosConfigurations.szchanNixOSStation = mkSystem [ ./host/station ];
-
-      # 这台 ThinkPad X1 Carbon Gen 8。安装时使用这个配置。
-      nixosConfigurations.x1c8 = mkSystem [ ./host/x1c8 ];
-
-      # 虚拟机 guest 配置在 host/vm；它还没有磁盘布局，所以不在这里注册。
-    };
+  # flake 输出只做入口：主机注册在 flake/outputs.nix，系统组装在 flake/mkSystem.nix。
+  outputs = inputs: import ./flake/outputs.nix inputs;
 }
