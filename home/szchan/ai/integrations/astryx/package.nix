@@ -14,11 +14,20 @@ let
     lib.splitString "\n" (builtins.readFile (repo + "/pnpm-workspace.yaml"))
   );
   catalogVersion = builtins.elemAt (builtins.match ".*:[[:space:]]*([^[:space:]]+).*" catalogLine) 0;
-  package = removeAttrs (upstream // {
-    dependencies = lib.mapAttrs (
-      _: version: if version == "catalog:" then catalogVersion else version
-    ) (upstream.dependencies or { });
-  }) [ "devDependencies" ];
+  package = removeAttrs (
+    upstream
+    // {
+      dependencies = lib.mapAttrs (
+        _: version: if version == "catalog:" then catalogVersion else version
+      ) (upstream.dependencies or { });
+    }
+  ) [ "devDependencies" ];
+  # package-lock.json 是按上游 packages/cli/package.json 手工生成的 npm lock：
+  #   1. 把 dependencies 里的 "catalog:" 换成 pnpm-workspace.yaml 中的版本；
+  #   2. 去掉 devDependencies；
+  #   3. 以旧 lock 为基准运行 npm install --package-lock-only。
+  # 更新 astryx 输入后如果上游改了依赖，需要重新生成；否则 importNpmLock
+  # 会报类似 attribute '"node_modules/...":' missing。
   packageLock = lib.importJSON ./package-lock.json;
   modules = importNpmLock.buildNodeModules {
     inherit package packageLock nodejs;
