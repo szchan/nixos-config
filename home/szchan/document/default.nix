@@ -9,5 +9,6 @@
     ./libreoffice.nix
     ./obsidian.nix
     ./calculator.nix
+    ./planify.nix
   ];
 }
