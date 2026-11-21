@@ -16,5 +16,8 @@
 
     # 温控策略。
     ./thermald.nix
+
+    # UPower、power-profiles-daemon 和合盖策略。
+    ./power.nix
   ];
 }
