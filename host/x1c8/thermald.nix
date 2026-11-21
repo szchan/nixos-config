@@ -40,6 +40,13 @@ in
   services.thermald.enable = false;
   services.tlp.enable = lib.mkForce false;
 
+  # thermald 以 --dbus-enable 启动，要申请 org.freedesktop.thermald 这个总线名，
+  # 而对应的 D-Bus 策略文件是由 thermald 包提供、上面那个模块负责装进
+  # /etc/dbus-1/system.d 的。关掉模块后策略文件缺失，dbus-broker 默认拒绝授权，
+  # thermald 只会在日志里甩一句 "Lost the name org.freedesktop.thermald" 然后
+  # 以状态 1 退出，重启循环 + switch-to-configuration 报 exit 4。这里手动补上。
+  services.dbus.packages = [ pkgs.thermald ];
+
   systemd.services.thermald-thinkpad = {
     description = "ThinkPad X1 Carbon Gen 8 thermal policy";
     wantedBy = [ "multi-user.target" ];
